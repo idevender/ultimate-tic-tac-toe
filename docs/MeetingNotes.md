@@ -22,7 +22,7 @@ UserSession : Devender Singh
 
 ServerAPI : Jager Cooper
 
-FrontEnd : Ali
+FrontEnd : Mohd Ali Bin Naser
 
 DataStorage : Evan Best
 
@@ -44,6 +44,6 @@ Bottle will handle all green parts of the diagram, (session management, templati
 
 **Attendance:**  Devender Singh, Cameron Selci, Mohd Ali Bin Naser , Evan Best, Jager Cooper
 
-Decided on several other decisions, including creating a pipeline outlining the approach to individual tasks for the team project. Mohd Bin Ali Naser was nominated as the Scrum Master.
+Decided on several other decisions, including creating a pipeline outlining the approach to individual tasks for the team project. Mohd Ali Bin Naser was nominated as the Scrum Master.
 
 Additionally, Python was adopted as the primary tool for implementing logic.
