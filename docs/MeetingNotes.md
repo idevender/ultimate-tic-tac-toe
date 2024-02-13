@@ -12,7 +12,7 @@
 
 **Time:**  7:00 to 9:00pm
 
-**Attendance:** Cameron Selci, Devender Singh, Evan Best Jager Cooper, Mohd Bin Ali Naser 
+**Attendance:** Cameron Selci, Devender Singh, , Mohd Ali Bin Naser, Evan Best Jager Cooper 
 
 Team G successfully adopted the follwoing decisions for the term project and following tasks were assigned:
 
@@ -42,7 +42,7 @@ Bottle will handle all green parts of the diagram, (session management, templati
 
 **Time:** 2:00 to 2:50pm
 
-**Attendance:**  Devender Singh, Cameron Selci, Mohd Bin Ali Naser , Evan Best, Jager Cooper
+**Attendance:**  Devender Singh, Cameron Selci, Mohd Ali Bin Naser , Evan Best, Jager Cooper
 
 Decided on several other decisions, including creating a pipeline outlining the approach to individual tasks for the team project. Mohd Bin Ali Naser was nominated as the Scrum Master.
 
