@@ -13,12 +13,6 @@ class YourClassTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.text, "Hello World!")
     
-    def test_get_user_page(self):
-        # Test the get_user_page route
-        response = self.app.get('/user/1')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.text, "<h1> User Info </h1>")
-    
     def test_verify_user(self):
         # Test the verify_user route
         response = self.app.get('/user')
@@ -40,9 +34,6 @@ class YourClassTests(unittest.TestCase):
         response = self.app.post('/save_game/1')
         self.assertEqual(response.status_code, 200)
         
-    
-
-    # Add more test methods as needed
 
 if __name__ == '__main__':
     unittest.main()

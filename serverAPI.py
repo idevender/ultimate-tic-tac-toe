@@ -16,15 +16,15 @@ def get_homepage():
     """
     return "Hello World!"
 
-@app.route('/user/<user_id>')
-def get_user_page():
-    """ This function returns the user's page.
+
+@app.route('/game/<game_id>')
+def get_game_page():
+    """ This function returns the game's page.
 
     Returns:
-        String: The user's page.
+        String: The game's page.
     """
-    return ("<h1> User Info </h1>")
-
+    pass
 
 # Routes for handling user information and authentication
 @app.route('/user')
@@ -34,7 +34,7 @@ def verify_user():
     Returns:
         Int: 404 if the user is not found, 200 if the user is found. 
     """
-    return ("<h1> User Info </h1>")
+    pass
 
 @app.route('/update_user/<user_id>', method='POST')
 def update_user_info():
@@ -44,28 +44,27 @@ def update_user_info():
     Returns:
         Int: 404 if the user is not found, 200 if the user is found.
     """
-    return 404 | 200
+    pass
 
 # Routes for handling game information
 @app.route('/load_game/<game_id>')
 def get_game_state():
-    """ This function returns the game state of the given ID in JSON format.
+    """ This function returns the game state of the given ID in a 9x9 Matrix.
 
     Returns:
-        JSON: Returns the game state in JSON format.
+        Array: Returns the game state in a matrix.
     """
     
-    return 404 | 200
+    pass
 
 @app.route('/save_game/<game_id>', method='POST')
-def update_game_state():
+def save_game_state():
     """ This function updates the game state of the given ID.
 
     Returns:
         Int: 404 if the game is not found, 200 if the game is found.
     """
-    
-    return 404 | 200
+    pass
 
 
 #Starts the server and opens the web browser
