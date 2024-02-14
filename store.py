@@ -67,7 +67,7 @@ class GameStateManager:
         pass
 
 
-class UserInfoManager:
+class UserManager:
     """Class for managing user information using a shelve database."""
 
     def __init__(self, db_name='users'):

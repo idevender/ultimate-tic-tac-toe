@@ -17,7 +17,7 @@ Created by: Evan Best
 
 ## Classes
 
-#### 1. `GameManager` Class
+#### 1. `GameStateManager` Class
    - **Responsibilities:**
      - Manage game state storage and retrieval.
      - Handle the creation, updating, and removal of game states.
