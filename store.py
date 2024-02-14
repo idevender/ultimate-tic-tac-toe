@@ -1,113 +1,133 @@
 import shelve
 
+class GameStateManager:
+    """Class for managing game states using a shelve database."""
 
-# GAME STATE METHODS
-
-def setup_game_db():
-    """Creates the database for game states.
-
-    Returns:
-        int: the number of game states in the database.
     
-        
-    """
-    with shelve.open('gameStates') as db:
-        return len(db)
+    def __init__(self, db_name='gameStates'):
+        """
+        Initializes the GameStateManager.
+
+        Parameters:
+            db_name (str): The name of the shelve database for game states.
+        """
+        self.db_name = db_name
 
 
-def save_game(name):
-    """Saves a game state to the database.
+    def setup_db(self):
+        """Creates the database for game states.
 
-    THIS IS A STUB
-
-    Params:
-        name (str): Assign a name to the newly stored game state.
-
-    Raises:
-        Standard IO errors if the game state cannot be saved properly.
-    """
-    pass
+        Returns:
+            int: The number of game states in the database.
+        """
+        with shelve.open(self.db_name) as db:
+            return len(db)
 
 
-def load_game(name):
-    """Loads a previously stored game state from the database.
-    
-    THIS IS A STUB
 
-    Params:
-        name (str): The name of the game state to be loaded.
+    def save_game(self, name):
+        """Saves a game state to the database.
 
-    Raises:
-        IOError: If the game state cannot be loaded properly.
-    """
-    pass
+        THIS IS A STUB
 
+        Parameters:
+            name (str): Assign a name to the newly stored game state.
 
-def remove_game(name):
-    """Removes a previously stored game state from the database.
-
-    THIS IS A STUB
-
-    Params:
-        name (str): The name of the game state to be removed.
-    
-    Raises:
-        IOError: If the game state cannot be destroyed.
-    """
-    pass
+        Raises:
+            IOError: If the game state cannot be saved properly.
+        """
+        pass
 
 
-# USER INFORMATION METHODS
+    def load_game(self, name):
+        """Loads a previously stored game state from the database.
 
-def setup_user_db():
-    """Creates the database for user information.
+        THIS IS A STUB
 
-    Returns:
-        int: the number of users in the database.
-    
-        
-    """
-    with shelve.open('users') as db:
-        return len(db)
-    
-def save_user(user_name):
-    """Saves a user to the database.
+        Parameters:
+            name (str): The name of the game state to be loaded.
 
-    THIS IS A STUB
-
-    Params:
-        user_name (str): Assign a name to the newly stored user.
-
-    Raises:
-        Standard IO errors if the user cannot be saved properly.
-    """
-    pass
+        Raises:
+            IOError: If the game state cannot be loaded properly.
+        """
+        pass
 
 
-def load_user(user_name):
-    """Loads a previously stored user from the database.
-    
-    THIS IS A STUB
+    def remove_game(self, name):
+        """Removes a previously stored game state from the database.
 
-    Params:
-        user_name (str): The name of the user to be loaded.
+        THIS IS A STUB
 
-    Raises:
-        IOError: If the user state cannot be loaded properly.
-    """
-    pass
+        Parameters:
+            name (str): The name of the game state to be removed.
+
+        Raises:
+            IOError: If the game state cannot be destroyed.
+        """
+        pass
 
 
-def remove_user(user_name):
-    """Removes a previously stored user from the database.
+class UserInfoManager:
+    """Class for managing user information using a shelve database."""
 
-    THIS IS A STUB
+    def __init__(self, db_name='users'):
+        """
+        Initializes the UserInfoManager.
 
-    Params:
-        user_name (str): The name of the user to be removed.
-    
-    Raises:
-        IOError: If the user cannot be destroyed.
-    """
-    pass
+        Parameters:
+            db_name (str): The name of the shelve database for user information.
+        """
+        self.db_name = db_name
+
+
+    def setup_db(self):
+        """Creates the database for user information.
+
+        Returns:
+            int: The number of users in the database.
+        """
+        with shelve.open(self.db_name) as db:
+            return len(db)
+
+
+    def save_user(self, user_name):
+        """Saves a user to the database.
+
+        THIS IS A STUB
+
+        Parameters:
+            user_name (str): Assign a name to the newly stored user.
+
+        Raises:
+            IOError: If the user cannot be saved properly.
+        """
+        pass
+
+
+    def load_user(self, user_name):
+        """Loads a previously stored user from the database.
+
+        THIS IS A STUB
+
+        Parameters:
+            user_name (str): The name of the user to be loaded.
+
+        Raises:
+            IOError: If the user state cannot be loaded properly.
+        """
+        pass
+
+
+    def remove_user(self, user_name):
+        """Removes a previously stored user from the database.
+
+        THIS IS A STUB
+
+        Parameters:
+            user_name (str): The name of the user to be removed.
+
+        Raises:
+            IOError: If the user cannot be destroyed.
+        """
+        pass
 
