@@ -1,7 +1,7 @@
 
 # Imports
 import webbrowser
-from bottle import Bottle, run, request, response, route, static_file, template
+from bottle import Bottle, run, request, response, route
 
 #Create the bottle app
 app = Bottle()
@@ -47,7 +47,7 @@ def update_user_info():
     pass
 
 # Routes for handling game information
-@app.route('/load_game/<game_id>')
+@app.route('/check_game/<game_id>')
 def get_game_state():
     """ This function returns the game state of the given ID in a 9x9 Matrix.
 
