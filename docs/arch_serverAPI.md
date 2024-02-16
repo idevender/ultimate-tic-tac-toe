@@ -8,6 +8,9 @@ The following modules are imported:
 
 - `webbrowser`: To open the web browser.
 - `bottle`: To create the web server and handle HTTP requests and responses.
+- `applogic`: To pass information on the gamestate for validation and/or loading/creating a game.
+- `html`: To call upon for generating and updating the front-end UI.
+- `user`: To make calls to validate user info, or create new users.
 
 ## Bottle App
 
@@ -17,7 +20,7 @@ A Bottle app is created to handle the routes and server responses.
 
 The server has several routes to handle different requests:
 
-- `/`: This route returns the homepage of the server. It responds with a string "Hello World!".
+- `/`: This route returns the homepage of the server.
 
 - `/game/<game_id>`: This route is intended to return the game's page, if the game id doesnt exist in the database, creates a new game. The function is currently not implemented.
 

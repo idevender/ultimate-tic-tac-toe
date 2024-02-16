@@ -29,14 +29,12 @@ architecture from the notes, the documents should be:
 to compose.
 * each member must document the interface for their assigned component with the following elements:
   * a UML diagram depicting the public interface of their module in the architecture document for their module
-  * any other discussion needed to understand their module interface can be included in the architecture document for 
-the module  
+  * any other discussion needed to understand their module interface can be included in the architecture document for the module  
   * a python code module with a stub implementation including stub methods for the interface of their module
   * docstrings for the public classes, attributes and methods of their module
   * at least two unit tests for each kind of public method invocation needed for the project
 
-* Note that the interface for the server module is a set of HTTP/API calls, where the other modules interface consist 
-of python methods and structures.
+* Note that the interface for the server module is a set of HTTP/API calls, where the other modules interface consist of python methods and structures.
 
 HINT: In designing your component interface:
 
