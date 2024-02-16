@@ -1,5 +1,5 @@
 # Server API Documentation
-
+**Created by: Jager Cooper**  
 This document provides a brief overview of the server API, which is implemented using the Bottle web framework in Python.
 
 ## Imports
