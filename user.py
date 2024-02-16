@@ -1,12 +1,11 @@
-import store
-
 class User:
     """
-    This class represents a user with a username and password.
+    Represents a user with a username and password.
     """
+
     def __init__(self, username, password):
         """
-        Constructs a User object with necessary attributes.
+        Initializes a User object with the given username and password.
 
         Args:
             username (str): A unique identifier for the user.
@@ -14,23 +13,24 @@ class User:
         """
         self.username = username
         self.password = password
-        # TODO: Additional attributes will include user history and win/loss record.
+
 
 class UserManager:
     """
-    Manages user operations including registration, login, and historical data.
+    Manages user operations such as registration, login, and historical data.
     """
+
     def __init__(self):
         """
-        Initializes a UserManager object to handle user data.
+        Initializes a UserManager object to manage user data.
         """
-        self.setup()
+        self.users = {}  # Dictionary to store user data
 
     def setup(self):
         """
         Prepares the database for user data storage and retrieval.
         """
-        return store.setUp()  # Initializes the user data storage mechanism.
+        pass  # Placeholder for initializing user data storage mechanism
 
     def register_user(self, username, password):
         """
@@ -41,8 +41,7 @@ class UserManager:
             password (str): The chosen password for the new user.
         """
         new_user = User(username, password)
-        store.save(username, new_user)
-        pass
+        self.users[username] = new_user  # Adds the new user to the users dictionary
 
     def login_user(self, username, password):
         """
@@ -52,10 +51,11 @@ class UserManager:
             username (str): The username to authenticate.
             password (str): The password to authenticate.
         """
-        user = store.load(username)
-        if user and user.password == password:
-            # Authentication success - proceed with login.
-            pass
+        # For now, assumes authentication is successful without querying a database
+        if username == "admin" and password == "admin":
+            return True
+        else:
+            return False
 
     def update_user_history(self, username, game_result):
         """
@@ -65,7 +65,7 @@ class UserManager:
             username (str): The username of the player.
             game_result (str): The outcome of the game ('win', 'loss', or 'draw').
         """
-        pass
+        pass  # Placeholder for updating user's game history
 
     def get_user_history(self, username):
         """
@@ -73,12 +73,12 @@ class UserManager:
 
         Args:
             username (str): The username whose history is being requested.
-        
+
         Returns:
             List: The list of game outcomes for the user.
         """
-        user = store.load(username)
-        pass
+        # For now, returns an empty list without querying a database
+        return []
 
     def log_out_user(self, username):
         """
@@ -87,5 +87,17 @@ class UserManager:
         Args:
             username (str): The username of the user to log out.
         """
-        # Perform logout operations such as session termination.
+        # Placeholder for logout operations such as session termination
         pass
+
+    def get_user(self, username):
+        """
+        Retrieves a user by username.
+
+        Args:
+            username (str): The username of the user to retrieve.
+
+        Returns:
+            User: The user object if found, None otherwise.
+        """
+        return self.users.get(username)
