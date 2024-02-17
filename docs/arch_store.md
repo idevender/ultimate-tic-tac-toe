@@ -1,6 +1,10 @@
 # Store Architecture Overview
 Created by: Evan Best
 
+## Imports
+
+The following modules are imported:
+- `shelve`: For persistence storage of game states and user information.
 ## Components
 
 #### 1. `gameStates` Database
