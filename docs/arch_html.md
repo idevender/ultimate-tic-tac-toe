@@ -33,3 +33,7 @@ This file contains a brief description about the architecture of the HTML fronte
   - `self.signup_page`: The HTML template for the user signup/registration page.
   - `self.login_page`: The HTML template for the user login page.
   - `self.main_game_page`: The HTML template for the game/home page.
+
+### HTML Architecture UML Diagram
+
+![User UML Diagram](./diagrams/html_arch_uml_diagram.png)
