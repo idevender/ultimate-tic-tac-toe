@@ -1,5 +1,5 @@
 import unittest
-from applogic import SuperTicTacToe  # Adjust this import to your file structure
+from applogic import SuperTicTacToe
 
 class TestSuperTicTacToe(unittest.TestCase):
 
