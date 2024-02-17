@@ -1,11 +1,16 @@
+import store
+
+
 class User:
-    """
-    Represents a user with a username and password.
+    """Represents a user with a username and password.
+
+    Attributes:
+        username (str): A unique identifier for the user.
+        password (str): The account password for the user.
     """
 
     def __init__(self, username, password):
-        """
-        Initializes a User object with the given username and password.
+        """Initializes a User object with a given username and password.
 
         Args:
             username (str): A unique identifier for the user.
@@ -16,83 +21,76 @@ class User:
 
 
 class UserManager:
-    """
-    Manages user operations such as registration, login, and historical data.
+    """Manages user operations such as registration, login, and historical data.
+
+    Attributes:
+        user_db (store.UserManager): Instance of store.UserManager for database operations.
     """
 
     def __init__(self):
-        """
-        Initializes a UserManager object to manage user data.
-        """
-        self.users = {}  # Dictionary to store user data
+        """Initializes a UserManager object to manage user data."""
+        self.user_db = store.UserManager()
 
     def setup(self):
+        """Prepares the database for user data storage and retrieval.
+
+        Returns:
+            int: Number of users currently in the database.
         """
-        Prepares the database for user data storage and retrieval.
-        """
-        pass  # Placeholder for initializing user data storage mechanism
+        return self.user_db.setup_db()
 
     def register_user(self, username, password):
-        """
-        Adds a new user to the system.
+        """Adds a new user to the system.
 
         Args:
             username (str): The chosen username for the new user.
             password (str): The chosen password for the new user.
         """
-        new_user = User(username, password)
-        self.users[username] = new_user  # Adds the new user to the users dictionary
+        self.user_db.save_user(username, password)
 
     def login_user(self, username, password):
-        """
-        Authenticates a user's credentials.
+        """Authenticates a user's credentials.
 
         Args:
             username (str): The username to authenticate.
             password (str): The password to authenticate.
+
+        Returns:
+            bool: True if authentication is successful, False otherwise.
         """
-        # For now, assumes authentication is successful without querying a database
-        if username == "admin" and password == "admin":
-            return True
-        else:
-            return False
+        user = self.user_db.load_user(username)
+        return user and user['password'] == password
 
     def update_user_history(self, username, game_result):
-        """
-        Records the result of a user's game.
+        """Records the result of a user's game.
 
         Args:
             username (str): The username of the player.
             game_result (str): The outcome of the game ('win', 'loss', or 'draw').
         """
-        pass  # Placeholder for updating user's game history
+        pass
 
     def get_user_history(self, username):
-        """
-        Retrieves the game history for a user.
+        """Retrieves the game history for a user.
 
         Args:
             username (str): The username whose history is being requested.
 
         Returns:
-            List: The list of game outcomes for the user.
+            List[str]: The list of game outcomes for the user.
         """
-        # For now, returns an empty list without querying a database
         return []
 
     def log_out_user(self, username):
-        """
-        Ends the session for the specified user.
+        """Ends the session for the specified user.
 
         Args:
             username (str): The username of the user to log out.
         """
-        # Placeholder for logout operations such as session termination
         pass
 
     def get_user(self, username):
-        """
-        Retrieves a user by username.
+        """Retrieves a user by username.
 
         Args:
             username (str): The username of the user to retrieve.
@@ -100,4 +98,16 @@ class UserManager:
         Returns:
             User: The user object if found, None otherwise.
         """
-        return self.users.get(username)
+        user_data = self.user_db.load_user(username)
+        if user_data:
+            return User(user_data['username'], user_data['password'])
+        return None
+
+    def update_user_password(self, username, new_password):
+        """Updates the password for a specified user.
+
+        Args:
+            username (str): The username of the user.
+            new_password (str): The new password for the user.
+        """
+        pass

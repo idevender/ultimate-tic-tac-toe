@@ -16,15 +16,15 @@
 
 Team G successfully adopted the follwoing decisions for the term project and following tasks were assigned:
 
-AppLogic: Cameron Selci
+AppLogic: Cameron Selci 
 
-UserSession : Devender Singh
+UserSession : Devender Singh 
 
-ServerAPI : Jager Cooper
+ServerAPI : Jager Cooper  
 
-FrontEnd : Mohd Ali Bin Naser
+FrontEnd : Mohd Ali Bin Naser  
 
-DataStorage : Evan Best
+DataStorage : Evan Best 
 
 Bottle will handle all green parts of the diagram, (session management, templating engine etc.) , Also studied past challenges (8) in detail, and bottle framework to gain more insights.
 
@@ -47,3 +47,33 @@ Bottle will handle all green parts of the diagram, (session management, templati
 Decided on several other decisions, including creating a pipeline outlining the approach to individual tasks for the team project. Mohd Ali Bin Naser was nominated as the Scrum Master.
 
 Additionally, Python was adopted as the primary tool for implementing logic.
+
+## Februaru 14,2024
+**Scrum Master:** Mohd Ali Bin Naser
+
+**Recorded by:** Devender Singh
+
+**Notes submiited on:** February 17, 2024
+
+**Venue:** Discord
+
+**Source:** Discord Voice
+
+**Time:** 7:00 to 9:00 pm
+
+**Attendance:**  Devender Singh, Cameron Selci, Mohd Ali Bin Naser , Evan Best, Jager Cooper
+
+In this meeting, Team G discussed the selection of a UML diagram tool to be used for the project. Team studied about UML diagrams.
+Further discussions were held regarding the overall project development, including strategy and implementation phases. Specific roles and responsibilities of team members in relation to this new phase were also elaborated. 
+Team Members successfully demonstrated how they have worked on their parts specifically the stub implementation:
+
+serverAPI.py: Jager Cooper
+
+user.py: Devender Singh
+
+applogic.py: Cameron Selci
+
+store.py :Evan Best
+
+html.py: Mohd Ali Bin Naser
+

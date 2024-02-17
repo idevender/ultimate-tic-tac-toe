@@ -27,12 +27,11 @@ The server provides a range of features including, but not limited to, player re
 
 ![Component Architecture Diagram](link_to_diagram)
 
-[Provide a brief explanation of the diagram here]
 
 ## Detailed Documents for Each Main Architectural Component
 
-1. [Server API](docs/arch_serverAPI.md)
-2. [Application Logic](docs/arch_applogic.md)
-3. [Data Store](docs/arch_store.md)
-4. [HTML Templates](docs/arch_html.md)
-5. [User Management](docs/arch_user.md)
+1. [Server API](./arch_serverAPI.md)
+2. [Application Logic](./arch_applogic.md)
+3. [Data Store](./arch_store.md)
+4. [HTML Templates](./arch_html.md)
+5. [User Management](./arch_user.md)
