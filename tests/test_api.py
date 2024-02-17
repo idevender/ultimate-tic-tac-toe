@@ -1,51 +1,60 @@
-import sys
-import os
-
-# Get the absolute path of the directory containing the current script (test_quiz.py)
-current_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Get the absolute path of the root directory
-root_dir = os.path.dirname(current_dir)
-
-# Add the root directory to the Python path
-sys.path.append(root_dir)
-
 import unittest
-from serverAPI import app
-from webtest import TestApp
+from unittest.mock import patch, MagicMock
+from bottle import Bottle, request, response
+import serverAPI
 
-class YourClassTests(unittest.TestCase):
-    def setUp(self):
-        # Set up the app for testing
-        self.app = TestApp(app)
+class TestServerAPI(unittest.TestCase):
+    @patch('serverAPI.html')
+    @patch('serverAPI.applogic')
+    @patch('serverAPI.user')
+    def setUp(self, mock_user, mock_applogic, mock_html):
+        self.mock_user = mock_user
+        self.mock_applogic = mock_applogic
+        self.mock_html = mock_html
+        self.app = serverAPI.app
 
     def test_get_homepage(self):
-        # Test the get_homepage route
-        response = self.app.get('/')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.text, "Hello World!")
-    
+        result = self.app.get('/')
+        self.assertEqual(result, "Hello World!")
+
+    def test_get_game_page(self):
+        self.mock_applogic.SuperTicTacToe.get_board.return_value = 'board'
+        self.mock_html.load_game_page.return_value = 'game page'
+        result = self.app.get('/game/1')
+        self.assertEqual(result, 'game page')
+
     def test_verify_user(self):
-        # Test the verify_user route
-        response = self.app.get('/user')
+        self.mock_user.UserManager.login_user.return_value = True
+        request.forms = {'username': 'test', 'password': 'test'}
+        result = self.app.get('/user')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.text, "<h1> User Info </h1>")
-        
-    def test_update_user_info(self):
-        # Test the update_user_info route
-        response = self.app.post('/update_user/1')
+
+    @patch('serverAPI.Game')
+    @patch('serverAPI.html')
+    def test_check_game_state(self, mock_html, mock_game):
+        mock_game.make_move.return_value = True
+        mock_game.get_board.return_value = 'board'
+        mock_html.generate_board.return_value = 'game board'
+        result = self.app.get('/check_game/1/1/1')
+        self.assertEqual(result, 'game board')
         self.assertEqual(response.status_code, 200)
-    
-    def test_get_game_state(self):
-        # Test the get_game_state route
-        response = self.app.get('/load_game/1')
+
+    @patch('serverAPI.Game')
+    def test_save_game_state(self, mock_game):
+        mock_game.save_board.return_value = True
+        result = self.app.post('/save_game/1')
+        self.assertEqual(result, 'Game Saved')
         self.assertEqual(response.status_code, 200)
-        
-    def test_update_game_state(self):
-        # Test the update_game_state route
-        response = self.app.post('/save_game/1')
+
+    @patch('serverAPI.Game')
+    @patch('serverAPI.html')
+    def test_load_game_state(self, mock_html, mock_game):
+        mock_game.load_board.return_value = True
+        mock_game.get_board.return_value = 'board'
+        mock_html.generate_board.return_value = 'game board'
+        result = self.app.get('/load_game/1')
+        self.assertEqual(result, 'game board')
         self.assertEqual(response.status_code, 200)
-        
 
 if __name__ == '__main__':
     unittest.main()
