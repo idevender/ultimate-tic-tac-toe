@@ -27,7 +27,7 @@ The following modules are imported:
      - Handle the creation, updating, and removal of game states.
    - **Methods:**
      - `setup_db()`: Creates the database for game states.
-     - `save_game(game_id, game_state)`: Saves a game state to the database.
+     - `save_game(game_id)`: Saves a game state to the database.
      - `load_game(game_id)`: Loads a game state from the database.
      - `remove_game(game_id)`: Removes a game state from the database.
 
