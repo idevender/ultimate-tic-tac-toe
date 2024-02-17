@@ -4,7 +4,6 @@ class SuperTicTacToe:
     
     Attributes:
         board (list): A 9x9 list representing the game board.
-        current_player (int): The current player making a move.
         
     Methods:
         __init__(self)
@@ -14,6 +13,7 @@ class SuperTicTacToe:
         check_game_win(self, player)
         check_game_draw(self)
         draw_fill(self)
+        win_fill(self, player)
     """
     PLAYABLE = 0
     PLAYER_ONE = 1
@@ -38,6 +38,15 @@ class SuperTicTacToe:
         
         if(self.board[row][col] == 0):
             self.board[row][col] = player
+        pass
+    
+    def check_board_draw(self):
+        """
+        Checks if the specific board is a draw.
+
+        Returns:
+            bool: True if the board is a draw, False otherwise.
+        """
         pass
     
     def check_board_win(self):
@@ -72,3 +81,21 @@ class SuperTicTacToe:
         Fills the specific board with 3s to indicate a draw.
         """
         pass
+    
+    def win_fill(self, player):
+        """
+        Fills the specific board with the player's number to indicate a win.
+        
+        Args:
+            player (int): The player number.
+        """
+        pass 
+    
+    def get_board(self):
+            """
+            Returns the current state of the board.
+
+            Returns:
+                list: The current state of the board.
+            """
+            return self.board

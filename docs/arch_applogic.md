@@ -1,11 +1,31 @@
-Using several states within a 2d matrix app logic will handle requests so that the game board can be properly updated, and/or a draw or winner chosen.
-The States are as listed:
-    PLAYABLE = 0
-    PLAYER_ONE = 1
-    PLAYER_TWO = 2
-    DRAW = 3
-    A new game will have nine matrices filled with nine 0's for each spot on the tic-tac-toe board. Which will then get updated as the game goes on.
-    
-    When a player requests to make a move, that player id and position will determine the next state of the board.
-    
-    After each player makes a move the board state will be checked and will return the proper win/tie/none state.
+# AppLogic documentation (SuperTicTacToe class) 
+**Created by Cameron Selci**
+
+## Class Constants (Board States) & Details:
+
+The app logic uses several states within a 2D matrix to handle requests for updating the game board and determining if there is a draw or a winner. The states are as follows:
+
+- **PLAYABLE**: Represents a state that can be played upon. Represented by 0.
+- **PLAYER_ONE**: Represents one of the players and can be played on the playable state. Represented by 1.
+- **PLAYER_TWO**: Represents one of the players and can be played on the playable state. Represented by 2.
+- **DRAW**: Represents a state that can't be played upon. Sub-boards will be filled with either DRAW or PLAYER states when completed with a tie or win. Represented by 3.
+
+- A new game starts with 9x9 matrix filled with nine 0's, representing each spot on the tic-tac-toe board. 
+- Each sub-board(3x3 list) is updated as the game progresses. 
+- When a player requests to make a move, their player ID and position determines the next state of the board. After each player makes a move, the board state is checked, and the appropriate game/board state is returned.
+
+## Attributes:
+
+- `board`: A two-dimensional matrix that represents the game state. Rows are initialized with 0's, representing a playable state.
+
+## Methods:
+
+- `__init__`: Initializes the game board.
+- `make_move`: Updates the board with the player's move.
+- `check_board_win`: Determines if a win condition is met on any sub-board.
+- `check_board_draw`: Determines if the current sub-board is a draw.
+- `check_game_win`: Checks if there's an overall win across the entire game board.
+- `check_game_draw`: Verifies if the game has ended in a draw.
+- `draw_fill`: Marks a sub-board as a draw, if applicable.
+- `win_fill`: Marks a sub-board as a player win for specified player.
+- `get_board`: Returns the full game board in it's current state.
