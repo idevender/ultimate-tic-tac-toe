@@ -1,5 +1,17 @@
+import sys
+import os
+
+# Get the absolute path of the directory containing the current script (test_quiz.py)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Get the absolute path of the root directory
+root_dir = os.path.dirname(current_dir)
+
+# Add the root directory to the Python path
+sys.path.append(root_dir)
+
 import unittest
-from ..serverAPI import app
+from serverAPI import app
 from webtest import TestApp
 
 class YourClassTests(unittest.TestCase):
