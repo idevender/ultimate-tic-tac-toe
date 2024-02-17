@@ -1,5 +1,5 @@
 import unittest
-from ..store import GameStateManager, UserManager
+from store import GameStateManager, UserManager
 
 class TestGameStateManager(unittest.TestCase):
 
@@ -7,7 +7,6 @@ class TestGameStateManager(unittest.TestCase):
         # Initialize a game state manager
         self.db_name = 'test_gameStates'
         self.manager = GameStateManager(self.db_name)
-        self.setUp()
 
     def test_setup_db(self):
         # Test the game state shelve setup, inital length should be 0.
