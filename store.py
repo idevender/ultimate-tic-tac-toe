@@ -25,13 +25,13 @@ class GameStateManager:
 
 
 
-    def save_game(self, name):
+    def save_game(self, game_id):
         """Saves a game state to the database.
 
         THIS IS A STUB
 
         Parameters:
-            name (str): Assign a name to the newly stored game state.
+            game_id (str): Assign an identifier to the newly stored game state.
 
         Raises:
             IOError: If the game state cannot be saved properly.
@@ -39,13 +39,13 @@ class GameStateManager:
         pass
 
 
-    def load_game(self, name):
+    def load_game(self, game_id):
         """Loads a previously stored game state from the database.
 
         THIS IS A STUB
 
         Parameters:
-            name (str): The name of the game state to be loaded.
+            game_id (str): The id of the game state to be loaded.
 
         Raises:
             IOError: If the game state cannot be loaded properly.
@@ -53,13 +53,13 @@ class GameStateManager:
         pass
 
 
-    def remove_game(self, name):
+    def remove_game(self, game_id):
         """Removes a previously stored game state from the database.
 
         THIS IS A STUB
 
         Parameters:
-            name (str): The name of the game state to be removed.
+            name (str): The id of the game state to be removed.
 
         Raises:
             IOError: If the game state cannot be destroyed.
@@ -90,13 +90,14 @@ class UserManager:
             return len(db)
 
 
-    def save_user(self, user_name):
+    def save_user(self, username, password):
         """Saves a user to the database.
 
         THIS IS A STUB
 
         Parameters:
-            user_name (str): Assign a name to the newly stored user.
+            username (str): Save the user-created username.
+            password (str): Save the user-created password.
 
         Raises:
             IOError: If the user cannot be saved properly.
@@ -104,13 +105,13 @@ class UserManager:
         pass
 
 
-    def load_user(self, user_name):
+    def load_user(self, username):
         """Loads a previously stored user from the database.
 
         THIS IS A STUB
 
         Parameters:
-            user_name (str): The name of the user to be loaded.
+            username (str): The name of the user to be loaded.
 
         Raises:
             IOError: If the user state cannot be loaded properly.
@@ -118,13 +119,13 @@ class UserManager:
         pass
 
 
-    def remove_user(self, user_name):
+    def remove_user(self, username):
         """Removes a previously stored user from the database.
 
         THIS IS A STUB
 
         Parameters:
-            user_name (str): The name of the user to be removed.
+            username (str): The name of the user to be removed.
 
         Raises:
             IOError: If the user cannot be destroyed.
