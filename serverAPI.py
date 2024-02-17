@@ -18,13 +18,13 @@ def get_homepage():
 
 
 @app.route('/game/<game_id>')
-def get_game_page():
+def get_game_page(game_id):
     """ This function returns the game's page.
 
     Returns:
         String: The game's page.
     """
-    pass
+    return html.load_game_page(Game.get_board(game_id))
 
 # Routes for handling user information and authentication
 @app.route('/user')
@@ -34,7 +34,11 @@ def verify_user():
     Returns:
         Int: 404 if the user is not found, 200 if the user is found. 
     """
-    pass
+    if UserMan.login_user(request.forms.get('username'), request.forms.get('password')):
+        response.status_code = 200
+        html.load_user_page(request.forms.get('username'), UserMan.get_user_history(request.forms.get('username')))
+    else:
+        response.status_code = 404
 
 @app.route('/update_user/<user_id>', method='POST')
 def update_user_info():
@@ -44,12 +48,12 @@ def update_user_info():
     Returns:
         Int: 404 if the user is not found, 200 if the user is found.
     """
-    pass
+    
 
 # Routes for handling game information
 @app.route('/check_game/<game_id>/<x>/<y>')
 def check_game_state(game_id, x, y):
-    """ This function returns the game state of the given ID in a 9x9 Matrix.
+    """ This function checks the game state of the given ID and returns the updated HTML.
 
     HTML Example: 
     '''
@@ -88,7 +92,12 @@ def load_game_state(game_id):
     Returns:
         Array: Returns the game state in a matrix.
     """
-    pass
+    if Game.load_board(game_id):
+        response.status_code = 200
+        return html.generate_board(Game.get_board())
+    else :
+        response.status_code = 404
+        return "Game Not Found"
 
 
 #Starts the server and opens the web browser
