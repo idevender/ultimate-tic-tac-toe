@@ -47,10 +47,21 @@ class GameStateManager:
         Parameters:
             game_id (str): The id of the game state to be loaded.
 
+        Returns:
+            game_state (dict): The game state information in a dictionary.
+
         Raises:
             IOError: If the game state cannot be loaded properly.
         """
-        pass
+        game_state = {
+            'gameID' : '12345',
+            'player1':'player_1_username',
+            'player2':'player_2_username',
+            'turn' : 'player1',
+            'board': [[0 for _ in range(9)] for _ in range(9)]
+            }
+        return game_state
+        
 
 
     def remove_game(self, game_id):
@@ -113,10 +124,14 @@ class UserManager:
         Parameters:
             username (str): The name of the user to be loaded.
 
+        Returns:
+            user (dict): The user information in a dictionary.
         Raises:
             IOError: If the user state cannot be loaded properly.
+        
         """
-        pass
+        user = {'username' : 'testusername', 'password' : 'testpassword'}
+        return user
 
 
     def remove_user(self, username):

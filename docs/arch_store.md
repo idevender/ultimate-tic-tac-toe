@@ -2,11 +2,10 @@
 Created by: Evan Best
 
 ## Imports
-
 The following modules are imported:
 - `shelve`: For persistence storage of game states and user information.
-## Components
 
+## Components
 #### 1. `gameStates` Database
    - **Purpose:** Store game states for each ongoing game.
    - **Implementation:** Uses the `shelve` module for a simple key-value store.
