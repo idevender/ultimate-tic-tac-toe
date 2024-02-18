@@ -24,7 +24,7 @@ def get_game_page(game_id):
     Returns:
         String: The game's page.
     """
-    return html.load_game_page(Game.get_board(game_id))
+    return html.RenderEngine().render_main_game_page(Game.get_board(game_id))
 
 # Routes for handling user information and authentication
 @app.route('/user')
@@ -36,7 +36,9 @@ def verify_user():
     """
     if UserMan.login_user(request.forms.get('username'), request.forms.get('password')):
         response.status_code = 200
-        html.load_user_page(request.forms.get('username'), UserMan.get_user_history(request.forms.get('username')))
+        html.RenderEngine().render_login_page()
+        username = request.forms.get('username') 
+        UserMan.get_user_history(username)
     else:
         response.status_code = 404
 
@@ -65,7 +67,7 @@ def check_game_state(game_id, x, y):
     
     if Game.make_move(game_id,x,y):
         response.status_code = 200
-        return html.generate_board(Game.get_board())
+        return html.RenderEngine().render_board(Game.get_board())
     else :
         response.status_code = 404
         return "Invalid Move"
@@ -94,7 +96,7 @@ def load_game_state(game_id):
     """
     if Game.load_board(game_id):
         response.status_code = 200
-        return html.generate_board(Game.get_board())
+        return html.RenderEngine().render_board(Game.get_board())
     else :
         response.status_code = 404
         return "Game Not Found"
