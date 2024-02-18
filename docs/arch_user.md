@@ -29,6 +29,7 @@
   - `get_user_history(username)`: Retrieves game history for a user.
   - `log_out_user(username)`: Terminates the session for the specified user.
   - `get_user(username)`: Retrieves a user object by username.
+  - `update_user_password(username, new_password)`: Updates the password for a specified user.
 
 ## Implementation Details:
 - **User Registration:** The `register_user` method creates a new user instance with provided credentials and stores it in the user database.
