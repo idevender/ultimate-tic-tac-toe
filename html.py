@@ -6,14 +6,14 @@ import os
 
 class FrontEndOps:
     """
-    Class that handles the operations related to the front end of the super tic tac toe web app.
+    Class that handles all the operations related to the front end of the super tic tac toe web app.
     """
     
     def __init__(self):
         """
         Initializes the front end operations of the super tic tac toe web app.
 
-        Args:
+        Attr:
             AppRenderEngine (RenderEngine): An instance of the render engine class.
         """
 
@@ -38,6 +38,9 @@ class FrontEndOps:
         Args:
             cell_id (str): The id of the button/cell clicked by a player on the game board.
         
+        Returns:
+            int, int: x coordinate, y coordinate of the cell clicked 
+        
         """
 
         cell_x_coord = int(cell_id[0])    
@@ -52,6 +55,9 @@ class FrontEndOps:
 
         Args:
             board (2d list): A 9x9 list representing the game board.
+        
+        Returns:
+            str: The updated game board on the front end.
         """
 
         return self.AppRenderEngine.render_updated_board(game_board)
