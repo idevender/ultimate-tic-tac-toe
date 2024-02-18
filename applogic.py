@@ -1,3 +1,5 @@
+import random
+
 class SuperTicTacToe:
     """
     A class to represent the Super Tic Tac Toe game.
@@ -14,6 +16,7 @@ class SuperTicTacToe:
         check_game_draw(self)
         draw_fill(self)
         win_fill(self, player)
+        get_board(self)
     """
     PLAYABLE = 0
     PLAYER_ONE = 1
@@ -22,6 +25,9 @@ class SuperTicTacToe:
     
     def __init__(self):
         self.board = [[0 for _ in range(9)] for _ in range(9)]
+        self.player1 = SuperTicTacToe.PLAYER_ONE
+        self.player2 = SuperTicTacToe.PLAYER_TWO
+        self.playerTurn = random.choice([self.player1, self.player2])
     
     def make_move(self, row, col, player):
         """
@@ -36,9 +42,11 @@ class SuperTicTacToe:
             bool: True if the move resulted in a win or draw, False otherwise.
         """
         
-        if(self.board[row][col] == 0):
+        if self.board[row][col] !=0:
+            return False
+        else:
             self.board[row][col] = player
-        pass
+            return True
     
     def check_board_draw(self):
         """
@@ -47,25 +55,52 @@ class SuperTicTacToe:
         Returns:
             bool: True if the board is a draw, False otherwise.
         """
-        pass
+        for row in self.board:
+            if 0 in row:
+                return False
+        return True
     
-    def check_board_win(self):
+    def check_board_win(self, player):
         """
         Checks if a player has won the specific board.
 
-        Returns:
-            bool: True if the player has won, False otherwise.
-        """
-        pass
-        
-    def check_game_win(self):
-        """
-        Checks if a player has won the game.
+        Args:
+            player (int): The player number.
 
         Returns:
             bool: True if the player has won, False otherwise.
         """
-        pass
+        for row in self.board:
+            if all(cell == player for cell in row):
+                return True
+        
+        for col in range(9):
+            if all(self.board[row][col] == player for row in range(9)):
+                return True
+        
+        if all(self.board[i][i] == player for i in range(9)):
+            return True
+        
+        if all(self.board[i][8-i] == player for i in range(9)):
+            return True
+        
+        return False
+    
+    def check_game_win(self, player):
+        """
+        Checks if a player has won the game.
+
+        Args:
+            player (int): The player number.
+
+        Returns:
+            bool: True if the player has won, False otherwise.
+        """
+        for row in range(0, 9, 3):
+            for col in range(0, 9, 3):
+                if self.check_board_win(player, row, col):
+                    return True
+        return False
     
     def check_game_draw(self):
         """
@@ -74,28 +109,36 @@ class SuperTicTacToe:
         Returns:
             bool: True if the game is a draw, False otherwise.
         """
-        pass
-    
+        for row in range(0, 9, 3):
+            for col in range(0, 9, 3):
+                if not self.check_board_draw(row, col):
+                    return False
+        return True
+
     def draw_fill(self):
         """
         Fills the specific board with 3s to indicate a draw.
         """
-        pass
-    
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                self.board[i][j] = SuperTicTacToe.DRAW
+
     def win_fill(self, player):
         """
         Fills the specific board with the player's number to indicate a win.
-        
+
         Args:
             player (int): The player number.
         """
-        pass 
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                self.board[i][j] = player
     
     def get_board(self):
-            """
-            Returns the current state of the board.
+        """
+        Returns the current state of the board.
 
-            Returns:
-                list: The current state of the board.
-            """
-            return self.board
+        Returns:
+            list: The current state of the board.
+        """
+        return self.board
