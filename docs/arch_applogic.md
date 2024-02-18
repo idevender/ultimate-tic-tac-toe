@@ -17,6 +17,8 @@ The app logic uses several states within a 2D matrix to handle requests for upda
 ## Attributes:
 
 - `board`: A two-dimensional matrix that represents the game state. Rows are initialized with 0's, representing a playable state.
+- `players`: Most likely won't be included, can be tracked using playerturn instead, will have it here for now.
+- `playerTurn`: Keeps track of player turn.
 
 ## Methods:
 
