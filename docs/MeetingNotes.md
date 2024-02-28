@@ -77,3 +77,21 @@ store.py :Evan Best
 
 html.py: Mohd Ali Bin Naser
 
+## February 28, 2024
+**Scrum Master:** Jager Cooper
+
+**Recorded by:** Cameron Selci
+
+**Notes submiited on:** February 17, 2024
+
+**Venue:** EN 2036
+
+**Time:** 2:00pm to 3:00pm
+
+**Attendance:**  Devender Singh, Cameron Selci, Mohd Ali Bin Naser , Evan Best, Jager Cooper
+
+Discussed sprint activities.
+
+Discussed implementations. 
+
+Discussed KanBan/issue tracking as posted in notes.
