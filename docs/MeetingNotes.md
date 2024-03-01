@@ -92,6 +92,43 @@ html.py: Mohd Ali Bin Naser
 
 Discussed sprint activities.
 
-Discussed implementations. 
+Discussed implementations.  
 
 Discussed KanBan/issue tracking as posted in notes.
+
+## March 1, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Cameron Selci
+
+**Recorded by:** Jager Cooper
+
+**Venue:** EN 2036
+
+**Time:** 2:00pm to 3:00pm
+
+**Attendance:**  Devender Singh, Cameron Selci, Mohd Ali Bin Naser , Evan Best, Jager Cooper
+
+Breakdown of tasks into subtask and addition of them in to the kanban board  
+
+- Making a move in a game
+  - Front-end send move data
+  - API receive move data and verify with game logic
+  - Game logic send game state to DB and API
+  - DB update game state and turn
+  - API call to update front-end
+  - Front-end sends new display
+- User login
+  - Front-end login button
+  - get form submit
+  - verify login info
+  - load user from db
+- Recording a players win loss history
+  - applogic on game end - get user info from db - send info to server
+  - send winner and loser to user manager and html
+  - user manager update win/loss in DB
+  
+Discussed implementation of much of these tasks and interoperability
