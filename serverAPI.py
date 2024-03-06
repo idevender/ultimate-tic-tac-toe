@@ -70,14 +70,14 @@ def register_user():
     """ This function registers a new user to the server.
 
     Returns:
-        Int: 404 if there is an issue, 200 if the user is created.
+        Int: 400 if there is an issue, 200 if the user is created.
     """
     
     if UserMan.register_user(request.forms.get('username'), request.forms.get('password')):
         response.status_code = 200
         html.render_main_game_page()
     else:
-        response.status_code = 404
+        response.status_code = 400
         return "User already exists"
 
 # Routes for handling game information
