@@ -90,14 +90,14 @@ def check_game_state(game_id, x, y):
         <a href="/check_game/game_id/x/y>Press me</a>
     '''
     Returns:
-        Array: Returns the game state in a matrix.
+        the new board state in HTML.
     """
     
     if Game.make_move(game_id,x,y):
         response.status_code = 200
         return html.RenderEngine().render_board(Game.get_board())
     else :
-        response.status_code = 404
+        response.status_code = 400
         return "Invalid Move"
     
 
