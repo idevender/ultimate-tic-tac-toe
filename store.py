@@ -109,7 +109,7 @@ class UserManager:
             password (str): Save the user-created password.
 
         Raises:
-            IOError: If the user cannot be saved properly.
+            OSError: If the user cannot be saved properly.
         """
         with shelve.open(self.db_name) as db:
             if username in db:
