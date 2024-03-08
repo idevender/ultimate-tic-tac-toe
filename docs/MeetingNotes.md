@@ -158,7 +158,7 @@ Discussed:
 
 decided that our last meeting for the sprint will be the 15th of March.
 
-## March 6th, 2024
+## March 8th, 2024
 
 **Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
 
