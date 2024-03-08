@@ -157,3 +157,26 @@ Discussed:
 - how we will be handling code review process: we will be using the review assignee feature and go through videos of code reviews.
 
 decided that our last meeting for the sprint will be the 15th of March.
+
+## March 8th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Devender Singh
+
+**Recorded by:** Evan Best
+
+**Venue:** Discord
+
+**Time:** 2:30pm to 3:30pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+Discussed:
+
+- session management, need to implement multiple users.
+- refactoring modules for better implementation.
+- everyone should start working on their assigned TODO's on the project board.
+- doing code review for currently open PR's.
