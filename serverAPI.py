@@ -1,8 +1,9 @@
 
 # Imports
 import webbrowser
-from bottle import Bottle, run, request, response, route,template
 import html, applogic,user 
+from bottle import Bottle, run, request, response, route
+
 #Create the bottle app
 app = Bottle()
 
@@ -117,4 +118,4 @@ if __name__ == '__main__':
     Game = applogic.SuperTicTacToe()
     UserMan = user.UserManager()
     run(app, host='localhost', port=8080)
-    webbrowser.open('http://localhost:8080')
+    webbrowser.open('http://localhost:8080/')
