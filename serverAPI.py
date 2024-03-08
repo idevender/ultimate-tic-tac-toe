@@ -42,15 +42,43 @@ def verify_user():
     else:
         response.status_code = 404
 
-@app.route('/update_user/<user_id>', method='POST')
-def update_user_info():
+@app.route('/update_user/<username>', method='POST')
+def update_user_info(username):
     """ This function updates the user information if the user exists
         or creates a new user if the user does not exist.
 
     Returns:
         Int: 404 if the user is not found, 200 if the user is found.
     """
+    if UserMan.update_user_password(username, request.forms.get('new_password')):
+        response.status_code = 200
+    else:
+        response.status_code = 404
     
+@app.route('/register_user', method='GET')
+def get_register_user():
+    """ This function returns the register user page.
+
+    Returns:
+        String: The register user page.
+    """
+    
+    return html.RenderEngine().render_signup_page()
+
+@app.route('/register_user', method='POST')
+def register_user():
+    """ This function registers a new user to the server.
+
+    Returns:
+        Int: 400 if there is an issue, 200 if the user is created.
+    """
+    
+    if UserMan.register_user(request.forms.get('username'), request.forms.get('password')):
+        response.status_code = 200
+        html.render_main_game_page()
+    else:
+        response.status_code = 400
+        return "User already exists"
 
 # Routes for handling game information
 @app.route('/check_game/<game_id>/<x>/<y>')
@@ -62,14 +90,14 @@ def check_game_state(game_id, x, y):
         <a href="/check_game/game_id/x/y>Press me</a>
     '''
     Returns:
-        Array: Returns the game state in a matrix.
+        the new board state in HTML.
     """
     
     if Game.make_move(game_id,x,y):
         response.status_code = 200
         return html.RenderEngine().render_board(Game.get_board())
     else :
-        response.status_code = 404
+        response.status_code = 400
         return "Invalid Move"
     
 
@@ -78,13 +106,13 @@ def save_game_state(game_id):
     """ This function updates the game state of the given ID.
 
     Returns:
-        Int: 404 if the game is not found, 200 if the game is found.
+        Int: 400 if there was an error, 200 if the game is found.
     """
     if Game.save_board(game_id):
         response.status_code = 200
         return "Game Saved"
     else :
-        response.status_code = 404
+        response.status_code = 400
         
 
 @app.route('/load_game/<game_id>')
