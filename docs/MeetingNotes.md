@@ -132,3 +132,28 @@ Breakdown of tasks into subtask and addition of them in to the kanban board
   - user manager update win/loss in DB
   
 Discussed implementation of much of these tasks and interoperability
+
+## March 6th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Devender Singh
+
+**Recorded by:** Jager Cooper
+
+**Venue:** EN 2036
+
+**Time:** 2:00pm to 3:00pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+Discussed:
+
+- where we went wrong on our group Assignment 1 grade
+- grading scheme for sprint 1
+- using PR's and branches going forward for meetingNotes.md
+- how we will be handling code review process: we will be using the review assignee feature and go through videos of code reviews.
+
+decided that our last meeting for the sprint will be the 15th of March.
