@@ -104,8 +104,6 @@ class UserManager:
     def save_user(self, username, password):
         """Saves a user to the database.
 
-        THIS IS A STUB
-
         Parameters:
             username (str): Save the user-created username.
             password (str): Save the user-created password.
@@ -113,13 +111,17 @@ class UserManager:
         Raises:
             IOError: If the user cannot be saved properly.
         """
-        pass
+        with shelve.open(self.db_name) as db:
+            if username in db:
+                raise OSError(f"The user '{username}' is already taken, please choose another username.")
 
+            db[username] = {
+                'username': username,
+                'password': password,
+                }
 
     def load_user(self, username):
         """Loads a previously stored user from the database.
-
-        THIS IS A STUB
 
         Parameters:
             username (str): The name of the user to be loaded.
