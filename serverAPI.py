@@ -1,8 +1,9 @@
 
 # Imports
 import webbrowser
-from bottle import Bottle, run, request, response, route
 import html, applogic,user 
+from bottle import Bottle, run, request, response, route
+
 #Create the bottle app
 app = Bottle()
 
@@ -81,6 +82,16 @@ def register_user():
         return "User already exists"
 
 # Routes for handling game information
+@app.route('/create_game/<user_id1>/<user_id2>', method='POST')
+def create_game(user_id1,user_id2):
+    """ This function creates a new game and returns the game's page.
+
+    Returns:
+        String: The game's page.
+    """
+    Game.create_game(user_id1,user_id2)
+    return html.RenderEngine().render_main_game_page(Game.get_board())
+
 @app.route('/check_game/<game_id>/<x>/<y>')
 def check_game_state(game_id, x, y):
     """ This function checks the game state of the given ID and returns the updated HTML.
@@ -135,4 +146,4 @@ if __name__ == '__main__':
     Game = applogic.SuperTicTacToe()
     UserMan = user.UserManager()
     run(app, host='localhost', port=8080)
-    webbrowser.open('http://localhost:8080')
+    webbrowser.open('http://localhost:8080/')
