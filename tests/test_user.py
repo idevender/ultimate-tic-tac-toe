@@ -54,5 +54,30 @@ class TestUserManager(unittest.TestCase):
         user = self.user_manager.get_user("nonexistentuser")
         self.assertIsNone(user)
 
+    def test_get_all_users_with_users(self):
+        """Test retrieving all users from a database that has users."""
+        # Assume the registration process works correctly for this test
+        self.user_manager.register_user("testuser1", "password123")
+        self.user_manager.register_user("testuser2", "password456")
+
+        # Retrieve all users
+        all_users = self.user_manager.get_all_users()
+
+        # Verify the number of users matches what was registered
+        self.assertEqual(len(all_users), 2)
+
+        # Verify the content matches the registered users
+        expected_usernames = {"testuser1", "testuser2"}
+        retrieved_usernames = {user.username for user in all_users}
+        self.assertTrue(expected_usernames.issubset(retrieved_usernames))
+
+    def test_get_all_users_no_users(self):
+        """Test retrieving all users from a database that has no users."""
+        # Test the method when no users have been registered
+        all_users = self.user_manager.get_all_users()
+
+        # The list of all users should be empty
+        self.assertEqual(len(all_users), 0)
+
 if __name__ == '__main__':
     unittest.main()
