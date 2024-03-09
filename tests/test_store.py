@@ -43,11 +43,20 @@ class TestUserManager(unittest.TestCase):
 
     def test_save_user(self):
         # Test saving a user
-        with self.assertRaises(IOError):
-            self.manager.save_user("test_user")
+        self.manager.save_user("test_user","test_user_password")
+    
+    def test_save_user_fail(self):
+        self.manager.save_user("test_user","test_user_password")
+        # Raise error on second save attempt since user is already saved.
+        with self.assertRaises(OSError):
+            self.manager.save_user("test_user","test_user_password")
 
     def test_load_user(self):
-        # Test loading a user
+        # Test loading a user after save
+        self.manager.save_user("test_user","test_password")
+        self.manager.load_user("test_user")
+
+    def load_user_fail(self):
         with self.assertRaises(IOError):
             self.manager.load_user("test_user")
 
