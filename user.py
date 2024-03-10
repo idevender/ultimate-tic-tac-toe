@@ -1,6 +1,5 @@
 import store
 
-
 class User:
     """Represents a user with a username and password.
 
@@ -111,3 +110,14 @@ class UserManager:
             new_password (str): The new password for the user.
         """
         pass
+
+    def get_all_users(self):
+        """Retrieves all users from the database and returns them as a list of usernames.
+
+        Returns:
+            list: A list of usernames representing all the users.
+        """
+        all_usernames = []
+        with store.shelve.open(self.user_db.db_name) as db:
+            all_usernames.extend(db.keys())
+        return all_usernames
