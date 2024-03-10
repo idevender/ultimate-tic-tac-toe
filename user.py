@@ -106,20 +106,18 @@ class UserManager:
         """Updates the password for a specified user.
 
         Args:
-            username (str): The username of the user. 
+            username (str): The username of the user.
             new_password (str): The new password for the user.
         """
         pass
 
     def get_all_users(self):
-        """Retrieves all users from the database and returns them as a list.
+        """Retrieves all users from the database and returns them as a list of usernames.
 
         Returns:
-            list: A list of User objects representing all the users.
+            list: A list of usernames representing all the users.
         """
-        all_users = []
+        all_usernames = []
         with store.shelve.open(self.user_db.db_name) as db:
-            for username in db:
-                user_data = db[username]
-                all_users.append(User(user_data['username'], user_data['password']))
-        return all_users
+            all_usernames.extend(db.keys())
+        return all_usernames
