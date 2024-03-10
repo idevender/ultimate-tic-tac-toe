@@ -180,3 +180,29 @@ Discussed:
 - refactoring modules for better implementation.
 - everyone should start working on their assigned TODO's on the project board.
 - doing code review for currently open PR's.
+
+## March 9th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Evan Best
+
+**Recorded by:** Mohd Ali Bin Naser
+
+**Venue:** Discord voice call meeting
+
+**Time:** 7:30pm to 8:45pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item | Brief Description |
+|-----|-----|
+| Code Review for current PRs | Did a bunch of code reviews during our discord meeting on March 9th. During the review process, Devender's PR from a feature branch named "31-create-game---need-a-function-to-return-list-of-users-from-db" was sent back for changes due a concern brought up during the meeting. The requested changes were quickly made and merged successfully. |
+| Current Kanban Board & Issues | The team briefly reviewed the current kanban board and the issues that are currently open to access the progress of the team. A new concern was address during the meeting regarding the current process of username retrevals when the project scales.  |
+| Discussion for multiplayer functionality | The team discussed how we are going to implement multiplayer functionality without using advanced topics such as sockets. |
+| Sprint 1 Marking Scheme Review | The team briefly reviewed and discussed the sprint 1 marking scheme how the team should proceed in order to comply with some of the requirements mentioned |
+| Completion of a task by next meeting | The team members have decided to try and complete a minimum of one task and make PRs before the next team meeting to have some PRs to review and discuss. |
+| New Tabular Section in the Meeting Notes | The team agreed that a better way to organize the agenda items and its dicussions of the meeting notes would be to have a tabular format in the notes. |
+| Perfomance review  | Touched upon this this topic - will be discussed in detail on the next meeting |
