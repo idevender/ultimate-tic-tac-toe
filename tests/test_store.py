@@ -37,15 +37,18 @@ class TestUserManager(unittest.TestCase):
         self.manager = UserManager(self.db_name)
 
     def test_setup_db(self):
+        self.setUp()
         # Test the user shelve setup, inital length should be 0.
         result = self.manager.setup_db()
         self.assertEqual(result, 0)
 
     def test_save_user(self):
         # Test saving a user
+        self.setUp()
         self.manager.save_user("test_user","test_user_password")
     
     def test_save_user_fail(self):
+        self.setUp()
         self.manager.save_user("test_user","test_user_password")
         # Raise error on second save attempt since user is already saved.
         with self.assertRaises(OSError):
@@ -53,10 +56,12 @@ class TestUserManager(unittest.TestCase):
 
     def test_load_user(self):
         # Test loading a user after save
+        self.setUp()
         self.manager.save_user("test_user","test_password")
         self.manager.load_user("test_user")
 
     def load_user_fail(self):
+        self.setUp()
         with self.assertRaises(IOError):
             self.manager.load_user("test_user")
 
@@ -64,6 +69,3 @@ class TestUserManager(unittest.TestCase):
         # Test removing a user
         with self.assertRaises(IOError):
             self.manager.remove_user("test_user")
-
-if __name__ == '__main__':
-    unittest.main()

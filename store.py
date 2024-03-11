@@ -129,10 +129,13 @@ class UserManager:
         Returns:
             user (dict): The user information in a dictionary.
         Raises:
-            IOError: If the user state cannot be loaded properly.
+            OSError: If the user state cannot be loaded properly.
         
         """
-        user = {'username' : 'testusername', 'password' : 'testpassword'}
+        with shelve.open(self.db_name) as db:
+            user = db.get(username)
+            if user is None:
+                raise OSError(f"The user '{username}' does not exist.")
         return user
 
 
