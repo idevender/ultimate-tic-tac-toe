@@ -89,7 +89,8 @@ def create_game(user_id1,user_id2):
     Returns:
         String: The game's page.
     """
-    Game.create_game(user_id1,user_id2)
+    game_id = UserMan.gen_game_id(user_id1,user_id2)
+    Game.create_game(game_id)
     return html.RenderEngine().render_main_game_page(Game.get_board())
 
 @app.route('/check_game/<game_id>/<x>/<y>')
