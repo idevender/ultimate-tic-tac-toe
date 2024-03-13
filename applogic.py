@@ -46,17 +46,20 @@ class SuperTicTacToe:
             return False
         else:
             self.board[row][col] = self.playerTurn
-            self.check_states()
             self.save_board()
+            if(self.playerTurn == SuperTicTacToe.PLAYER_ONE):
+                self.playerTurn = SuperTicTacToe.PLAYER_TWO
+            else:
+                self.playerTurn = SuperTicTacToe.PLAYER_ONE
         
+        self.check_states()
+    
     def check_states(self):
         if(self.check_board_draw):
             self.check_game_draw
             
         elif(self.check_board_win):
             self.check_game_win
-
-        
     
     def check_board_draw(self):
         """
@@ -139,6 +142,7 @@ class SuperTicTacToe:
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
                 self.board[i][j] = self.playerTurn
+
     
 
        
