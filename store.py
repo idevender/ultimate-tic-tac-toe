@@ -72,7 +72,13 @@ class GameStateManager:
         Raises:
             IOError: If the game state cannot be destroyed.
         """
-        pass
+        with shelve.open(self.db_name) as db:
+            game_state = db.get(game_id)
+
+            if game_state is None:
+                raise IOError(f"The game '{game_id}' does not exist.")
+            
+            del db[game_id]
 
 
 class UserManager:
