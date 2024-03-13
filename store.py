@@ -49,8 +49,6 @@ class GameStateManager:
     def load_game(self, game_id):
         """Loads a previously stored game state from the database.
 
-        THIS IS A STUB
-
         Parameters:
             game_id (str): The id of the game state to be loaded.
 
@@ -60,29 +58,32 @@ class GameStateManager:
         Raises:
             IOError: If the game state cannot be loaded properly.
         """
-        game_state = {
-            'gameID' : '12345',
-            'player1':'player_1_username',
-            'player2':'player_2_username',
-            'turn' : 'player1',
-            'board': [[0 for _ in range(9)] for _ in range(9)]
-            }
-        return game_state
+        with shelve.open(self.db_name) as db:
+            game_state = db.get(game_id)
+
+            if game_state is None:
+                raise IOError(f"The game '{game_id}' does not exist.")
+            
+            return game_state
         
 
 
     def remove_game(self, game_id):
         """Removes a previously stored game state from the database.
-
-        THIS IS A STUB
-
+        
         Parameters:
             name (str): The id of the game state to be removed.
 
         Raises:
             IOError: If the game state cannot be destroyed.
         """
-        pass
+        with shelve.open(self.db_name) as db:
+            game_state = db.get(game_id)
+
+            if game_state is None:
+                raise IOError(f"The game '{game_id}' does not exist.")
+            
+            del db[game_id]
 
 
 class UserManager:
