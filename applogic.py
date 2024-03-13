@@ -26,7 +26,7 @@ class SuperTicTacToe:
     def __init__(self, gameid):
         self.board = [[0 for _ in range(9)] for _ in range(9)]
         self.playerTurn = SuperTicTacToe.PLAYER_ONE
-        gameid = gameid
+        self.gameid = gameid
     
     def make_move(self, gameid, row, col):
         """
@@ -147,3 +147,5 @@ class SuperTicTacToe:
     def load_board(self, gameid):
         self.board = store.load_game(gameid)
        
+    def save_board(self, gameid):
+        store.save_game(self.board, gameid)
