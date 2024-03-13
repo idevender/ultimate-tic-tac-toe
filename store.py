@@ -63,9 +63,7 @@ class GameStateManager:
 
     def remove_game(self, game_id):
         """Removes a previously stored game state from the database.
-
-        THIS IS A STUB
-
+        
         Parameters:
             name (str): The id of the game state to be removed.
 
