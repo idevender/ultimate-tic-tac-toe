@@ -120,8 +120,20 @@ class UserManager:
         Args:
             username (str): The username of the user.
             new_password (str): The new password for the user.
+
+        Returns:
+            bool: True if the password was successfully updated, False otherwise.
         """
-        pass
+        with store.shelve.open(self.user_db.db_name, writeback=True) as db:
+            if username in db:
+                # Update the user's password
+                user_data = db[username]
+                user_data['password'] = new_password
+                db[username] = user_data  # Ensure the updated user data is saved back to the database
+                return True  # Password update was successful
+            else:
+                # User does not exist in the database
+                return False  # Password update failed due to non-existing user
 
     def get_all_users(self):
         """Retrieves all users from the database and returns them as a list of usernames.

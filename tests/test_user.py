@@ -77,6 +77,29 @@ class TestUserManager(unittest.TestCase):
         # Verify that the list of usernames is empty
         self.assertEqual(len(all_usernames), 0)
 
+    def test_update_user_password_success(self):
+        """Test successfully updating an existing user's password."""
+        # First, register a user
+        username, initial_password, new_password = "testuser", "initialPassword123", "newPassword456"
+        self.user_manager.register_user(username, initial_password)
+
+        # Now, attempt to update the user's password
+        result = self.user_manager.update_user_password(username, new_password)
+        self.assertTrue(result)  # Assert that the password update was successful
+
+        # Optionally, verify the new password is set correctly by attempting to login
+        login_success = self.user_manager.login_user(username, new_password)
+        self.assertTrue(login_success)
+
+    def test_update_user_password_failure_nonexistent_user(self):
+        """Test attempting to update the password for a user that does not exist."""
+        # Define a username and password for a user that has not been registered
+        username, new_password = "nonexistentUser", "newPassword789"
+
+        # Attempt to update the password for the non-existent user
+        result = self.user_manager.update_user_password(username, new_password)
+        self.assertFalse(result)  # Assert that the password update failed
+
     def test_hash_password_consistency(self):
         """Test that hashing the same password multiple times produces the same result."""
         password = "testPassword123"
@@ -91,6 +114,7 @@ class TestUserManager(unittest.TestCase):
         hash1 = self.user_manager.hash_password(password1)
         hash2 = self.user_manager.hash_password(password2)
         self.assertNotEqual(hash1, hash2, "Hashing different passwords should produce different hashes")
+
 
 if __name__ == '__main__':
     unittest.main()
