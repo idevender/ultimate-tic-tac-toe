@@ -25,10 +25,8 @@ class GameStateManager:
 
 
 
-    def save_game(self, game_id):
+    def save_game(self, game_id="id", player1="player1", player2="player2", turn="player1", board=[[0 for _ in range(9)] for _ in range(9)]):
         """Saves a game state to the database.
-
-        THIS IS A STUB
 
         Parameters:
             game_id (str): Assign an identifier to the newly stored game state.
@@ -36,8 +34,17 @@ class GameStateManager:
         Raises:
             IOError: If the game state cannot be saved properly.
         """
-        pass
 
+        with shelve.open(self.db_name) as db:
+            if game_id in db:
+                raise IOError(f"The game '{game_id}' already exists. Game not saved.")
+            db[game_id] = {
+                'gameID' : game_id,
+                'player1': player1,
+                'player2': player2,
+                'board' : board,
+                'turn' : turn
+            }
 
     def load_game(self, game_id):
         """Loads a previously stored game state from the database.
