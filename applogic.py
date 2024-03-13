@@ -23,13 +23,12 @@ class SuperTicTacToe:
     PLAYER_TWO = 2
     DRAW = 3
     
-    def __init__(self, userone, usertwo):
+    def __init__(self, gameid):
         self.board = [[0 for _ in range(9)] for _ in range(9)]
         self.playerTurn = SuperTicTacToe.PLAYER_ONE
-        self.gamecount = 0
-        self.gameid = str(self.gamecount+userone+usertwo)
+        gameid = gameid
     
-    def make_move(self, row, col):
+    def make_move(self, gameid, row, col):
         """
         Makes a move on the game board.
 
@@ -47,7 +46,7 @@ class SuperTicTacToe:
             return False
         else:
             self.board[row][col] = self.playerTurn
-            self.checkStates()
+            self.check_states()
             self.save_board()
         
     def check_states(self):
@@ -92,6 +91,7 @@ class SuperTicTacToe:
                 if self.board[row+2][col] == self.board[row+1][col+1] == self.board[row][col+2] != 0:
                     return True
         return False
+    
     def check_game_win(self):
         """
         Checks if a player has won the game.
