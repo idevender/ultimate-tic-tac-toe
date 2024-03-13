@@ -1,4 +1,4 @@
-import random
+import store
 
 class SuperTicTacToe:
     """
@@ -23,13 +23,13 @@ class SuperTicTacToe:
     PLAYER_TWO = 2
     DRAW = 3
     
-    def __init__(self):
+    def __init__(self, userone, usertwo):
         self.board = [[0 for _ in range(9)] for _ in range(9)]
-        self.player1 = SuperTicTacToe.PLAYER_ONE
-        self.player2 = SuperTicTacToe.PLAYER_TWO
-        self.playerTurn = random.choice([self.player1, self.player2])
+        self.playerTurn = SuperTicTacToe.PLAYER_ONE
+        self.gamecount = 0
+        self.gameid = str(self.gamecount+userone+usertwo)
     
-    def make_move(self, row, col, player):
+    def make_move(self, row, col):
         """
         Makes a move on the game board.
 
@@ -41,12 +41,23 @@ class SuperTicTacToe:
         Returns:
             bool: True if the move resulted in a win or draw, False otherwise.
         """
-        
+
+
         if self.board[row][col] !=0:
             return False
         else:
-            self.board[row][col] = player
-            return True
+            self.board[row][col] = self.playerTurn
+            self.checkStates()
+            self.save_board()
+        
+    def check_states(self):
+        if(self.check_board_draw):
+            self.check_game_draw
+            
+        elif(self.check_board_win):
+            self.check_game_win
+
+        
     
     def check_board_draw(self):
         """
@@ -60,7 +71,7 @@ class SuperTicTacToe:
                 return False
         return True
     
-    def check_board_win(self, player):
+    def check_board_win(self):
         """
         Checks if a player has won the specific board.
 
@@ -70,23 +81,18 @@ class SuperTicTacToe:
         Returns:
             bool: True if the player has won, False otherwise.
         """
-        for row in self.board:
-            if all(cell == player for cell in row):
-                return True
-        
-        for col in range(9):
-            if all(self.board[row][col] == player for row in range(9)):
-                return True
-        
-        if all(self.board[i][i] == player for i in range(9)):
-            return True
-        
-        if all(self.board[i][8-i] == player for i in range(9)):
-            return True
-        
+        for row in range(0, 9, 3):
+            for col in range(0, 9, 3):
+                if self.board[row][col] == self.board[row][col+1] == self.board[row][col+2] != 0:
+                    return True
+                if self.board[row][col] == self.board[row+1][col] == self.board[row+2][col] != 0:
+                    return True
+                if self.board[row][col] == self.board[row+1][col+1] == self.board[row+2][col+2] != 0:
+                    return True
+                if self.board[row+2][col] == self.board[row+1][col+1] == self.board[row][col+2] != 0:
+                    return True
         return False
-    
-    def check_game_win(self, player):
+    def check_game_win(self):
         """
         Checks if a player has won the game.
 
@@ -98,7 +104,7 @@ class SuperTicTacToe:
         """
         for row in range(0, 9, 3):
             for col in range(0, 9, 3):
-                if self.check_board_win(player, row, col):
+                if self.check_board_win(self.playerTurn, row, col):
                     return True
         return False
     
@@ -123,7 +129,7 @@ class SuperTicTacToe:
             for j in range(len(self.board[i])):
                 self.board[i][j] = SuperTicTacToe.DRAW
 
-    def win_fill(self, player):
+    def win_fill(self):
         """
         Fills the specific board with the player's number to indicate a win.
 
@@ -132,13 +138,7 @@ class SuperTicTacToe:
         """
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
-                self.board[i][j] = player
+                self.board[i][j] = self.playerTurn
     
-    def get_board(self):
-        """
-        Returns the current state of the board.
 
-        Returns:
-            list: The current state of the board.
-        """
-        return self.board
+       
