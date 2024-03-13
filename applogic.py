@@ -144,5 +144,6 @@ class SuperTicTacToe:
                 self.board[i][j] = self.playerTurn
 
     
-
+    def load_board(self, gameid):
+        self.board = store.load_game(gameid)
        
