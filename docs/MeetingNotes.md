@@ -206,3 +206,27 @@ Discussed:
 | Completion of a task by next meeting | The team members have decided to try and complete a minimum of one task and make PRs before the next team meeting to have some PRs to review and discuss. |
 | New Tabular Section in the Meeting Notes | The team agreed that a better way to organize the agenda items and its dicussions of the meeting notes would be to have a tabular format in the notes. |
 | Perfomance review  | Touched upon this this topic - will be discussed in detail on the next meeting |
+
+## March 11th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Mohd Ali Bin Naser
+
+**Recorded by:** Devender Singh
+
+**Venue:** EN 2036
+
+**Time:** 2:00pm to 3:10pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item | Brief Description |
+|-----|-----|
+| Performance Review |  The team reviewed how the performance review will be conducted for our sprint. This included discussions on metrics and feedback mechanisms to ensure continuous improvement. |
+| Code Reviews    | The team briefly performed various Code Reviews specifically discussed and approved Jager Cooper's code. The review focused on adherence to project standards, and integration with existing codebases. |
+| Kanban Board Updates  | Updates were made to the kanban board to reflect the latest changes, including completed tasks and newly identified issues. |
+| Process Model Documentation Discussion  | The team discussed the process model documentation that the professor uploaded on the webpage on Monday in detail.  |
+| Backend Discussion   |A focused discussion between Evan and Devender on backend functionality, covering specific implementations, potential challenges, and strategies for efficient data handling on backend side. |
