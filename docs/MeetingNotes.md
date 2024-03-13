@@ -230,3 +230,26 @@ Discussed:
 | Kanban Board Updates  | Updates were made to the kanban board to reflect the latest changes, including completed tasks and newly identified issues. |
 | Process Model Documentation Discussion  | The team discussed the process model documentation that the professor uploaded on the webpage on Monday in detail.  |
 | Backend Discussion   |A focused discussion between Evan and Devender on backend functionality, covering specific implementations, potential challenges, and strategies for efficient data handling on backend side. |
+
+## March 13th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Jager Cooper
+
+**Recorded by:** Cameron Selci
+
+**Venue:** Discord Voice / Screen Sharing
+
+**Time:** 2:00pm to 3:10pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item | Brief Description |
+|-----|-----|
+| Performance Review |  Discussed dabout individual performance reviews. |
+| Code Reviews    | Devenders code hashing and unique gameid. Code reviews for Evan and Cameron save board, player turn. Discussed more about code reviews. Ali's code on UI/CSS.  |
+| Kanban Board Updates  | Updates were made to the kanban board to reflect the latest changes, including completed tasks and newly identified issues. New tasks posted. |
+| Functionality | More talk about interactions. Devender & Cooper mainly gameid, Cameron and Evan mainly saving board. Devender and Ali UI. |
