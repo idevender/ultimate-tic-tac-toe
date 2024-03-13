@@ -28,20 +28,53 @@ def get_game_page(game_id):
     return html.RenderEngine().render_main_game_page(Game.get_board(game_id))
 
 # Routes for handling user information and authentication
-@app.route('/user')
-def verify_user():
+@app.route('/login', method='GET')
+def get_login_page():
+    """ This function returns the login page.
+
+    Returns:
+        String: The login page.
+    """
+    return html.RenderEngine().render_login_page()
+
+@app.route('/login', method='POST')
+def login_user():
     """ This function verifies the user sign in information.
 
     Returns:
         Int: 404 if the user is not found, 200 if the user is found. 
     """
-    if UserMan.login_user(request.forms.get('username'), request.forms.get('password')):
+    form_data = request.form.todict()
+    
+    if UserMan.login_user(form_data['username'], form_data['password']):
+        response.status_code = 200
+        
+        """TODO : decide which page to render after login"""
+        html.RenderEngine().render_user_page() 
+        username = request.forms.get('username') 
+        UserMan.get_user_history(username)
+    else:
+        response.status_code = 404
+        
+        
+"""TODO : Refactor the /user api endpoint to show user info?"""
+"""@app.route('/user', method='GET')
+def verify_user():
+    "" This function verifies the user sign in information.
+
+    Returns:
+        Int: 404 if the user is not found, 200 if the user is found. 
+    ""
+    form_data = request.form.todict()
+    
+    if UserMan.login_user(form_data['username'], form_data['password']):
         response.status_code = 200
         html.RenderEngine().render_login_page()
         username = request.forms.get('username') 
         UserMan.get_user_history(username)
     else:
         response.status_code = 404
+"""
 
 @app.route('/update_user/<username>', method='POST')
 def update_user_info(username):
@@ -89,17 +122,14 @@ def create_game(user_id1,user_id2):
     Returns:
         String: The game's page.
     """
-    Game.create_game(user_id1,user_id2)
+    game_id = UserMan.gen_game_id(user_id1,user_id2)
+    Game.create_game(game_id)
     return html.RenderEngine().render_main_game_page(Game.get_board())
 
 @app.route('/check_game/<game_id>/<x>/<y>')
 def check_game_state(game_id, x, y):
     """ This function checks the game state of the given ID and returns the updated HTML.
 
-    HTML Example: 
-    '''
-        <a href="/check_game/game_id/x/y>Press me</a>
-    '''
     Returns:
         the new board state in HTML.
     """

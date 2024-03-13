@@ -1,4 +1,5 @@
 import store
+import hashlib
 
 class User:
     """Represents a user with a username and password.
@@ -37,6 +38,17 @@ class UserManager:
             int: Number of users currently in the database.
         """
         return self.user_db.setup_db()
+
+    def hash_password(self, password):
+        """Hashes a password using SHA-256.
+
+        Args:
+            password (str): The password to hash.
+
+        Returns:
+            str: The hashed password.
+        """
+        return hashlib.sha256(password.encode()).hexdigest()
 
     def register_user(self, username, password):
         """Adds a new user to the system.

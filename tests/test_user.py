@@ -100,5 +100,21 @@ class TestUserManager(unittest.TestCase):
         result = self.user_manager.update_user_password(username, new_password)
         self.assertFalse(result)  # Assert that the password update failed
 
+    def test_hash_password_consistency(self):
+        """Test that hashing the same password multiple times produces the same result."""
+        password = "testPassword123"
+        hash1 = self.user_manager.hash_password(password)
+        hash2 = self.user_manager.hash_password(password)
+        self.assertEqual(hash1, hash2, "Hashing the same password should always produce the same hash")
+
+    def test_hash_password_uniqueness(self):
+        """Test that hashing different passwords produces different results."""
+        password1 = "passwordOne123"
+        password2 = "passwordTwo123"
+        hash1 = self.user_manager.hash_password(password1)
+        hash2 = self.user_manager.hash_password(password2)
+        self.assertNotEqual(hash1, hash2, "Hashing different passwords should produce different hashes")
+
+
 if __name__ == '__main__':
     unittest.main()
