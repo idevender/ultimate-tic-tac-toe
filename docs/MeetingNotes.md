@@ -253,3 +253,23 @@ Discussed:
 | Code Reviews    | Devenders code hashing and unique gameid. Code reviews for Evan and Cameron save board, player turn. Discussed more about code reviews. Ali's code on UI/CSS.  |
 | Kanban Board Updates  | Updates were made to the kanban board to reflect the latest changes, including completed tasks and newly identified issues. New tasks posted. |
 | Functionality | More talk about interactions. Devender & Cooper mainly gameid, Cameron and Evan mainly saving board. Devender and Ali UI. |
+
+## March 115th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Cameron Selci
+
+**Recorded by:** Jager Cooper
+
+**Venue:** Discord Voice / Screen Sharing
+
+**Time:** 2:00pm to 2:20pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item | Brief Description |
+|-----|-----|
+| Plan for submission day | Planned a long meeting for the 16th of march, to compile final documentation needed, address any last minute issues, final code reviews, and step by step walkthrough of the grading scheme|
