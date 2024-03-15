@@ -3,6 +3,7 @@
 import webbrowser
 import frontend, applogic,user 
 from bottle import Bottle, run, request, response, route,redirect
+from bottle import static_file
 
 #Create the bottle app
 app = Bottle()
