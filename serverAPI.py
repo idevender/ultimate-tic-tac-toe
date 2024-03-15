@@ -3,9 +3,19 @@
 import webbrowser
 import html, applogic,user 
 from bottle import Bottle, run, request, response, route
+from bottle import static_file
 
 #Create the bottle app
 app = Bottle()
+
+@app.route('/static/<filename>')
+def server_static(filename):
+    """ This function returns the static files from the server.
+
+    Returns:
+        String: The static file.
+    """
+    return static_file(filename, root='./static')
 
 # Routes for loading pages
 @app.route('/')
