@@ -254,7 +254,7 @@ Discussed:
 | Kanban Board Updates  | Updates were made to the kanban board to reflect the latest changes, including completed tasks and newly identified issues. New tasks posted. |
 | Functionality | More talk about interactions. Devender & Cooper mainly gameid, Cameron and Evan mainly saving board. Devender and Ali UI. |
 
-## March 115th, 2024
+## March 15th, 2024
 
 **Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
 
