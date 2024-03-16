@@ -59,18 +59,23 @@ class UserManager:
         """
         self.user_db.save_user(username, password)
 
-    def login_user(self, username, password):
-        """Authenticates a user's credentials.
+    def login_user(self, username, input_password):
+        """Authenticates a user's credentials using hashed passwords.
 
         Args:
             username (str): The username to authenticate.
-            password (str): The password to authenticate.
+            input_password (str): The password provided by the user during login.
 
         Returns:
             bool: True if authentication is successful, False otherwise.
         """
-        user = self.user_db.load_user(username)
-        return user and user['password'] == password
+        user_data = self.user_db.load_user(username)
+        if user_data:
+            # Hash the input password and compare it to the stored hash
+            input_password_hashed = self.hash_password(input_password)
+            if input_password_hashed == user_data['password']:
+                return True  # Authentication successful
+        return False  # Authentication failed
 
     def update_user_history(self, username, game_result):
         """Records the result of a user's game.
@@ -92,14 +97,6 @@ class UserManager:
         """
         return []
 
-    def log_out_user(self, username):
-        """Ends the session for the specified user.
-
-        Args:
-            username (str): The username of the user to log out.
-        """
-        pass
-
     def get_user(self, username):
         """Retrieves a user by username.
 
@@ -115,7 +112,7 @@ class UserManager:
         return None
 
     def update_user_password(self, username, new_password):
-        """Updates the password for a specified user.
+        """Updates the password for a specified user with a hashed password.
 
         Args:
             username (str): The username of the user.
@@ -126,14 +123,16 @@ class UserManager:
         """
         with store.shelve.open(self.user_db.db_name, writeback=True) as db:
             if username in db:
-                # Update the user's password
+                # Hash the new password before updating
+                hashed_new_password = self.hash_password(new_password)
+                # Update the user's password with the hashed new password
                 user_data = db[username]
-                user_data['password'] = new_password
-                db[username] = user_data  # Ensure the updated user data is saved back to the database
+                user_data['password'] = hashed_new_password
+                db[username] = user_data  # Ensuring the updated user data is saved back to the database
                 return True  # Password update was successful
             else:
                 # User does not exist in the database
-                return False  # Password update failed due to non-existing user
+                return False
 
     def get_all_users(self):
         """Retrieves all users from the database and returns them as a list of usernames.

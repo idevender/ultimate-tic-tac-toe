@@ -47,13 +47,22 @@ class TestUserManager(unittest.TestCase):
 
     def test_login_valid(self):
         """Test logging in with valid credentials."""
-        self.user_manager.register_user("testuser", "password123")
-        self.assertTrue(self.user_manager.login_user("testuser", "password123"))
+        username = "validUser"
+        password = "validPassword123"
+        hashed_password = self.user_manager.hash_password(password)
+        self.user_manager.register_user(username, hashed_password)  # Assume registration expects a hashed password
+        result = self.user_manager.login_user(username, password)
+        self.assertTrue(result, "Valid login should succeed")
 
     def test_login_invalid(self):
         """Test logging in with invalid credentials."""
-        self.user_manager.register_user("testuser", "password123")
-        self.assertFalse(self.user_manager.login_user("testuser", "wrongpassword"))
+        username = "validUser"
+        password = "validPassword123"
+        wrong_password = "wrongPassword123"
+        hashed_password = self.user_manager.hash_password(password)
+        self.user_manager.register_user(username, hashed_password)  # Register user with correct hashed password
+        result = self.user_manager.login_user(username, wrong_password)
+        self.assertFalse(result, "Invalid login should fail")
 
     def test_get_user_exists(self):
         """Test retrieving an existing user."""
@@ -93,26 +102,25 @@ class TestUserManager(unittest.TestCase):
 
     def test_update_user_password_success(self):
         """Test successfully updating an existing user's password."""
-        # First, register a user
-        username, initial_password, new_password = "testuser", "initialPassword123", "newPassword456"
-        self.user_manager.register_user(username, initial_password)
-
-        # Now, attempt to update the user's password
-        result = self.user_manager.update_user_password(username, new_password)
-        self.assertTrue(result)  # Assert that the password update was successful
-
-        # Optionally, verify the new password is set correctly by attempting to login
+        username = "existingUser"
+        old_password = "oldPassword123"
+        new_password = "newPassword123"
+        # Register a user with the old password
+        self.user_manager.register_user(username, self.user_manager.hash_password(old_password))
+        # Attempt to update the password to the new password
+        update_success = self.user_manager.update_user_password(username, new_password)
+        self.assertTrue(update_success, "Updating an existing user's password succeed")
+        # Verify login with the new password is successful
         login_success = self.user_manager.login_user(username, new_password)
-        self.assertTrue(login_success)
+        self.assertTrue(login_success, "Able to login with the new password")
 
-    def test_update_user_password_failure_nonexistent_user(self):
+    def test_update_user_password_fail_nonexist_user(self):
         """Test attempting to update the password for a user that does not exist."""
-        # Define a username and password for a user that has not been registered
-        username, new_password = "nonexistentUser", "newPassword789"
-
-        # Attempt to update the password for the non-existent user
-        result = self.user_manager.update_user_password(username, new_password)
-        self.assertFalse(result)  # Assert that the password update failed
+        username = "nonexistentUser"
+        new_password = "newPassword456"
+        # Attempt to update the password for a user is not registered
+        update_success = self.user_manager.update_user_password(username, new_password)
+        self.assertFalse(update_success, "Updating a non-existent user's password should fail")
 
     def test_hash_password_consistency(self):
         """Test that hashing the same password multiple times produces the same result."""

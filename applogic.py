@@ -147,6 +147,7 @@ class SuperTicTacToe:
         self.board = store.GameStateManager.load_game(gameid)['board']
         self.playerTurn = store.GameStateManager.load_game(gameid)['turn']
         return self.board
+
        
     def save_board(self, gameid):
         store.GameStateManager.save_game(gameid = gameid, turn = self.playerTurn, board = self.board)
