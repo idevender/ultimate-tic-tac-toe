@@ -22,12 +22,13 @@ class SuperTicTacToe:
     PLAYER_ONE = 1
     PLAYER_TWO = 2
     DRAW = 3
-    
-    def __init__(self, gameid):
+        
+    def create_game(self, gameid):
         self.board = [[0 for _ in range(9)] for _ in range(9)]
         self.playerTurn = SuperTicTacToe.PLAYER_ONE
         self.gameid = gameid
-    
+        self.save_board(gameid = self.gameid, board = self.board, playerTurn = self.playerTurn)
+
     def make_move(self, gameid, row, col):
         """
         Makes a move on the game board.
@@ -40,7 +41,7 @@ class SuperTicTacToe:
         Returns:
             bool: True if the move resulted in a win or draw, False otherwise.
         """
-
+        self.load_board(gameid)
 
         if self.board[row][col] !=0:
             return False
@@ -145,7 +146,9 @@ class SuperTicTacToe:
 
     
     def load_board(self, gameid):
-        self.board = store.load_game(gameid)
+        self.gameid = gameid
+        self.board = store.GameStateManager.load_game(gameid)['board']
+        self.playerTurn = store.GameStateManager.load_game(gameid)['turn']
        
     def save_board(self, gameid):
-        store.save_game(self.board, gameid)
+        store.GameStateManager.save_game(gameid = gameid, turn = self.playerTurn, board = self.board)
