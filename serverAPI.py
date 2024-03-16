@@ -134,7 +134,7 @@ def create_game(user_id1,user_id2):
     """
     game_id = UserMan.gen_game_id(user_id1,user_id2)
     applogic.SuperTicTacToe(game_id).create_game(game_id)
-    return frontend.RenderEngine().render_main_game_page(applogic.SuperTicTacToe(game_id).load_board())
+    return frontend.FrontEndOps().process_board_config(applogic.SuperTicTacToe(game_id).load_board())
 
 @app.route('/check_game/<game_id>/<x>/<y>')
 def check_game_state(game_id, x, y):
@@ -146,7 +146,7 @@ def check_game_state(game_id, x, y):
     
     if applogic.SuperTicTacToe(game_id).make_move(game_id,x,y):
         response.status = 200
-        return frontend.RenderEngine().render_updated_board(applogic.SuperTicTacToe(game_id).load_board())
+        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe(game_id).load_board())
     else :
         response.status = 400
         return "Invalid Move"
@@ -175,7 +175,7 @@ def load_game_state(game_id):
     """
     if applogic.SuperTicTacToe(game_id).load_board(game_id):
         response.status = 200
-        return frontend.RenderEngine().render_updated_board(applogic.SuperTicTacToe(game_id).load_board())
+        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe(game_id).load_board())
     else :
         response.status = 404
         return "Game Not Found"

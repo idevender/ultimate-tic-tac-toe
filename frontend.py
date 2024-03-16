@@ -1,6 +1,6 @@
 
 # Importing the required libaries
-from bottle import template
+from bottle import template, request
 import os
 
 
@@ -28,23 +28,34 @@ class FrontEndOps:
         game_board (2d list): A 9x9 list representing the game board.
         """
 
-        pass
+        # Make sure the game_board is well recieved
+        if not game_board:
+            return "Game Board Not Found"
+        if not isinstance(game_board, list):
+            raise TypeError("The game board is not a list.")
+
+
+        return self.AppRenderEngine.render_updated_board(game_board)
     
 
-    def get_cell_coords(self, cell_id):
+    def get_cell_coords(self):
         """
         Returns the coordinates of the button/cell clicked by a player on the game board in the app.
-
-        Args:
-            cell_id (str): The id of the button/cell clicked by a player on the game board.
-        
+     
         Returns:
             int, int: x coordinate, y coordinate of the cell clicked 
         
         """
 
-        cell_x_coord = int(cell_id[0])    
-        cell_y_coord = int(cell_id[1])
+        # Getting the cell Coordinates from the request
+        cell_coords = request.forms.get('cordinate')
+
+        # Seperating the X and Y Coordinates from the cell ID String
+        cell_coords = cell_coords.split(',') 
+
+
+        cell_x_coord = int(cell_coords[0]) # Grid Cell X Coordinate
+        cell_y_coord = int(cell_coords[1]) # Grid Cell Y Coordinate
 
         return cell_x_coord, cell_y_coord
     
@@ -62,6 +73,24 @@ class FrontEndOps:
 
         return self.AppRenderEngine.render_updated_board(game_board)
 
+
+    def process_online_players(self, online_players):
+        """
+        Gets the list of online players from the server.
+        
+        Args:
+            online_players (list): A list of online players.
+
+        Returns:
+            self.AppRenderEngine.online_players_page (str): The template for the online player list page.
+        """
+
+        if not isinstance(online_players, list):
+            raise TypeError("The online players list is not a list.")
+        if not all(isinstance(player, str) for player in online_players):
+            raise TypeError("The online players list contains non-string elements.")
+
+        return self.AppRenderEngine.render_online_players(online_players)
 
 
 # Class that handles the rendering of all the html templates for the super tic tac toe app
@@ -83,6 +112,7 @@ class RenderEngine:
         self.signup_page = template('signup')
         self.login_page = template('login')
         self.main_game_page = template('gamepage')
+        self.online_players_page = template('onlineplayers')
 
 
     def render_signup_page(self):
@@ -137,3 +167,10 @@ class RenderEngine:
 
         return template('main_game_page', board_config=board_config)
 
+
+    def render_online_players(self, online_players):
+        """
+        Renders the online players page of the game app.    
+        """
+
+        return template('online_players', online_players=online_players)
