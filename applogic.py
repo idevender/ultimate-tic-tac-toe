@@ -52,8 +52,6 @@ class SuperTicTacToe:
                 self.playerTurn = SuperTicTacToe.PLAYER_TWO
             else:
                 self.playerTurn = SuperTicTacToe.PLAYER_ONE
-        
-        self.check_states()
     
     def check_states(self):
         if(self.check_board_draw):
@@ -143,12 +141,13 @@ class SuperTicTacToe:
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
                 self.board[i][j] = self.playerTurn
-
     
     def load_board(self, gameid):
         self.gameid = gameid
         self.board = store.GameStateManager.load_game(gameid)['board']
         self.playerTurn = store.GameStateManager.load_game(gameid)['turn']
+        return self.board
+
        
     def save_board(self, gameid):
         store.GameStateManager.save_game(gameid = gameid, turn = self.playerTurn, board = self.board)
