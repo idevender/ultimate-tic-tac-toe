@@ -18,7 +18,7 @@
             <button class="login-submit">Login</button>
         </div>
         <div class="reg-div">
-            <p>Don't have an account? <a href="/register">Register</a></p>
+            <p>Don't have an account? <a href="/register_user">Register</a></p>
         </div>
     </form>
 

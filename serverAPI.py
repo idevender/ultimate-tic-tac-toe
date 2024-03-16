@@ -81,21 +81,6 @@ def login_user():
         response.status = 404
         return "User not found"
 
-
-@app.route('/register', method='GET')
-def get_registration_page():
-    """ This function returns the registration page.
-
-    Returns:
-        String: The registration page.
-    """
-    if frontend.RenderEngine().render_signup_page():
-        response.status = 200
-        return frontend.RenderEngine().render_signup_page()
-    else:
-        response.status = 404
-        return "Page Not Found"
-
 @app.route('/update_user/<username>', method='POST')
 def update_user_info(username):
     """ This function updates the user information if the user exists
