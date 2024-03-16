@@ -41,6 +41,13 @@ class TestFrontEndOps(TestCase):
     def test_update_board(self):
         pass
 
+    def test_process_online_players(self, online_players):
+        online_players = 123
+        with self.assertRaises(TypeError):
+            self.test_frontend.process_online_players(online_players=online_players)
+
+
+
 
 class TestRenderEngine(TestCase):
     def setUp(self):
@@ -66,9 +73,15 @@ class TestRenderEngine(TestCase):
         main_page_path = os.path.join(os.path.dirname(__file__), "views/gamepage.tpl")
         self.assertTrue(os.path.exists(main_page_path), "The main game html template does not exist in the views folder!")
 
-    def test_render_updated_board(self):
-        pass
+    def test_render_online_players_page_exist(self):
+        online_players_page_path = os.path.join(os.path.dirname(__file__), "views/onlineplayers.tpl")
+        self.assertTrue(os.path.exists(online_players_page_path), "The online players list html template does not exist in the views folder!")
 
-
+    def test_render_updated_board(self, board_config):
+        # check if the board_config is a 2d list
+        if not isinstance(board_config, list):
+            self.fail("The board_config is not a list!")
+        
+    
 if __name__ == '__main__':
     unittest.main()
