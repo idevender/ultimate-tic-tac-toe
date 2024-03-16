@@ -56,8 +56,24 @@ class UserManager:
         Args:
             username (str): The chosen username for the new user.
             password (str): The chosen password for the new user.
+
+        Returns:
+            bool: True if the user was successfully registered, False otherwise.
         """
-        self.user_db.save_user(username, password)
+        # Check if the username already exists in the database
+        with store.shelve.open(self.user_db.db_name) as db:
+            if username in db:
+                # Username already taken, return False to indicate failure
+                return False
+
+            # Hash the password
+            hashed_password = self.hash_password(password)
+
+            # Store the user with the hashed password
+            db[username] = {'username': username, 'password': hashed_password}
+
+        # Return True
+        return True
 
     def login_user(self, username, input_password):
         """Authenticates a user's credentials using hashed passwords.
