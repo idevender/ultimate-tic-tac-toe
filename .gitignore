@@ -1,0 +1,11 @@
+# Ignore specific file
+#file.txt
+
+# Ignore entire folder
+#folder/
+
+# Ignore all files with a specific extension
+#*.log
+
+__pycache__/
+.pytest_cache/
