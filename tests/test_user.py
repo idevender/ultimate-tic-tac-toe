@@ -47,13 +47,22 @@ class TestUserManager(unittest.TestCase):
 
     def test_login_valid(self):
         """Test logging in with valid credentials."""
-        self.user_manager.register_user("testuser", "password123")
-        self.assertTrue(self.user_manager.login_user("testuser", "password123"))
+        username = "validUser"
+        password = "validPassword123"
+        hashed_password = self.user_manager.hash_password(password)
+        self.user_manager.register_user(username, hashed_password)  # Assume registration expects a hashed password
+        result = self.user_manager.login_user(username, password)
+        self.assertTrue(result, "Valid login should succeed")
 
     def test_login_invalid(self):
         """Test logging in with invalid credentials."""
-        self.user_manager.register_user("testuser", "password123")
-        self.assertFalse(self.user_manager.login_user("testuser", "wrongpassword"))
+        username = "validUser"
+        password = "validPassword123"
+        wrong_password = "wrongPassword123"
+        hashed_password = self.user_manager.hash_password(password)
+        self.user_manager.register_user(username, hashed_password)  # Register user with correct hashed password
+        result = self.user_manager.login_user(username, wrong_password)
+        self.assertFalse(result, "Invalid login should fail")
 
     def test_get_user_exists(self):
         """Test retrieving an existing user."""
