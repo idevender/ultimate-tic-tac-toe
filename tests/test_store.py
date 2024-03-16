@@ -28,17 +28,38 @@ class TestGameStateManager(unittest.TestCase):
         self.assertEqual(result, 0)
 
     def test_save_game(self):
+        self.setUp()
         # Test saving a game state
         with self.assertRaises(IOError):
             self.manager.save_game("test_game")
 
+    def test_save_game_fail(self):
+        self.setUp()
+        self.manager.save_game("test_game")
+        # Raise error on second save attempt since game is already saved.
+        with self.assertRaises(IOError):
+            self.manager.save_game("test_game")
+
+
     def test_load_game(self):
-        # Test loading a game state
+        # Test loading a game state.
+        self.setUp()
+        self.manager.save_game("test_game")
+        self.manager.load_game("test_game")
+
+    def test_load_game_fail(self):
+        # Test loading a game state that is not saved.
         with self.assertRaises(IOError):
             self.manager.load_game("test_game")
 
     def test_remove_game(self):
-        # Test removing the game state
+        # Test removing a game state.
+        self.setUp()
+        self.manager.save_game("test_game")
+        self.manager.remove_game("test_game")
+
+    def test_remove_game_fail(self):
+        # Test removing the game state that is not saved.
         with self.assertRaises(IOError):
             self.manager.remove_game("test_game")
 
@@ -65,7 +86,7 @@ class TestUserManager(unittest.TestCase):
         self.setUp()
         self.manager.save_user("test_user","test_user_password")
         # Raise error on second save attempt since user is already saved.
-        with self.assertRaises(OSError):
+        with self.assertRaises(IOError):
             self.manager.save_user("test_user","test_user_password")
 
     def test_load_user(self):
@@ -81,5 +102,11 @@ class TestUserManager(unittest.TestCase):
 
     def test_remove_user(self):
         # Test removing a user
+        self.setUp()
+        self.manager.save_user("test_user","test_user_password")
+        self.manager.remove_user("test_user")
+
+    def test_remove_user_fail(self):
+        # Test removing a user that has not been saved.
         with self.assertRaises(IOError):
             self.manager.remove_user("test_user")
