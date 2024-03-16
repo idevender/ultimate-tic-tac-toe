@@ -115,7 +115,7 @@ class UserManager:
         return None
 
     def update_user_password(self, username, new_password):
-        """Updates the password for a specified user.
+        """Updates the password for a specified user with a hashed password.
 
         Args:
             username (str): The username of the user.
@@ -126,14 +126,16 @@ class UserManager:
         """
         with store.shelve.open(self.user_db.db_name, writeback=True) as db:
             if username in db:
-                # Update the user's password
+                # Hash the new password before updating
+                hashed_new_password = self.hash_password(new_password)
+                # Update the user's password with the hashed new password
                 user_data = db[username]
-                user_data['password'] = new_password
-                db[username] = user_data  # Ensure the updated user data is saved back to the database
+                user_data['password'] = hashed_new_password
+                db[username] = user_data  # Ensuring the updated user data is saved back to the database
                 return True  # Password update was successful
             else:
                 # User does not exist in the database
-                return False  # Password update failed due to non-existing user
+                return False
 
     def get_all_users(self):
         """Retrieves all users from the database and returns them as a list of usernames.
