@@ -37,13 +37,29 @@ class TestUserManager(unittest.TestCase):
 
     def test_register_valid(self):
         """Test registering a user with valid credentials."""
-        self.assertIsNone(self.user_manager.register_user("testuser", "password123"))
+        username = "valid"
+        password = "validpassword"
+        # Attempt to register a new user
+        registration_result = self.user_manager.register_user(username, password)
+        self.assertTrue(registration_result, "Registration should succeed for new username.")
+
+        # Verify the password is hashed
+        stored_user = self.user_manager.user_db.load_user(username)
+        hashed_password = self.user_manager.hash_password(password)
+        self.assertEqual(stored_user['password'], hashed_password, "The stored password should be hashed.")
 
     def test_register_duplicate(self):
         """Test registering a user with a duplicate username."""
-        self.user_manager.register_user("testuser", "password123")
-        with self.assertRaises(Exception):
-            self.user_manager.register_user("testuser", "newpassword")
+        username = "duplicateUserName"
+        password = "tiktoktaktik"
+        # Attempt to register should succeed
+        result_first_attempt = self.user_manager.register_user(username, password)
+        self.assertTrue(result_first_attempt, "first registration attempt should succeed.")
+
+        # Attempt with the same username should fail
+        result_second_attempt = self.user_manager.register_user(username, "new")
+        self.assertFalse(result_second_attempt,
+                         "The second registration attempt will fail.")
 
     def test_login_valid(self):
         """Test logging in with valid credentials."""
