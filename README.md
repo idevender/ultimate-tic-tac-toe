@@ -28,12 +28,12 @@ These instructions will guide you on how to run the program and unit tests.
 
 All documents related to the project are located in the `documents` folder in the repository. The following are some of the key documents:
 
-* SCRUM Meeting Minutes: [Provide a link to the document]
-* Kanban Board: [Provide a link to the document]
-* Issue Tracker: [Provide a link to the document]
-* Performance Reviews: [Provide a link to the document]
-* Code Reviews: [Provide a link to the document]
-* Component Architecture Documents: [Provide a link to the document]
+* SCRUM Meeting Minutes: [docs\MeetingNotes.md] (docs\MeetingNotes.md)
+* Kanban Board: [https://github.com/orgs/CS2005W24/projects/**28**](https://github.com/orgs/CS2005W24/projects/28)
+* Issue Tracker: [https://github.com/CS2005W24/term-project-teamg/issues](https://github.com/CS2005W24/term-project-teamg/issues)
+* Performance Reviews: [docs\performance_reviews.md](docs\performance_reviews.md)
+* Code Reviews: [https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr](https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr) **Note: Code reviews are contained within the Pull Request code review functionality within Github.**
+* Component Architecture Documents: [docs\architecture_docs](docs\architecture_docs)
 * Process Model Document: [Provide a link to the document]
 * Sprint Release Status: [Provide a link to the document]
 
