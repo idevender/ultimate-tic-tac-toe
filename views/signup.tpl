@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team G - Ultimate Tic Tac Toe</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="../static/signup.css">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
             <button class="register-submit">Register</button>
         </div>
         <div class="login-div">
-            <p>Already have an account? <a href="#">Login</a></p>
+            <p>Already have an account? <a href="/login">Login</a></p>
         </div>
     </form>
 
