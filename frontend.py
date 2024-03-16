@@ -112,7 +112,7 @@ class RenderEngine:
         self.signup_page = template('signup')
         self.login_page = template('login')
         self.main_game_page = template('gamepage')
-        self.online_players_page = template('onlineplayers')
+        # self.online_players_page = template('onlineplayers')
 
 
     def render_signup_page(self):
