@@ -30,7 +30,7 @@ class SuperTicTacToe:
         self.board = [[0 for _ in range(9)] for _ in range(9)]
         self.playerTurn = SuperTicTacToe.PLAYER_ONE
         self.gameid = gameid
-        self.save_board(gameid = self.gameid, board = self.board, playerTurn = self.playerTurn)
+        self.save_board(gameid = self.gameid)
 
     def make_move(self, gameid, row, col):
         """
