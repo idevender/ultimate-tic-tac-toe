@@ -273,3 +273,23 @@ Discussed:
 | Agenda Item | Brief Description |
 |-----|-----|
 | Plan for submission day | Planned a long meeting for the 16th of march, to compile final documentation needed, address any last minute issues, final code reviews, and step by step walkthrough of the grading scheme|
+
+## March 16th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Jager Cooper
+
+**Recorded by:** Evan Best
+
+**Venue:** Discord Voice / Screen Sharing
+
+**Time:** 7:30pm to 12:00am
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item | Brief Description |
+|-----|-----|
+| Long End Of Spring Meeting | Conducted a long meeting to fix issues, make required documents, and update files |
