@@ -53,7 +53,6 @@ class TestSuperTicTacToe(unittest.TestCase):
         game.board = [[SuperTicTacToe.PLAYER_ONE, SuperTicTacToe.PLAYER_TWO] * 4 + [SuperTicTacToe.PLAYER_ONE]] * 9
         self.assertTrue(game.check_board_draw())
         
-    @patch('SuperTicTacToe().store.GameStateManager.save_game')
     def test_save_board(self, mock_save_game):
         game = SuperTicTacToe()
         gameid = 1
