@@ -29,7 +29,7 @@
 | Reviewer | Comments |
 | -------- | -------- |
 | Cameron | Needs to be ontop of the pull-requests. |
-| Jager |  |
+| Jager | There's room for improvement in your time management skills to ensure timely delivery of tasks. |
 | Devender | |
 | Evan |  |
 
