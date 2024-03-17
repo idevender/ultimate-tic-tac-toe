@@ -23,9 +23,8 @@ def get_homepage():
     """ This function returns the homepage of the server.
 
     Returns:
-        String: The homepage of the server.
+        redirect: The login page.
     """
-    
     
     return redirect('/login')
 
@@ -37,9 +36,9 @@ def get_game_page(game_id):
     Returns:
         String: The game's page.
     """
-    if applogic.SuperTicTacToe(game_id).load_board(game_id):
+    if applogic.SuperTicTacToe().load_board(game_id):
         response.status = 200
-        return frontend.RenderEngine().render_main_game_page(applogic.SuperTicTacToe(game_id).load_board(game_id))
+        return frontend.RenderEngine().render_main_game_page(applogic.SuperTicTacToe().load_board(game_id))
     else:
         response.status = 404
         return "Game Not Found"
@@ -68,7 +67,7 @@ def login_user():
     Returns:
         Int: 404 if the user is not found, 200 if the user is found. 
     """
-    form_data = request.form.todict()
+    form_data = request.forms.todict()
     
     if UserMan.login_user(form_data['username'], form_data['password']):
         response.status = 200
@@ -144,9 +143,9 @@ def check_game_state(game_id, x, y):
         the new board state in frontend.
     """
     
-    if applogic.SuperTicTacToe(game_id).make_move(game_id,x,y):
+    if applogic.SuperTicTacToe().make_move(game_id,x,y):
         response.status = 200
-        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe(game_id).load_board())
+        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board())
     else :
         response.status = 400
         return "Invalid Move"
@@ -159,7 +158,7 @@ def save_game_state(game_id):
     Returns:
         Int: 400 if there was an error, 200 if the game is found.
     """
-    if applogic.SuperTicTacToe(game_id).save_board(game_id):
+    if applogic.SuperTicTacToe().save_board(game_id):
         response.status = 200
         return "Game Saved"
     else :
@@ -173,9 +172,9 @@ def load_game_state(game_id):
     Returns:
         Array: Returns the game state in a matrix.
     """
-    if applogic.SuperTicTacToe(game_id).load_board(game_id):
+    if applogic.SuperTicTacToe().load_board(game_id):
         response.status = 200
-        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe(game_id).load_board())
+        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id))
     else :
         response.status = 404
         return "Game Not Found"
