@@ -26,7 +26,7 @@ Sprint goals and priorities are established.
 Sprint Execution
 Development tasks are carried out according to the sprint plan.
 Each team member works on their assigned tasks, collaborating as needed.
-Daily stand-up meetings are held to discuss progress, challenges, and plans for the day.
+Meetings are held to discuss progress, challenges, and plans for the day.
 
 Sprint Review
 At the end of each sprint, the team conducts a sprint review meeting.
@@ -44,7 +44,7 @@ Development Team: Consists of 5 college students responsible for designing, deve
 
 Artifacts and Deliverables
 
-Product Backlog: Contains a list of user stories, features, and enhancements prioritized by the product owner.
+Product Backlog: Contains a list of user stories, features, and enhancements prioritized by the professor.
 Sprint Backlog: Subset of items selected from the product backlog for implementation during the current sprint.
 Working Software Increment: Deliverable at the end of each sprint, showcasing completed features and functionality.
 
