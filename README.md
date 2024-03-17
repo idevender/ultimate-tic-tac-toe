@@ -48,11 +48,12 @@ Note: Make sure you have the necessary dependencies installed before running the
 ### Running the Tests
 
 All the unit test files are located in the `tests/` folder.
-- tests for `serverAPI.py` are located in `test_api.py` file
-- tests for `frontend.py` are located in `test_html.py` file
-- tests for `user.py` are located in `test_user.py` file
-- tests for `store.py` are located in `test_store.py` file
-- tests for `applogic.py` are located in `applogictest.py` file
+
+* tests for `serverAPI.py` are located in `test_api.py` file
+* tests for `frontend.py` are located in `test_html.py` file
+* tests for `user.py` are located in `test_user.py` file
+* tests for `store.py` are located in `test_store.py` file
+* tests for `applogic.py` are located in `applogictest.py` file
 
 ## Documentation
 
@@ -78,7 +79,7 @@ No other Software engineering tools were used to coordinate our team and/or prog
 
 ## Sprint Release Status
 
-Working Features: Login Page (Works on the frontend) , Registration Page (Works in the frontend)
+Working Features: Login Page (Works on the frontend) , Registration Page (Works in the frontend)  
 Not Working Features: Backend Login, Backend Registration, PLaying a game, Session Management not completed, Adding playing to the games, Some Game Logic
 
 ## Authors
@@ -98,3 +99,12 @@ Devender Singh
 | Team Member | Source Acknowledgement |
 | ----- | ----- |
 | Whole Team | *used GenAI to teach us aspects on the requirements of this course, the processes, and overcome the difficulties we have faced with the framework required for the course* |
+|Cameron Selci|  Created and wrote tests for app logic.|
+
+|Jager Cooper|Created and wrote tests for server API.|
+
+|Mohd Ali Bin Naser| Created and wrote tests for frontend.|
+
+|Evan Best| Created and wrote tests for persistent storage.|
+
+|Devender Singh| Created and wrote tests for user management system.|
