@@ -1,8 +1,10 @@
-# Project Name
+
+# Team G's Ultimate Tic Toe Game
+
 
 ## Introduction
 
-[Provide a brief introduction about your project]
+This is the repository of the COMP 2005 TERM Project for Team G
 
 ## Getting Started
 
@@ -57,9 +59,10 @@ All documents related to the project are located in the `documents` folder in th
 * Issue Tracker: [https://github.com/CS2005W24/term-project-teamg/issues](https://github.com/CS2005W24/term-project-teamg/issues)
 * Performance Reviews: [docs\performance_reviews.md](docs\performance_reviews.md)
 * Code Reviews: [https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr](https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr) **Note: Code reviews are contained within the Pull Request code review functionality within Github.**
+* Code Review Process Documentation(Detailed): [docs\code_review_process.md](docs\code_review_process.md)
 * Component Architecture Documents: [docs\architecture_docs](docs\architecture_docs)
-* Process Model Document: [Provide a link to the document]
-* Code Review Process: [Provide a link to the document]
+* Process Model Document: [docs/ProjectModelDocument](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/ProcessModelDocument.md)
+
 
 ## Tools
 
@@ -76,7 +79,15 @@ No other Software engineering tools were used to coordinate our team and/or prog
 
 ## Authors
 
-[List of contributors]
+Cameron Selci
+
+Jager Cooper
+
+Mohd Ali Bin Naser
+
+Evan Best
+
+Devender Singh
 
 ## Acknowledgments
 

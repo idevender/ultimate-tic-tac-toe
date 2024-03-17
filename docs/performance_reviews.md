@@ -11,7 +11,7 @@
 | Reviewer | Comments |
 | -------- | -------- |
 | Cameron | Needs to slow down on implementation so that others have a chance to plan their own design. |
-| Ali | |
+| Ali | Could work on putting more time in thinking about the design and other aspects of the project before producing code |
 | Devender | |
 | Evan | Attended all meetings and communicated changes with the team effectively. Could work on keeping the task board up to date with issues. Helped teammates where they needed it and consistently worked on his portion of the project.|
 
@@ -20,7 +20,7 @@
 | Reviewer | Comments |
 | -------- | -------- |
 | Cameron | Needs to be more confident in his decision making. |
-| Ali | |
+| Ali | Devender could work on his stress management and try not to overthink stuff related to course submission and other course related activities. |
 | Jager | When Devender is Scrum master he could be more aggressive in terms of taking control of the meeting and keeping us on task. |
 | Evan | Devender attended and participated in all meetings. Could work on communicating changes for better interactivity between each module. Kept issues up to date and had consistent progress on tasks.|
 
@@ -38,7 +38,7 @@
 | Reviewer | Comments |
 | -------- | -------- |
 | Cameron | Needs to put foot forward to show how much work he has done and helped with. |
-| Ali | |
+| Ali | Evan could work on communicating and contributing more during team meetings.  |
 | Devender | |
 | Jager | Evan could work on being more punctual to meetings, and participating more in the conversations we have and the problems we discuss during our meetings |
 
@@ -47,7 +47,7 @@
 | Reviewer | Comments |
 | -------- | -------- |
 | Jager | Cameron could work on more swiftly completing tasks and tackling issues for bugs and/or missing method functionality |
-| Ali | |
+| Ali | Cameron could work on being more attentive during meetings |
 | Devender | |
 | Evan | Cameron Attended all meetings, and communicated with all members of the team. Could work on being on time for meetings. Kept the task board up to date with closing issues and contributed greatly through his part of the project.
 |
