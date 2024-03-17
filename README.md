@@ -58,7 +58,7 @@ All documents related to the project are located in the `documents` folder in th
 * Performance Reviews: [docs\performance_reviews.md](docs\performance_reviews.md)
 * Code Reviews: [https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr](https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr) **Note: Code reviews are contained within the Pull Request code review functionality within Github.**
 * Component Architecture Documents: [docs\architecture_docs](docs\architecture_docs)
-* Process Model Document: [Provide a link to the document]
+* Process Model Document: [docs\ProjectModelDocument](docs\ProjectModelDocument.md)
 * Code Review Process: [Provide a link to the document]
 
 ## Tools
