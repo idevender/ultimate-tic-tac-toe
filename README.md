@@ -77,9 +77,13 @@ No other Software engineering tools were used to coordinate our team and/or prog
 ## Authors
 
 Cameron Selci
+
 Jager Cooper
+
 Mohd Ali Bin Naser
+
 Evan Best
+
 Devender Singh
 
 ## Acknowledgments
