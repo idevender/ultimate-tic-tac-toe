@@ -16,7 +16,6 @@ sys.path.append(root_dir)
 import unittest
 from applogic import SuperTicTacToe
 import unittest
-from unittest.mock import patch
 
 class TestSuperTicTacToe(unittest.TestCase):
     def test_create_game_initializes_board_correctly(self):
