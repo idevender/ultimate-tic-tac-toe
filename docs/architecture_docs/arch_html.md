@@ -7,6 +7,7 @@ This file contains a brief description about the architecture of the HTML fronte
 ---
 
 - `template from bottle`: To generate dynamic HTML content with the combination of static HTML templates with dynamic data.
+- `request from bottle`: To generate dynamic HTML content with the combination of static HTML templates with dynamic data.
 - `os`: To locate the paths of the HTML templates.
 
 <br>
@@ -23,7 +24,7 @@ This file contains a brief description about the architecture of the HTML fronte
   - `process_board_config(self, game_board)`:
   - `get_cell_coords(self, cell_id)`:
   - `update_board(self, game_board)`:
-
+  -  `process_online_players(self, online_players)`
 
 #### `RenderEngine()`
 - **Description:**
@@ -32,12 +33,14 @@ This file contains a brief description about the architecture of the HTML fronte
   - `self.signup_page`: The HTML template for the user signup/registration page.
   - `self.login_page`: The HTML template for the user login page.
   - `self.main_game_page`: The HTML template for the game/home page.
+  - `self.online_players_page`: The HTML template for the online players list page.
 - **Methods:**
   - `__init__(self)`:
   - `render_signup_page(self)`:
   - `render_login_page(self)`:
   - `render_main_game_page(self, board_config)`:
   - `render_updated_board(self, board_config)`:
+  - `render_online_players(self, online_players)`:
 
 
 <br>
@@ -60,4 +63,4 @@ Each class has 2 units tests for each method in `FrontEndOps()` and `RenderEngin
 ### HTML Architecture UML Diagram:
 ---
 
-![User UML Diagram](./diagrams/html_arch_uml_diagram.png)
+![User UML Diagram](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/diagrams/html_arch_uml_diagram.png)
