@@ -77,3 +77,5 @@ This document outlines the architecture and design of the User Management System
 
 ### User Activity Analytics
 - Extending the system to capture and analyze user activity patterns for improved user engagement and system optimization.
+
+![UML Diagram for User](../diagrams/User_UML_diagram.png)
