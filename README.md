@@ -103,12 +103,8 @@ March 16th, 11:30pm
 | Team Member | Source Acknowledgement |
 | ----- | ----- |
 | Whole Team | *used GenAI to teach us aspects on the requirements of this course, the processes, and overcome the difficulties we have faced with the framework required for the course* |
-|Cameron Selci|  Created and wrote tests for app logic.|
-
-|Jager Cooper|Created and wrote tests for server API.|
-
-|Mohd Ali Bin Naser| Created and wrote tests for frontend.|
-
-|Evan Best| Created and wrote tests for persistent storage.|
-
-|Devender Singh| Created and wrote tests for user management system.|
+| Cameron Selci |  Created and wrote tests for app logic. |
+| Jager Cooper | Created and wrote tests for server API. |
+| Mohd Ali Bin Naser | Created and wrote tests for frontend. |
+| Evan Best | Created and wrote tests for persistent storage. |
+| Devender Singh | Created and wrote tests for user management system. |
