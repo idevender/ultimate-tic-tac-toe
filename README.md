@@ -80,4 +80,6 @@ No other Software engineering tools were used to coordinate our team and/or prog
 
 ## Acknowledgments
 
-[Provide acknowledgments]
+| Team Member | Source Acknowledgement |
+| ----- | ----- |
+| Whole Team | *used GenAI to teach us aspects on the requirements of this course, the processes, and overcome the difficulties we have faced with the framework required for the course* |
