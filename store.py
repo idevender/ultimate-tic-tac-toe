@@ -150,13 +150,17 @@ class UserManager:
     def remove_user(self, username):
         """Removes a previously stored user from the database.
 
-        THIS IS A STUB
-
         Parameters:
             username (str): The name of the user to be removed.
 
         Raises:
             IOError: If the user cannot be destroyed.
         """
-        pass
+        with shelve.open(self.db_name) as db:
+            user = db.get(username)
+
+            if user is None:
+                raise IOError(f"The user '{username}' does not exist.")
+            
+            del db[username]
 

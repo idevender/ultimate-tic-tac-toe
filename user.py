@@ -1,5 +1,6 @@
 import store
 import hashlib
+import uuid
 
 class User:
     """Represents a user with a username and password.
@@ -160,3 +161,22 @@ class UserManager:
         with store.shelve.open(self.user_db.db_name) as db:
             all_usernames.extend(db.keys())
         return all_usernames
+
+    def gen_game_id(self, user_id1, user_id2):
+        """Generates a unique game ID for a new game between two users and initializes the game.
+
+        Args:
+            user_id1 (str): The username of the first user.
+            user_id2 (str): The username of the second user.
+
+        Returns:
+            str: A globally unique game ID.
+        """
+        # Generate a unique UUID for the new game
+        unique_id = str(uuid.uuid4())
+
+        # Initialize a new game with the generated ID, user1, and user2
+        game_state_manager = store.GameStateManager(db_name='gameStates')
+        game_state_manager.save_game(game_id=unique_id, player1=user_id1, player2=user_id2, turn=user_id1)
+
+        return unique_id
