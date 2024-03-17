@@ -78,7 +78,7 @@ Team submission evaluation will be based on the following:
   * **5 points** Docstrings are complete and appropriate for all modules and public interface elements of your design components and coding tasks
   * **2 points** Stub implementations were/are completed where needed to support prototyping of your public interface methods. Lack of stubs must not delay other members' tasks.
   * **5 points** Status of tasks at end of sprint is clearly documented
-  * **5 points** Code component shows consideration of dependency, SOLID, de-coupling, common patterns (Adapter) and other code style and standards applied as appropriate. 
+  * **5 points** Code component shows consideration of dependency, SOLID, de-coupling, common patterns (Adapter) and other code style and standards applied as appropriate.
   * **5 points** Task completion with finished working code and attributions table
 
 **100 points** total

@@ -184,5 +184,6 @@ def load_game_state(game_id):
 #Starts the server and opens the web browser
 if __name__ == '__main__':
     UserMan = user.UserManager()
-    run(app, host='localhost', port=8080)
     webbrowser.open('http://localhost:8080/')
+    run(app, host='localhost', port=8080)
+    
