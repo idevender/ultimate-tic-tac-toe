@@ -26,7 +26,7 @@ Sprint goals and priorities are established.
 Sprint Execution
 Development tasks are carried out according to the sprint plan.
 Each team member works on their assigned tasks, collaborating as needed.
-Meetings are held to discuss progress, challenges, and plans for the day.
+3 Meetings are held in a week to discuss progress, challenges, and plans for the day.
 
 Sprint Review
 At the end of each sprint, the team conducts a sprint review meeting.
@@ -38,7 +38,7 @@ Action items are identified to enhance future sprints.
 
 Roles and Responsibilities
 
-Product Owner: Responsible for maintaining the product backlog, prioritizing user stories, and providing direction for the project.
+Professor: Responsible for maintaining the product backlog, prioritizing user stories, and providing direction for the project.
 Scrum Master: Facilitates the Agile process, organizes meetings, and removes impediments to the team's progress.
 Development Team: Consists of 5 college students responsible for designing, developing, testing, and deploying the web-based project.
 
@@ -62,7 +62,7 @@ Bugs and issues are tracked and resolved using GitHub issue tracking system.
 
 Change Management
 
-Changes to requirements are accommodated through ongoing collaboration with the product owner.
+Changes to requirements are accommodated through ongoing collaboration with the Professor.
 Changes are evaluated based on their impact on the current sprint and prioritized accordingly.
 
 Risk Management
