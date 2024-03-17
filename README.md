@@ -1,4 +1,4 @@
-# Project Name
+# Team G's Ultimate Tic Toe Game
 
 ## Introduction
 
@@ -57,9 +57,10 @@ All documents related to the project are located in the `documents` folder in th
 * Issue Tracker: [https://github.com/CS2005W24/term-project-teamg/issues](https://github.com/CS2005W24/term-project-teamg/issues)
 * Performance Reviews: [docs\performance_reviews.md](docs\performance_reviews.md)
 * Code Reviews: [https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr](https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr) **Note: Code reviews are contained within the Pull Request code review functionality within Github.**
+* Code Review Process Documentation(Detailed): [docs\code_review_process.md](docs\code_review_process.md)
 * Component Architecture Documents: [docs\architecture_docs](docs\architecture_docs)
 * Process Model Document: [Provide a link to the document]
-* Code Review Process: [Provide a link to the document]
+
 
 ## Tools
 
