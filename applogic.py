@@ -6,17 +6,20 @@ class SuperTicTacToe:
     
     Attributes:
         board (list): A 9x9 list representing the game board.
+        gameid (int): The ID of the game.
+        playerTurn (int): The current player's turn.
         
     Methods:
         __init__(self)
         make_move(self, row, col)
-        check_board_win(self, player)
+        check_board_win(self)
         check_board_draw(self)
-        check_game_win(self, player)
+        check_game_win(self)
         check_game_draw(self)
         draw_fill(self)
-        win_fill(self, player)
-        get_board(self)
+        win_fill(self)
+        load_board(self, gameid)
+        save_board(self,gameid)
     """
     PLAYABLE = 0
     PLAYER_ONE = 1
@@ -34,31 +37,32 @@ class SuperTicTacToe:
         Makes a move on the game board.
 
         Args:
+            gameid (int): The ID of the game.
             row (int): The row index of the cell.
             col (int): The column index of the cell.
-            player (int): The player making the move.
 
         Returns:
             bool: True if the move resulted in a win or draw, False otherwise.
         """
-        self.load_board(gameid)
+        self.gameid = gameid
+        self.load_board(self.gameid)
 
         if self.board[row][col] !=0:
             return False
         else:
             self.board[row][col] = self.playerTurn
-            self.save_board()
+            self.save_board(self.gameid)
             if(self.playerTurn == SuperTicTacToe.PLAYER_ONE):
                 self.playerTurn = SuperTicTacToe.PLAYER_TWO
             else:
                 self.playerTurn = SuperTicTacToe.PLAYER_ONE
     
     def check_states(self):
-        if(self.check_board_draw):
-            self.check_game_draw
+        if self.check_board_draw():
+            self.check_game_draw()
             
-        elif(self.check_board_win):
-            self.check_game_win
+        elif self.check_board_win():
+            self.check_game_win()
     
     def check_board_draw(self):
         """
@@ -76,11 +80,8 @@ class SuperTicTacToe:
         """
         Checks if a player has won the specific board.
 
-        Args:
-            player (int): The player number.
-
         Returns:
-            bool: True if the player has won, False otherwise.
+            bool: True if a player has won, False otherwise.
         """
         for row in range(0, 9, 3):
             for col in range(0, 9, 3):
@@ -98,11 +99,8 @@ class SuperTicTacToe:
         """
         Checks if a player has won the game.
 
-        Args:
-            player (int): The player number.
-
         Returns:
-            bool: True if the player has won, False otherwise.
+            bool: True if a player has won, False otherwise.
         """
         for row in range(0, 9, 3):
             for col in range(0, 9, 3):
@@ -134,15 +132,21 @@ class SuperTicTacToe:
     def win_fill(self):
         """
         Fills the specific board with the player's number to indicate a win.
-
-        Args:
-            player (int): The player number.
         """
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
                 self.board[i][j] = self.playerTurn
     
     def load_board(self, gameid):
+        """
+        Loads the game board and player turn from the game state manager.
+
+        Args:
+            gameid (int): The ID of the game.
+
+        Returns:
+            list: The loaded game board.
+        """
         self.gameid = gameid
         self.board = store.GameStateManager.load_game(gameid)['board']
         self.playerTurn = store.GameStateManager.load_game(gameid)['turn']
@@ -150,4 +154,10 @@ class SuperTicTacToe:
 
        
     def save_board(self, gameid):
+        """
+        Saves the game board and player turn to the game state manager.
+
+        Args:
+            gameid (int): The ID of the game.
+        """
         store.GameStateManager.save_game(gameid = gameid, turn = self.playerTurn, board = self.board)
