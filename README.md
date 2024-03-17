@@ -1,7 +1,6 @@
 
 # Team G's Ultimate Tic Toe Game
 
-
 ## Introduction
 
 This is the repository of the COMP 2005 TERM Project for Team G
@@ -54,15 +53,14 @@ Note: Make sure you have the necessary dependencies installed before running the
 
 All documents related to the project are located in the `documents` folder in the repository. The following are some of the key documents:
 
-* SCRUM Meeting Minutes: [docs\MeetingNotes.md](docs\MeetingNotes.md)
+* SCRUM Meeting Minutes: [docs\MeetingNotes.md](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/MeetingNotes.md)
 * Kanban Board: [https://github.com/orgs/CS2005W24/projects/**28**](https://github.com/orgs/CS2005W24/projects/28)
 * Issue Tracker: [https://github.com/CS2005W24/term-project-teamg/issues](https://github.com/CS2005W24/term-project-teamg/issues)
-* Performance Reviews: [docs\performance_reviews.md](docs\performance_reviews.md)
+* Performance Reviews: [docs\performance_reviews.md](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/performance_reviews.md)
 * Code Reviews: [https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr](https://github.com/CS2005W24/term-project-teamg/pulls?q=is%3Apr) **Note: Code reviews are contained within the Pull Request code review functionality within Github.**
-* Code Review Process Documentation(Detailed): [docs\code_review_process.md](docs\code_review_process.md)
-* Component Architecture Documents: [docs\architecture_docs](docs\architecture_docs)
+* Code Review Process Documentation(Detailed): [docs\code_review_process.md](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/code_review_process.md)
+* Component Architecture Documents: [docs\architecture_docs](https://github.com/CS2005W24/term-project-teamg/tree/master/docs/architecture_docs)
 * Process Model Document: [docs/ProjectModelDocument](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/ProcessModelDocument.md)
-
 
 ## Tools
 
