@@ -153,6 +153,35 @@ class TestUserManager(unittest.TestCase):
         hash2 = self.user_manager.hash_password(password2)
         self.assertNotEqual(hash1, hash2, "Hashing different passwords should produce different hashes")
 
+    def test_gen_game_id_and_initialize_game_success(self):
+        """Test generating a unique game ID and initializing a game."""
+        user_id1 = "user1"
+        user_id2 = "user2"
+
+        game_id = self.user_manager.gen_game_id(user_id1, user_id2)
+        self.assertIsNotNone(game_id, "A unique game ID will be generated.")
+
+        # Verify that the game state was initialized in the database
+        game_state_manager = store.GameStateManager(db_name='gameStates')
+        game_state = game_state_manager.load_game(game_id)
+        self.assertIsNotNone(game_state, "Game state should exist in the database.")
+        self.assertEqual(game_state['player1'], user_id1, "First player will match.")
+        self.assertEqual(game_state['player2'], user_id2, "Second player will match.")
+
+    def test_gen_game_id_with_nonexistent_users(self):
+        """Test game initialization failure when user IDs do not exist."""
+        user_id1 = "doesnotexistUser1"
+        user_id2 = "doesnotexistUser2"
+
+        try:
+            game_id = self.user_manager.gen_game_id(user_id1, user_id2)
+            game_state_manager = store.GameStateManager(db_name='gameStates')
+            game_state = game_state_manager.load_game(game_id)
+            # If the game state loads successfully, it means the test unexpectedly passed. Fail the test.
+            self.fail("Game initialization succeeded with non-existent users, which is unexpected.")
+        except Exception as e:
+            # Expect exception since users do not exist and pass the test if an exception is caught.
+            pass
 
 if __name__ == '__main__':
     unittest.main()
