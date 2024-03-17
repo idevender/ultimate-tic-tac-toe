@@ -1,8 +1,8 @@
-# Project Name
+# TEAM G - Ultimate Tic Tac Toe
 
 ## Introduction
 
-[Provide a brief introduction about your project]
+This is the repository of the COMP 2005 TERM Project for Team G
 
 ## Getting Started
 
