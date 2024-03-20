@@ -292,4 +292,28 @@ Discussed:
 
 | Agenda Item | Brief Description |
 |-----|-----|
-| Long End Of Spring Meeting | Conducted a long meeting to fix issues, make required documents, and update files |
+| Long End Of Sprint Meeting | Conducted a long meeting to fix issues, make required documents, and update files |
+
+## March 20th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Cameron Selci
+
+**Recorded by:** Mohd Ali Bin Naser
+
+**Venue:** Discord Voice / Screen Sharing
+
+**Time:** 2pm to 2:55pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item | Brief Description |
+|-----|-----|
+| new expectations for Sprint 2 | The team went over the documentation for new expectations for the Sprint 2 |
+| Things that went wrong during Sprint 1 | As part of the team assessment during the meeting today, we went through a bunch of stuff that went wrong during the first iteration of the Sprint and how we'll process to ensure such things don't happen during Sprint 2 |
+| Kanban Board and Issues Review | As a team, we went through the project Kanban board to assess our progress and also discussed about the some pending task from Spring 1 that'll be incorporated in Sprint 2 |
+| Initial Priorities | As part of the team assessment, we also briefly discussed issues and task that we should prioritize during the initial phase of Sprint 2 so that we're on track |
+
