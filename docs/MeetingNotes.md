@@ -317,3 +317,26 @@ Discussed:
 | Kanban Board and Issues Review | As a team, we went through the project Kanban board to assess our progress and also discussed about the some pending task from Spring 1 that'll be incorporated in Sprint 2 |
 | Initial Priorities | As part of the team assessment, we also briefly discussed issues and task that we should prioritize during the initial phase of Sprint 2 so that we're on track |
 
+## March 23rd, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Devender Singh
+
+**Recorded by:** Evan Best
+
+**Venue:** Discord Voice / Screen Sharing
+
+**Time:** 10:00pm - 11:30pm
+
+**Attendance:**  Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item | Brief Description |
+|-----|-----|
+| Discuss errors | The team talked about the errors being thrown by our tests. Went over them one by one over screen share, and addressed them as required. |
+| Working product | As a team, we went through what we needed to do to get our modules working correctly together, to achieve a working product by March 28. |
+| Possible improvements | Discussed possible features that can be added after achieving a working product.|
+|Pull request deadline | Set the pull request deadline to be April 4th, 2024.|
+
