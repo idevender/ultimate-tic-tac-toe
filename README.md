@@ -1,5 +1,5 @@
 
-# Team G's Ultimate Tic Toe Game
+# Team G's Ultimate Tic Tac Toe Game
 
 ## Introduction
 
