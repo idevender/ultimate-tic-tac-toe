@@ -67,7 +67,7 @@ def login_user():
     Returns:
         Int: 404 if the user is not found, 200 if the user is found. 
     """
-    form_data = request.forms.todict()
+    form_data = dict(request.forms)
     
     if UserMan.login_user(form_data['username'], form_data['password']):
         response.status = 200
@@ -118,7 +118,7 @@ def register_user():
     
     if UserMan.register_user(request.forms.get('username'), request.forms.get('password')):
         response.status = 200
-        frontend.RenderEngine().render_main_game_page()
+        frontend.RenderEngine().render_online_players()
     else:
         response.status = 400
         return "User already exists"
@@ -132,38 +132,28 @@ def create_game(user_id1,user_id2):
         String: The game's page.
     """
     game_id = UserMan.gen_game_id(user_id1,user_id2)
-    applogic.SuperTicTacToe(game_id).create_game(game_id)
-    return frontend.FrontEndOps().process_board_config(applogic.SuperTicTacToe(game_id).load_board())
+    applogic.SuperTicTacToe().create_game(game_id)
+    return frontend.FrontEndOps().process_board_config(applogic.SuperTicTacToe().load_board(game_id))
 
-@app.route('/check_game/<game_id>/<x>/<y>')
-def check_game_state(game_id, x, y):
+@app.route('/check_game')
+def check_game_state():
     """ This function checks the game state of the given ID and returns the updated frontend.
 
     Returns:
         the new board state in frontend.
     """
+    data = dict(request.forms)
+    game_id = data['game_id']
+    x,y = frontend.FrontEndOps().get_cell_coords()
     
     if applogic.SuperTicTacToe().make_move(game_id,x,y):
         response.status = 200
-        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board())
+        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id))
     else :
         response.status = 400
         return "Invalid Move"
     
 
-@app.route('/save_game/<game_id>', method='POST')
-def save_game_state(game_id):
-    """ This function updates the game state of the given ID.
-
-    Returns:
-        Int: 400 if there was an error, 200 if the game is found.
-    """
-    if applogic.SuperTicTacToe().save_board(game_id):
-        response.status = 200
-        return "Game Saved"
-    else :
-        response.status = 400
-        
 
 @app.route('/load_game/<game_id>')
 def load_game_state(game_id):
