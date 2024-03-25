@@ -126,6 +126,7 @@ class UserManager:
             db[username] = {
                 'username': username,
                 'password': password,
+                'online': 'online'
                 }
 
     def load_user(self, username):
@@ -163,4 +164,21 @@ class UserManager:
                 raise IOError(f"The user '{username}' does not exist.")
             
             del db[username]
+    
+    def set_user_online_status(self, username, status):
+        """Sets the online status of a user in the database.
+
+        Parameters:
+            username (str): The name of the user to be updated.
+            status (str): The online status of the user.
+
+        Raises:
+            OSError: If the user status cannot be updated properly.
+        """
+        with shelve.open(self.db_name) as db:
+            user = db.get(username)
+            if user is None:
+                raise OSError(f"The user '{username}' does not exist.")
+            
+            user['online'] = status
 
