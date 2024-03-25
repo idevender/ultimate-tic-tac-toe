@@ -45,6 +45,22 @@ To run the project, you have two options:
 
 Note: Make sure you have the necessary dependencies installed before running the project.
 
+## Game Page Overview
+
+Upon launching the Game , you will be presented with a user-friendly interface that includes the following elements:
+
+- **Current Player**: Displays the username of the player whose turn is currently active.
+- **Opponent Username**: Shows the username of the opposing player.
+- **Game Board**: The central area where the game takes place.
+- **Your Score**: Indicates the number of 3x3 boards you have won.
+- **Opponent's Score**: Reflects the number of 3x3 boards won by your opponent.
+- **Turn Indicator**: A notification that signals when it's your turn to play.
+- **Result**: Displays the outcome of the game once it concludes, like "The Game is a tie!".
+
+Here's a visual representation of the game interface:
+
+![Ultimate Tic Tac Toe Game Team G](docs/diagrams/Gamepage.png)
+
 ### Running the Tests
 
 All the unit test files are located in the `tests/` folder.
@@ -78,9 +94,10 @@ We are using the following GitHub tools for this project:
 No other Software engineering tools were used to coordinate our team and/or progress.
 
 ## Sprint Release Status
+**Update**: Individual modules are working. There is a need to do some refactoring and adjustments to make everything work for the game.
 
 Working Features: Login Page (Works on the frontend) , Registration Page (Works in the frontend)  
-Not Working Features: Backend Login, Backend Registration, PLaying a game, Session Management not completed, Adding playing to the games, Some Game Logic
+Features in Progress: Backend Login and Registration, Playing a game, Session Management, Show players who are Online, Some Game Logic
 
 ## Authors
 
