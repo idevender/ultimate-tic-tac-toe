@@ -17,7 +17,7 @@
         <!-- Displaying the usernames of all online players with a play button next to it  -->
         % for player in online_players:
 
-        <p>{{player}} <button type="submit" name="play" value="{{player}}" formaction="/create_game/{{current_player}}/{{player}}">Play Game</button></p>
+        <p>{{player}} <button type="submit" name="opponent" value="{{player}}" formaction="/create_game/{{current_player}}/{{player}}">Play Game</button></p>
 
         % end
 
