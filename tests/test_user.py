@@ -93,28 +93,33 @@ class TestUserManager(unittest.TestCase):
         user = self.user_manager.get_user("nonexistentuser")
         self.assertIsNone(user)
 
-    def test_get_all_users(self):
-        """Test retrieving all usernames from the database."""
-        # Register some users for the purpose of the test
-        self.user_manager.register_user("testuser1", "password123")
-        self.user_manager.register_user("testuser2", "password456")
+    def test_get_all_online_users(self):
+        """Test retrieving usernames of all users marked as online from the database."""
+        # Set up users and mark them as online or offline
+        self.user_manager.register_user("onlineUser1", "password123", online=True)
+        self.user_manager.register_user("onlineUser2", "password456", online=True)
+        self.user_manager.register_user("offlineUser", "password789", online=False)
 
-        # Attempt to retrieve all usernames
-        all_usernames = self.user_manager.get_all_users()
+        # Attempt to retrieve usernames of online users
+        online_usernames = self.user_manager.get_all_online_users()
 
-        # Verify the length of the usernames list
-        self.assertEqual(len(all_usernames), 2)
+        # Verify the list includes only users marked as online
+        self.assertEqual(len(online_usernames), 2)
+        self.assertIn("onlineUser1", online_usernames)
+        self.assertIn("onlineUser2", online_usernames)
+        self.assertNotIn("offlineUser", online_usernames)
 
-        # Verify that the usernames retrieved match those registered
-        self.assertIn("testuser1", all_usernames)
-        self.assertIn("testuser2", all_usernames)
+    def test_get_all_online_users_no_online_users(self):
+        """Test retrieving online users from a database when no users are marked as online."""
+        # Set up users but do not mark any as online
+        self.user_manager.register_user("offlineUser1", "password123", online=False)
+        self.user_manager.register_user("offlineUser2", "password456", online=False)
 
-    def test_get_all_users_no_users(self):
-        """Test retrieving all users from a database that has no users."""
-        # Test retrieving all usernames when there are supposed to be no users
-        all_usernames = self.user_manager.get_all_users()
-        # Verify that the list of usernames is empty
-        self.assertEqual(len(all_usernames), 0)
+        # Test retrieving usernames when no users are supposed to be online
+        online_usernames = self.user_manager.get_all_online_users()
+
+        # Verify that the list of online usernames is empty
+        self.assertEqual(len(online_usernames), 0)
 
     def test_update_user_password_success(self):
         """Test successfully updating an existing user's password."""

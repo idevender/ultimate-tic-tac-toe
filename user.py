@@ -71,13 +71,13 @@ class UserManager:
             hashed_password = self.hash_password(password)
 
             # Store the user with the hashed password
-            db[username] = {'username': username, 'password': hashed_password}
+            db[username] = {'username': username, 'password': hashed_password, 'online': True}
 
         # Return True
         return True
 
     def login_user(self, username, input_password):
-        """Authenticates a user's credentials using hashed passwords.
+        """Authenticates a user's credentials and sets their status to online if successful.
 
         Args:
             username (str): The username to authenticate.
@@ -86,13 +86,13 @@ class UserManager:
         Returns:
             bool: True if authentication is successful, False otherwise.
         """
-        user_data = self.user_db.load_user(username)
-        if user_data:
-            # Hash the input password and compare it to the stored hash
-            input_password_hashed = self.hash_password(input_password)
-            if input_password_hashed == user_data['password']:
-                return True  # Authentication successful
-        return False  # Authentication failed
+        with shelve.open(self.user_db.db_name, writeback=True) as db:
+            user_data = db.get(username)
+            if user_data and self.hash_password(input_password) == user_data['password']:
+                user_data['online'] = True  # Set user as online
+                db[username] = user_data  # Save the update
+                return True
+        return False
 
     def update_user_history(self, username, game_result):
         """Records the result of a user's game.
@@ -151,16 +151,30 @@ class UserManager:
                 # User does not exist in the database
                 return False
 
-    def get_all_users(self):
-        """Retrieves all users from the database and returns them as a list of usernames.
+    # Old Functionality
+    # def get_all_users(self):
+    #     """Retrieves all users from the database and returns them as a list of usernames.
+    #
+    #     Returns:
+    #         list: A list of usernames representing all the users.
+    #     """
+    #     all_usernames = []
+    #     with store.shelve.open(self.user_db.db_name) as db:
+    #         all_usernames.extend(db.keys())
+    #     return all_usernames
+
+    def get_all_online_users(self):
+        """Retrieves all users from the database who are currently marked as online.
 
         Returns:
-            list: A list of usernames representing all the users.
+            list: A list of usernames of users who are online.
         """
-        all_usernames = []
-        with store.shelve.open(self.user_db.db_name) as db:
-            all_usernames.extend(db.keys())
-        return all_usernames
+        online_users = []
+        with shelve.open(self.db_name) as db:
+            for username, user_info in db.items():
+                if user_info.get('online', False):  # Defaults to False if 'online' key is not there
+                    online_users.append(username)
+        return online_users
 
     def gen_game_id(self, user_id1, user_id2):
         """Generates a unique game ID for a new game between two users and initializes the game.
