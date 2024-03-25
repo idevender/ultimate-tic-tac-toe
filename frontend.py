@@ -109,10 +109,10 @@ class RenderEngine:
             main_game_page (str): The template for the main game page.
         """
 
-        self.signup_page = template('signup')
-        self.login_page = template('login')
-        self.main_game_page = template('gamepage')
-        # self.online_players_page = template('onlineplayers')
+        self.signup_page = template('signup.html')
+        self.login_page = template('login.html')
+        self.main_game_page = template('gamepage.html')
+        # self.online_players_page = template('onlineplayers.html')
 
 
     def render_signup_page(self):
