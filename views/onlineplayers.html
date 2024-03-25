@@ -9,11 +9,20 @@
 <body>
 
     <h1>Online Players List</h1>
-    <ul>
+
+    <form method="post">
+        <!-- Storing the current user's details -->
+        <input type="hidden" name="current_player" id="current_player" value="{{current_player}}" hidden>
+        
+        <!-- Displaying the usernames of all online players with a play button next to it  -->
         % for player in online_players:
-            <li>{{ player }} <button>Play Game</button></li>
+
+        <p>{{player}} <button type="submit" name="play" value="{{player}}" formaction="/create_game/{{current_player}}/{{player}}">Play Game</button></p>
+
         % end
-    </ul>
+
+    </form>
+
 
 </body>
 </html>
