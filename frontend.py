@@ -3,7 +3,6 @@
 from bottle import template, request
 import os
 
-
 class FrontEndOps:
     """
     Class that handles all the operations related to the front end of the super tic tac toe web app.
@@ -74,23 +73,24 @@ class FrontEndOps:
         return self.AppRenderEngine.render_updated_board(game_board)
 
 
-    def process_online_players(self, online_players):
+    def process_online_players(self, online_players, current_player):
         """
         Gets the list of online players from the server.
         
         Args:
             online_players (list): A list of online players.
+            current_player (str): The current player.
 
         Returns:
-            self.AppRenderEngine.online_players_page (str): The template for the online player list page.
+            self.AppRenderEngine.render_online_players (str): The template for the online player list page.
         """
 
-        if not isinstance(online_players, list):
+        if not isinstance(online_players, list) and not isinstance(current_player, str):
             raise TypeError("The online players list is not a list.")
         if not all(isinstance(player, str) for player in online_players):
             raise TypeError("The online players list contains non-string elements.")
 
-        return self.AppRenderEngine.render_online_players(online_players)
+        return self.AppRenderEngine.render_online_players(online_players, current_player)
 
 
 # Class that handles the rendering of all the html templates for the super tic tac toe app
@@ -112,8 +112,6 @@ class RenderEngine:
         self.signup_page = template('signup.html')
         self.login_page = template('login.html')
         self.main_game_page = template('gamepage.html')
-        # self.online_players_page = template('onlineplayers.html')
-
 
     def render_signup_page(self):
         """
@@ -168,9 +166,9 @@ class RenderEngine:
         return template('main_game_page', board_config=board_config)
 
 
-    def render_online_players(self, online_players):
+    def render_online_players(self, online_players, current_player):
         """
         Renders the online players page of the game app.    
         """
 
-        return template('online_players', online_players=online_players)
+        return template('onlineplayers.html', online_players=online_players, current_player=current_player)
