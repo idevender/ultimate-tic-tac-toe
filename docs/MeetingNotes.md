@@ -340,3 +340,27 @@ Discussed:
 | Possible improvements | Discussed possible features that can be added after achieving a working product.|
 |Pull request deadline | Set the pull request deadline to be April 4th, 2024.|
 
+## March 25th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Evan Best
+
+**Recorded by:** Devender Singh
+
+**Venue:** Discord Voice / Screen Sharing
+
+**Time:** 2:00pm to 3:30pm
+
+**Attendance:** Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item       | Brief Description |
+|-------------------|-------------------|
+| Code Reviews      | The team conducted code reviews. We reviewed some of the code, focusing particularly on Evan's contributions, which required some changes. After re-evaluation, these changes were approved and merged. |
+| Grading Discussion | Discussed the grading criteria and marking in detail for Sprint 1. The team aimed to ensure no points were lost unnecessarily and reviewed the grading scheme closely. |
+| Meeting with the Professor | Jager Cooper took the initiative to schedule a meeting with the professor for Wednesday, April 12th, just before our next team meeting. This will help us clarify expectations and get feedback. |
+| New Front-End Design | Ali presented a new and improved front-end design that incorporates player stats and a leaderboard on the same page. The team was impressed with the visual appeal and functionality improvements. |
+
+The meeting was productive, with significant progress made on code reviews and strategic planning for Sprint 1 grading. The decision to meet with the professor is expected to provide valuable insights. 
