@@ -1,0 +1,139 @@
+
+/* Importing the Poppins Font from google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.body-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.body-div {
+    flex: 1;
+    text-align: center;
+}
+
+.right-side-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    background-color: #000000;
+
+}
+
+
+.left-side-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border:2px solid black; */
+    border-radius: 20px;
+    background-color: #000000;
+}
+
+
+.center-div{
+    flex: 1.5;
+}
+
+
+.display-header{
+    padding-bottom: 18px;
+    font-size: 30px;
+}
+
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.opp-name{
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000;
+}
+
+
+.play-game {
+    padding: 5px 15px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 7px;
+    font-family: 'Poppins';
+    background: #5500ff;
+}
+
+.play-game:hover {
+    background: #000000;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+
+.leaderboard-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 350px;
+}
+
+
+.table-header{
+    background-color: #5500ff;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+tbody tr{
+    font-size: 20px;
+    color: white;
+}
+
+
+.h1-label{
+    font-size: 26px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.h1-output{
+    border: 2px solid #5500ff;
+    border-radius:  10px;
+    padding: 10px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.dark-title{
+    color: #fff;
+}
