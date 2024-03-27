@@ -375,9 +375,9 @@ The meeting was productive, with significant progress made on code reviews and s
 
 **Recorded by:** Jager Cooper
 
-**Venue:** Discord Voice / Screen Sharing
+**Venue:** EN2036 + Profs office
 
-**Time:** 2:00pm to 3:30pm
+**Time:** 12:10pm to 2:00pm
 
 **Attendance:** Devender Singh, Mohd Ali Bin Naser, Jager Cooper
 
