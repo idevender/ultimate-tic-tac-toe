@@ -5,24 +5,152 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team G - Online Players List</title>
+    <link rel="stylesheet" href="../static/onlineplayers.css">
 </head>
 <body>
 
-    <h1>Online Players List</h1>
+    <h1 class="display-header">Ultimate Tic Tac Toe Game Team G</h1>
 
-    <form method="post">
-        <!-- Storing the current user's details -->
-        <input type="hidden" name="current_player" id="current_player" value="{{current_player}}" hidden>
+    <div class="body-container">
+
+        <div class="body-div right-side-div">
+
+            <h1 class="display-header dark-title">Player Statistics</h1>
+
+            <div class="player-stats">
+
+                  <!-- All temporary Dummy texts will be replaced with dynamic data  in the future -->
+                <h2 class="h1-label">Username</h2> 
+
+                <h2 class="h1-output">SimonRileyMW3</h2>
         
-        <!-- Displaying the usernames of all online players with a play button next to it  -->
-        % for player in online_players:
+                <h2 class="h1-label">Wins</h2>
 
-        <p>{{player}} <button type="submit" name="opponent" value="{{player}}" formaction="/create_game/{{current_player}}/{{player}}">Play Game</button></p>
+                <h2 class="h1-output">6</h2>
+        
+                <h2 class="h1-label">Losses</h2>
 
-        % end
+                <h2 class="h1-output">3</h2>
+        
+                <h2 class="h1-label">Rank</h2>
 
-    </form>
+                <h2 class="h1-output">5</h2>
 
+            </div>
+          
+
+        </div>
+
+        <div class="body-div center-div">
+
+            <h1 class="display-header">Online Players</h1>
+        
+            <form class="form-container" method="post">
+                <!-- Storing the current user's details -->
+                <input type="hidden" name="current_player" id="current_player" value="{{current_player}}" hidden>
+                
+                <!-- Displaying the usernames of all online players with a play button next to it  -->
+                % for player in online_players:
+        
+                <div class="row-container">
+                    <div class="opp-name">
+                        {{player}}
+                    </div>
+    
+                    <div class="btn-div">
+                        <button class="play-game" type="submit" name="opponent" value="{{player}}" formaction="/create_game/{{current_player}}/{{player}}">Play Game</button>
+                    </div>
+                   
+                </div>
+        
+        
+                % end
+        
+            </form>
+
+        </div>
+
+        <div class="body-div left-side-div">
+
+            <h1 class="display-header dark-title">Leaderboard</h1>
+
+            <div class="table-div">
+                <table class="leaderboard-table">
+    
+                    <tr class="table-header">
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Wins</th>
+                    </tr>
+        
+                    <tbody class="table-body">
+                        <tr class="data-row">
+                            <td>1</td>
+                            <td>TackyToeBoi</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>TackyToeBoi</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>TackyToeBoi</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>TackyToeBoi</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>TackyToeBoi</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>TackyToeBoi</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>TackyToeBoi</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>TackyToeBoi</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>TackyToeBoi</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>TackyToeBoi</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>TackyToeBoi</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>TackyToeBoi</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                   
+                </table>
+            </div>
+          
+        </div>
+    </div>
 
 </body>
 </html>
