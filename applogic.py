@@ -30,7 +30,7 @@ class SuperTicTacToe:
         self.board = [[0 for _ in range(9)] for _ in range(9)]
         self.playerTurn = SuperTicTacToe.PLAYER_ONE
         self.gameid = gameid
-        self.save_board(gameid = self.gameid)
+        self.save_board()
 
     def make_move(self, gameid, row, col):
         """
@@ -60,16 +60,22 @@ class SuperTicTacToe:
                 self.playerTurn = SuperTicTacToe.PLAYER_ONE
     
     def check_states(self):
-        if self.check_board_draw():
-            self.check_game_draw()
+        if self.check_game_draw():
+            self.fillGame(SuperTicTacToe.DRAW)
         elif self.check_board_win():
-            self.check_game_win()
+            self.fillGame(self.playerTurn)
             
     def fill(self, state):
         row = self.subBoard
         for j in range(9):
             self.board[row][j] = state
             break
+        
+    def fillGame(self, state):
+        for i in range(9):
+            for j in range(9):
+                self.board[i][j] = state
+                break
     
     def check_board_draw(self):
         """
@@ -128,6 +134,7 @@ class SuperTicTacToe:
                 if self.board[0+i] == self.board[3+i] and self.board[3+i] == self.board[6+i]:
                     self.fill(self.playerTurn)
                     return True
+        return False
  
     def check_game_draw(self, subboard):
         """
@@ -139,14 +146,12 @@ class SuperTicTacToe:
         if(self.check_board_draw()):
             for i in range(3):
                 if self.board[i*3] == self.board[1+(i*3)] and self.board[1+(i*3)]  == self.board[2+(i*3)]:
-                    self.fill(self.playerTurn)
                     return True
                 if self.board[(3*i)] == self.board[4] and self.board[4] == self.board[2+(i*3)]:
-                    self.fill(self.playerTurn)
                     return True
                 if self.board[0+i] == self.board[3+i] and self.board[3+i] == self.board[6+i]:
-                    self.fill(self.playerTurn)
                     return True
+        return False
         
     def load_board(self, gameid):
         """
@@ -164,11 +169,11 @@ class SuperTicTacToe:
         return self.board
 
        
-    def save_board(self, gameid):
+    def save_board(self):
         """
         Saves the game board and player turn to the game state manager.
 
         Args:
             gameid (int): The ID of the game.
         """
-        GameStateManager.save_game(gameid = gameid, turn = self.playerTurn, board = self.board)
+        GameStateManager.save_game(gameid = self.gameid, turn = self.playerTurn, board = self.board)
