@@ -364,3 +364,25 @@ Discussed:
 | New Front-End Design | Ali presented a new and improved front-end design that incorporates player stats and a leaderboard on the same page. The team was impressed with the visual appeal and functionality improvements. |
 
 The meeting was productive, with significant progress made on code reviews and strategic planning for Sprint 1 grading. The decision to meet with the professor is expected to provide valuable insights. 
+
+## March 27th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:** Mohd Ali Bin Naser
+
+**Recorded by:** Jager Cooper
+
+**Venue:** Discord Voice / Screen Sharing
+
+**Time:** 2:00pm to 3:30pm
+
+**Attendance:** Devender Singh, Mohd Ali Bin Naser, Jager Cooper
+
+| Agenda Item       | Brief Description |
+|-------------------|-------------------|
+| Meeting with Prof. | The Team had a meeting with the professor about the grading for group sprint 1, discussed some areas where we had met the requirements, we now need to craft an email outlining the areas where we feel we should have gotten the grades as well as where to look or what arguments we have for this. |
+| Code Review | Reviewed open PR's and merged them into the master branch - rejected the PR of a team member who did not attend as per the code review process. |
+| Additional features | Discussed possible implementation requirements for leaderboard, and player statistics display on the user's main page. |
