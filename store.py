@@ -28,14 +28,12 @@ class GameStateManager:
 
         Parameters:
             game_id (str): Assign an identifier to the newly stored game state.
-
-        Raises:
-            IOError: If the game state cannot be saved properly.
+            player1 (str): Assign the name of the first player.
+            player2 (str): Assign the name of the second player.
+            turn (str): Assign the name of the player whose turn it is.
+            board (list): Assign the current state of the game board.
         """
-
         with shelve.open(self.db_name) as db:
-            if game_id in db:
-                raise IOError(f"The game '{game_id}' already exists. Game not saved.")
             db[game_id] = {
                 'gameID' : game_id,
                 'player1': player1,
@@ -64,8 +62,6 @@ class GameStateManager:
             
             return game_state
         
-
-
     def remove_game(self, game_id):
         """Removes a previously stored game state from the database.
         
@@ -106,7 +102,6 @@ class UserManager:
         with shelve.open(self.db_name) as db:
             return len(db)
 
-
     def save_user(self, username, password, online = False):
         """Saves a user to the database.
 
@@ -146,7 +141,6 @@ class UserManager:
                 raise OSError(f"The user '{username}' does not exist.")
         return user
 
-
     def remove_user(self, username):
         """Removes a previously stored user from the database.
 
@@ -180,4 +174,3 @@ class UserManager:
                 raise OSError(f"The user '{username}' does not exist.")
             
             user['online'] = status
-
