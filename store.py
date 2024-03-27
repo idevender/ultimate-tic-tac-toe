@@ -34,8 +34,6 @@ class GameStateManager:
         """
 
         with shelve.open(self.db_name) as db:
-            if game_id in db:
-                raise IOError(f"The game '{game_id}' already exists. Game not saved.")
             db[game_id] = {
                 'gameID' : game_id,
                 'player1': player1,
