@@ -1,4 +1,4 @@
-import store
+from store import GameStateManager
 
 class SuperTicTacToe:
     """
@@ -25,8 +25,8 @@ class SuperTicTacToe:
     PLAYER_ONE = 1
     PLAYER_TWO = 2
     DRAW = 3
-        
-    def create_game(self, gameid):
+    
+    def create_game(self, gameid =1):
         self.board = [[0 for _ in range(9)] for _ in range(9)]
         self.playerTurn = SuperTicTacToe.PLAYER_ONE
         self.gameid = gameid
@@ -46,11 +46,13 @@ class SuperTicTacToe:
         """
         self.gameid = gameid
         self.load_board(self.gameid)
+        self.subBoard = row
 
         if self.board[row][col] !=0:
             return False
         else:
             self.board[row][col] = self.playerTurn
+            self.check_states()
             self.save_board(self.gameid)
             if(self.playerTurn == SuperTicTacToe.PLAYER_ONE):
                 self.playerTurn = SuperTicTacToe.PLAYER_TWO
@@ -60,9 +62,14 @@ class SuperTicTacToe:
     def check_states(self):
         if self.check_board_draw():
             self.check_game_draw()
-            
         elif self.check_board_win():
             self.check_game_win()
+            
+    def fill(self, state):
+        row = self.subBoard
+        for j in range(9):
+            self.board[row][j] = state
+            break
     
     def check_board_draw(self):
         """
@@ -71,11 +78,19 @@ class SuperTicTacToe:
         Returns:
             bool: True if the board is a draw, False otherwise.
         """
-        for row in self.board:
-            if 0 in row:
-                return False
-        return True
-    
+        row = self.subBoard
+        for i in range(3):
+            if self.board[row][0+(i*3)] == SuperTicTacToe.DRAW and self.board[row][1+(i*3)] == SuperTicTacToe.DRAW and self.board[row][2+(i*3)] == SuperTicTacToe.DRAW:
+                self.fill(SuperTicTacToe.DRAW)
+                return True
+            if self.board[row][(3*i)] == SuperTicTacToe.DRAW and self.board[row][4] == SuperTicTacToe.DRAW and self.board[row][2+(i*3)] == SuperTicTacToe.DRAW:
+                self.fill(SuperTicTacToe.DRAW)
+                return True
+            if self.board[row][0+i] == SuperTicTacToe.DRAW and self.board[row][3+i] == SuperTicTacToe.DRAW and self.board[row][6+i] == SuperTicTacToe.DRAW:
+                self.fill(SuperTicTacToe.DRAW)
+                return True
+            
+        
     def check_board_win(self):
         """
         Checks if a player has won the specific board.
@@ -83,17 +98,17 @@ class SuperTicTacToe:
         Returns:
             bool: True if a player has won, False otherwise.
         """
-        for row in range(0, 9, 3):
-            for col in range(0, 9, 3):
-                if self.board[row][col] == self.board[row][col+1] == self.board[row][col+2] != 0:
-                    return True
-                if self.board[row][col] == self.board[row+1][col] == self.board[row+2][col] != 0:
-                    return True
-                if self.board[row][col] == self.board[row+1][col+1] == self.board[row+2][col+2] != 0:
-                    return True
-                if self.board[row+2][col] == self.board[row+1][col+1] == self.board[row][col+2] != 0:
-                    return True
-        return False
+        row = self.subBoard
+        for i in range(3):
+            if self.board[row][0+(i*3)] == self.playerTurn and self.board[row][1+(i*3)] == self.playerTurn and self.board[row][2+(i*3)] == self.playerTurn:
+                self.fill(self.playerTurn)
+                return True
+            if self.board[row][(3*i)] == self.playerTurn and self.board[row][4] == self.playerTurn and self.board[row][2+(i*3)] == self.playerTurn:
+                self.fill(self.playerTurn)
+                return True
+            if self.board[row][0+i] == self.playerTurn and self.board[row][3+i] == self.playerTurn and self.board[row][6+i] == self.playerTurn:
+                self.fill(self.playerTurn)
+                return True
     
     def check_game_win(self):
         """
@@ -102,41 +117,37 @@ class SuperTicTacToe:
         Returns:
             bool: True if a player has won, False otherwise.
         """
-        for row in range(0, 9, 3):
-            for col in range(0, 9, 3):
-                if self.check_board_win(self.playerTurn, row, col):
+        if(self.check_board_win()):
+            for i in range(3):
+                if self.board[i*3] == self.board[1+(i*3)] and self.board[1+(i*3)]  == self.board[2+(i*3)]:
+                    self.fill(self.playerTurn)
                     return True
-        return False
-    
-    def check_game_draw(self):
+                if self.board[(3*i)] == self.board[4] and self.board[4] == self.board[2+(i*3)]:
+                    self.fill(self.playerTurn)
+                    return True
+                if self.board[0+i] == self.board[3+i] and self.board[3+i] == self.board[6+i]:
+                    self.fill(self.playerTurn)
+                    return True
+ 
+    def check_game_draw(self, subboard):
         """
         Checks if the game is a draw.
 
         Returns:
             bool: True if the game is a draw, False otherwise.
         """
-        for row in range(0, 9, 3):
-            for col in range(0, 9, 3):
-                if not self.check_board_draw(row, col):
-                    return False
-        return True
-
-    def draw_fill(self):
-        """
-        Fills the specific board with 3s to indicate a draw.
-        """
-        for i in range(len(self.board)):
-            for j in range(len(self.board[i])):
-                self.board[i][j] = SuperTicTacToe.DRAW
-
-    def win_fill(self):
-        """
-        Fills the specific board with the player's number to indicate a win.
-        """
-        for i in range(len(self.board)):
-            for j in range(len(self.board[i])):
-                self.board[i][j] = self.playerTurn
-    
+        if(self.check_board_draw()):
+            for i in range(3):
+                if self.board[i*3] == self.board[1+(i*3)] and self.board[1+(i*3)]  == self.board[2+(i*3)]:
+                    self.fill(self.playerTurn)
+                    return True
+                if self.board[(3*i)] == self.board[4] and self.board[4] == self.board[2+(i*3)]:
+                    self.fill(self.playerTurn)
+                    return True
+                if self.board[0+i] == self.board[3+i] and self.board[3+i] == self.board[6+i]:
+                    self.fill(self.playerTurn)
+                    return True
+        
     def load_board(self, gameid):
         """
         Loads the game board and player turn from the game state manager.
@@ -148,8 +159,8 @@ class SuperTicTacToe:
             list: The loaded game board.
         """
         self.gameid = gameid
-        self.board = store.GameStateManager.load_game(gameid)['board']
-        self.playerTurn = store.GameStateManager.load_game(gameid)['turn']
+        self.board = GameStateManager.load_game(gameid).get('board')
+        self.playerTurn = GameStateManager.load_game(gameid).get('turn')
         return self.board
 
        
@@ -160,4 +171,4 @@ class SuperTicTacToe:
         Args:
             gameid (int): The ID of the game.
         """
-        store.GameStateManager.save_game(gameid = gameid, turn = self.playerTurn, board = self.board)
+        GameStateManager.save_game(gameid = gameid, turn = self.playerTurn, board = self.board)
