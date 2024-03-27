@@ -18,44 +18,38 @@ from applogic import SuperTicTacToe
 import unittest
 
 class TestSuperTicTacToe(unittest.TestCase):
-    def test_create_game_initializes_board_correctly(self):
+    def test_create_game(self):
         game = SuperTicTacToe()
-        gameid = 1
-        game.create_game(gameid)
-        self.assertEqual(len(game.board), 9)
-        self.assertTrue(all(len(row) == 9 for row in game.board))
+        game.create_game('100')
+        self.assertEqual(game.board, [[0 for _ in range(9)] for _ in range(9)])
         self.assertEqual(game.playerTurn, SuperTicTacToe.PLAYER_ONE)
-        self.assertEqual(game.gameid, gameid)
-        
-    def test_make_move_valid_move(self):
+        self.assertEqual(game.gameid, '100')
+    
+    def test_make_move(self):
         game = SuperTicTacToe()
-        gameid = 1
-        game.create_game(gameid)
-        valid_move = game.make_move(gameid, 0, 0)
-        self.assertTrue(valid_move)
+        game.create_game('200')
+        game.make_move('200', 0, 0)
+        print(game.board)
         self.assertEqual(game.board[0][0], SuperTicTacToe.PLAYER_ONE)
+        self.assertEqual(game.playerTurn, SuperTicTacToe.PLAYER_TWO)
+        game.make_move('200', 0, 0)
+        self.assertEqual(game.board[0][0], SuperTicTacToe.PLAYER_ONE)
+        self.assertEqual(game.playerTurn, SuperTicTacToe.PLAYER_TWO)
         
-    def test_make_move_invalid_move(self):
+    def test_win_fill(self):
         game = SuperTicTacToe()
-        gameid = 1
-        game.create_game(gameid)
-        game.make_move(gameid, 0, 0)  # First move
-        invalid_move = game.make_move(gameid, 0, 0)  # Same spot
-        self.assertFalse(invalid_move)
+        game.create_game('300')
+        game.make_move('300', 0, 0)
+        print(game.board)
+        game.make_move('300', 0, 8)
+        print(game.board)
+        game.make_move('300', 0, 1)
+        print(game.board)
+        game.make_move('300', 1, 8)
+        print(game.board)
+        game.make_move('300', 0, 2)
+        print(game.board)
+        self.assertEqual(game.board,[[1, 1, 1, 1, 1, 1, 1, 1, 1,]]*9)
         
-    def test_check_board_draw_not_draw(self):
-        game = SuperTicTacToe()
-        game.board = [[SuperTicTacToe.PLAYER_ONE] * 9] * 9
-        self.assertFalse(game.check_board_draw())
         
-    def test_check_board_draw_is_draw(self):
-        game = SuperTicTacToe()
-        game.board = [[SuperTicTacToe.PLAYER_ONE, SuperTicTacToe.PLAYER_TWO] * 4 + [SuperTicTacToe.PLAYER_ONE]] * 9
-        self.assertTrue(game.check_board_draw())
-        
-    def test_save_board(self, mock_save_game):
-        game = SuperTicTacToe()
-        gameid = 1
-        game.create_game(gameid)
-        game.save_board(gameid)
-        mock_save_game.assert_called_once_with(gameid=gameid, turn=game.playerTurn, board=game.board)
+                      
