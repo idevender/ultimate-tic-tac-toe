@@ -165,7 +165,7 @@ class SuperTicTacToe:
         self.board = db.load_game(gameid).get('board')
         self.playerTurn = db.load_game(gameid).get('turn')
         
-        return self.board
+        return self.board, self.playerTurn
        
     def save_board(self):
         """
