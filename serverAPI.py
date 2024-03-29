@@ -125,7 +125,7 @@ def register_user():
         return "User already exists"
 
 # Routes for handling game information
-@app.route('/create_game/<user_id1>/<user_id2>', method='POST')
+@app.route('/create_game/<user_id1>/<user_id2>', method=['POST','GET'])
 def create_game(user_id1,user_id2):
     """ This function creates a new game and returns the game's page.
 
@@ -134,9 +134,9 @@ def create_game(user_id1,user_id2):
     """
     game_id = UserMan.gen_game_id(user_id1,user_id2)
     applogic.SuperTicTacToe().create_game(game_id)
-    return frontend.FrontEndOps().process_board_config(applogic.SuperTicTacToe().load_board(game_id))
+    return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id))
 
-@app.route('/check_game')
+@app.route('/check_game', method=['POST','GET'],)
 def check_game_state():
     """ This function checks the game state of the given ID and returns the updated frontend.
 
