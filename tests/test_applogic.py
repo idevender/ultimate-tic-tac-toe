@@ -12,12 +12,12 @@ root_dir = os.path.dirname(current_dir)
 # Add the root directory to the Python path
 sys.path.append(root_dir)
 
-
 import unittest
 from applogic import SuperTicTacToe
 import unittest
 
 class TestSuperTicTacToe(unittest.TestCase):
+    
     def test_create_game(self):
         game = SuperTicTacToe()
         game.create_game('100')
@@ -129,6 +129,4 @@ class TestSuperTicTacToe(unittest.TestCase):
             print(game.board[i])
         print(game.board)
         self.assertEqual(game.check_game_draw(), True)
-        
-        
                       

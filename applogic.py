@@ -39,7 +39,7 @@ class SuperTicTacToe:
         Returns:
             bool: True if the move resulted in a win or draw, False otherwise.
         """
-        self.load_board(gameid)
+        print("testing:", self.load_board(gameid))
         self.subBoard = row
 
         if self.board[row][col] != 0:
@@ -165,7 +165,23 @@ class SuperTicTacToe:
         self.board = db.load_game(gameid).get('board')
         self.playerTurn = db.load_game(gameid).get('turn')
         
-        return self.board, self.playerTurn
+        return self.board_for_display(), self.playerTurn
+    
+    def board_for_display(self):
+        """
+        Returns a 2D list representing the game board for display.
+
+        Parameters:
+        - gameid (int): The ID of the game.
+
+        Returns:
+        - list: A 2D list representing the game board, where each element represents a cell on the board.
+        """
+        display = [[0 for _ in range(9)] for _ in range(9)]
+        for i in range(9):
+            for j in range(3):
+                display[i] = self.board[j][(0):(3)] + self.board[j][(3):(6)] + self.board[j][(6):(9)] 
+        return display
        
     def save_board(self):
         """
