@@ -86,7 +86,7 @@ class UserManager:
         Returns:
             bool: True if authentication is successful, False otherwise.
         """
-        with shelve.open(self.user_db.db_name, writeback=True) as db:
+        with store.shelve.open(self.user_db.db_name, writeback=True) as db:
             user_data = db.get(username)
             if user_data and self.hash_password(input_password) == user_data['password']:
                 user_data['online'] = True  # Set user as online
@@ -170,7 +170,7 @@ class UserManager:
             list: A list of usernames of users who are online.
         """
         online_users = []
-        with shelve.open(self.db_name) as db:
+        with store.shelve.open(self.db_name) as db:
             for username, user_info in db.items():
                 if user_info.get('online', False):  # Defaults to False if 'online' key is not there
                     online_users.append(username)
