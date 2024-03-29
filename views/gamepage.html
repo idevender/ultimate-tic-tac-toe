@@ -114,30 +114,12 @@ body {
                     <td class="cell"><button type="submit" name="coordinate" value="0,0">{{board_config[0][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="0,1">{{board_config[0][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="0,2">{{board_config[0][2]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="0,3">{{board_config[0][3]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="0,4">{{board_config[0][4]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="0,5">{{board_config[0][5]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="0,6">{{board_config[0][6]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="0,7">{{board_config[0][7]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="0,8">{{board_config[0][8]}}</button></td>
-                </form>
-            </tr>
-            <tr>
-                <form action="/check_game" method="post">
-
-                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
-                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
-                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
-
                     <td class="cell"><button type="submit" name="coordinate" value="1,0">{{board_config[1][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="1,1">{{board_config[1][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="1,2">{{board_config[1][2]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="1,3">{{board_config[1][3]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="1,4">{{board_config[1][4]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="1,5">{{board_config[1][5]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="1,6">{{board_config[1][6]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="1,7">{{board_config[1][7]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="1,8">{{board_config[1][8]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="2,0">{{board_config[2][0]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="2,1">{{board_config[2][1]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="2,2">{{board_config[2][2]}}</button></td>
                 </form>
             </tr>
             <tr>
@@ -147,12 +129,30 @@ body {
                     <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
                     <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
 
-                    <td class="cell"><button type="submit" name="coordinate" value="2,0">{{board_config[2][0]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="2,1">{{board_config[2][1]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="2,2">{{board_config[2][2]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="0,3">{{board_config[0][3]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="0,4">{{board_config[0][4]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="0,5">{{board_config[0][5]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="1,3">{{board_config[1][3]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="1,4">{{board_config[1][4]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="1,5">{{board_config[1][5]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="2,3">{{board_config[2][3]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="2,4">{{board_config[2][4]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="2,5">{{board_config[2][5]}}</button></td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/check_game" method="post">
+
+                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
+                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
+                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
+
+                    <td class="cell"><button type="submit" name="coordinate" value="0,6">{{board_config[0][6]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="0,7">{{board_config[0][7]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="0,8">{{board_config[0][8]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="1,6">{{board_config[1][6]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="1,7">{{board_config[1][7]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="1,8">{{board_config[1][8]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="2,6">{{board_config[2][6]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="2,7">{{board_config[2][7]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="2,8">{{board_config[2][8]}}</button></td>
@@ -168,45 +168,45 @@ body {
                     <td class="cell"><button type="submit" name="coordinate" value="3,0">{{board_config[3][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="3,1">{{board_config[3][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="3,2">{{board_config[3][2]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="3,3">{{board_config[3][3]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="3,4">{{board_config[3][4]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="3,5">{{board_config[3][5]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="3,6">{{board_config[3][6]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="3,7">{{board_config[3][7]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="3,8">{{board_config[3][8]}}</button></td>
-                </form>
-            </tr>
-            <tr>
-                <form action="/check_game" method="post">
-
-                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
-                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
-                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
-
+                    <td class="cell"><button type="submit" name="coordinate" value="4,0">{{board_config[4][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="4,1">{{board_config[4][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="4,2">{{board_config[4][2]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="4,0">{{board_config[4][0]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="4,3">{{board_config[4][3]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="4,4">{{board_config[4][4]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="4,5">{{board_config[4][5]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="4,6">{{board_config[4][6]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="4,7">{{board_config[4][7]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="4,8">{{board_config[4][8]}}</button></td>
-                </form>
-            </tr>
-            <tr>
-                <form action="/check_game" method="post">
-
-                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
-                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
-                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
-
                     <td class="cell"><button type="submit" name="coordinate" value="5,0">{{board_config[5][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,1">{{board_config[5][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,2">{{board_config[5][2]}}</button></td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/check_game" method="post">
+
+                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
+                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
+                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
+
+                    <td class="cell"><button type="submit" name="coordinate" value="3,3">{{board_config[3][3]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="3,4">{{board_config[3][4]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="3,5">{{board_config[3][5]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="4,3">{{board_config[4][3]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="4,4">{{board_config[4][4]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="4,5">{{board_config[4][5]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,3">{{board_config[5][3]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,4">{{board_config[5][4]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,5">{{board_config[5][5]}}</button></td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/check_game" method="post">
+
+                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
+                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
+                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
+
+                    <td class="cell"><button type="submit" name="coordinate" value="3,6">{{board_config[3][6]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="3,7">{{board_config[3][7]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="3,8">{{board_config[3][8]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="4,6">{{board_config[4][6]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="4,7">{{board_config[4][7]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="4,8">{{board_config[4][8]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,6">{{board_config[5][6]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,7">{{board_config[5][7]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="5,8">{{board_config[5][8]}}</button></td>
@@ -222,30 +222,12 @@ body {
                     <td class="cell"><button type="submit" name="coordinate" value="6,0">{{board_config[6][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="6,1">{{board_config[6][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="6,2">{{board_config[6][2]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="6,3">{{board_config[6][3]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="6,4">{{board_config[6][4]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="6,5">{{board_config[6][5]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="6,6">{{board_config[6][6]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="6,7">{{board_config[6][7]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="6,8">{{board_config[6][8]}}</button></td>
-                </form>
-            </tr>
-            <tr>
-                <form action="/check_game" method="post">
-
-                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
-                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
-                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
-
                     <td class="cell"><button type="submit" name="coordinate" value="7,0">{{board_config[7][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="7,1">{{board_config[7][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="7,2">{{board_config[7][2]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="7,3">{{board_config[7][3]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="7,4">{{board_config[7][4]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="7,5">{{board_config[7][5]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="7,6">{{board_config[7][6]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="7,7">{{board_config[7][7]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="7,8">{{board_config[7][8]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="8,0">{{board_config[8][0]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="8,1">{{board_config[8][1]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="8,2">{{board_config[8][2]}}</button></td>
                 </form>
             </tr>
             <tr>
@@ -255,12 +237,30 @@ body {
                     <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
                     <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
 
-                    <td class="cell"><button type="submit" name="coordinate" value="8,0">{{board_config[8][0]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="8,1">{{board_config[8][1]}}</button></td>
-                    <td class="cell"><button type="submit" name="coordinate" value="8,2">{{board_config[8][2]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="6,3">{{board_config[6][3]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="6,4">{{board_config[6][4]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="6,5">{{board_config[6][5]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="7,3">{{board_config[7][3]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="7,4">{{board_config[7][4]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="7,5">{{board_config[7][5]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="8,3">{{board_config[8][3]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="8,4">{{board_config[8][4]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="8,5">{{board_config[8][5]}}</button></td>
+                </form>
+            </tr>
+            <tr>
+                <form action="/check_game" method="post">
+
+                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
+                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
+                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
+
+                    <td class="cell"><button type="submit" name="coordinate" value="6,6">{{board_config[6][6]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="6,7">{{board_config[6][7]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="6,8">{{board_config[6][8]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="7,6">{{board_config[7][6]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="7,7">{{board_config[7][7]}}</button></td>
+                    <td class="cell"><button type="submit" name="coordinate" value="7,8">{{board_config[7][8]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="8,6">{{board_config[8][6]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="8,7">{{board_config[8][7]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="8,8">{{board_config[8][8]}}</button></td>
