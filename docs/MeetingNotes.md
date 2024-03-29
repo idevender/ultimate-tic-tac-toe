@@ -387,7 +387,7 @@ The meeting was productive, with significant progress made on code reviews and s
 | Code Review | Reviewed open PR's and merged them into the master branch - rejected the PR of a team member who did not attend as per the code review process. |
 | Additional features | Discussed possible implementation requirements for leaderboard, and player statistics display on the user's main page. |
 
-## March 27th, 2024
+## March 29th, 2024
 
 **Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
 
