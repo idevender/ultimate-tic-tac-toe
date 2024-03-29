@@ -76,17 +76,28 @@ class FrontEndOps:
         if not isinstance(game_board, list):
             raise TypeError("The game board is not a list.")
         
+    
+        # Making sure the turn is well recieved on the frontend
+        if turn == 1:
+            turn = "It's your turn"
+        elif turn == 2:
+            turn = f"It's {opponent}'s turn"
+
+        converted_board = [] # A list to store the converted board
+
         # Converting the game board to the frontend format according to the board received
         for row in game_board:
+            converted_row = []
             for col in row:
                 if col == 0:
-                    col = " "
+                    converted_row.append(" ")
                 elif col == 1:
-                    col = "X"
+                    converted_row.append("X")
                 elif col == 2:
-                    col = "O"
+                    converted_row.append("O")
+            converted_board.append(converted_row)
 
-        return self.AppRenderEngine.render_updated_board(game_board, turn, current_user, opponent, game_id)
+        return self.AppRenderEngine.render_updated_board(converted_board, turn, current_user, opponent, game_id)
 
 
     def process_online_players(self, online_players, current_player):
