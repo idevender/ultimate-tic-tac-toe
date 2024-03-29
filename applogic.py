@@ -1,5 +1,4 @@
 from store import GameStateManager
-
 db = GameStateManager()
 
 class SuperTicTacToe:
@@ -52,7 +51,7 @@ class SuperTicTacToe:
                 self.playerTurn = SuperTicTacToe.PLAYER_TWO
             else:
                 self.playerTurn = SuperTicTacToe.PLAYER_ONE
-            self.save_board()
+            return True
     
     def check_states(self):
         """
@@ -172,3 +171,4 @@ class SuperTicTacToe:
         Saves the game board and player turn to the game state manager.
         """
         db.save_game(game_id=self.gameid, turn=self.playerTurn, board=self.board)
+       
