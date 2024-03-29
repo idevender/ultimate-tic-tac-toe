@@ -81,15 +81,15 @@ def login_user():
         response.status = 404
         return "User not found"
 
-@app.route('/update_user/<username>', method='POST')
-def update_user_info(username):
+@app.route('/update_user', method='POST')
+def update_user_info():
     """ This function updates the user information if the user exists
         or creates a new user if the user does not exist.
 
     Returns:
         Int: 404 if the user is not found, 200 if the user is found.
     """
-    if UserMan.update_user_password(username, request.forms.get('new_password')):
+    if UserMan.update_user_password(request.forms.get('username'), request.forms.get('old_password'), request.forms.get('new_password')):
         response.status = 200
     else:
         response.status = 404
