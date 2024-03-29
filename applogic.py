@@ -39,7 +39,7 @@ class SuperTicTacToe:
         Returns:
             bool: True if the move resulted in a win or draw, False otherwise.
         """
-        print("Testing display",self.load_board(gameid))
+        self.load_board(gameid)
         self.subBoard = row
 
         if self.board[row][col] != 0:
