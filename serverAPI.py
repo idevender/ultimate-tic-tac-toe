@@ -134,7 +134,7 @@ def create_game(user_id1,user_id2):
     """
     game_id = UserMan.gen_game_id(user_id1,user_id2)
     applogic.SuperTicTacToe().create_game(game_id)
-    return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id))
+    return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id),user_id1,user_id2,game_id)
 
 @app.route('/check_game', method=['POST','GET'],)
 def check_game_state():
@@ -145,11 +145,13 @@ def check_game_state():
     """
     data = dict(request.forms)
     game_id = data['game_id']
+    user_id1 = data['current_user']
+    user_id2 = data['opponent']
     x,y = frontend.FrontEndOps().get_cell_coords()
     
     if applogic.SuperTicTacToe().make_move(game_id,x,y):
         response.status = 200
-        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id))
+        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id),user_id1,user_id2,game_id)
     else :
         response.status = 400
         return "Invalid Move"
