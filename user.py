@@ -170,7 +170,7 @@ class UserManager:
             list: A list of usernames of users who are online.
         """
         online_users = []
-        with store.shelve.open(self.db_name) as db:
+        with store.shelve.open(self.user_db.db_name) as db:
             for username, user_info in db.items():
                 if user_info.get('online', False):  # Defaults to False if 'online' key is not there
                     online_users.append(username)
