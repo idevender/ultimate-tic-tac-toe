@@ -386,3 +386,31 @@ The meeting was productive, with significant progress made on code reviews and s
 | Meeting with Prof. | The Team had a meeting with the professor about the grading for group sprint 1, discussed some areas where we had met the requirements, we now need to craft an email outlining the areas where we feel we should have gotten the grades as well as where to look or what arguments we have for this. |
 | Code Review | Reviewed open PR's and merged them into the master branch - rejected the PR of a team member who did not attend as per the code review process. |
 | Additional features | Discussed possible implementation requirements for leaderboard, and player statistics display on the user's main page. |
+
+## March 27th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:**  Jager Cooper
+
+**Recorded by:** Cam Selci
+
+**Venue:** Discord/Screen Sharing
+
+**Time:** 11:00am to 5:10pm
+
+**Attendance:** Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item       | Brief Description |
+|-------------------|-------------------|
+| Error Handling | Frontend and applogic coordinate dependency.  |
+| Error Handling | Store, user, and server interaction. Focus on errors. |
+| Error Handling | Store to remove players in gamestate saves. |
+| Code Review | Went over Applogic, added return boolean for server interaction.  |
+| Code Review | Getting Applogic and gamepage coordinates to work together. |
+| Code Review | Store, user, and server interaction. |
+| Code Review | Reset functionality page and functionality. |
+| General note | Members reviewed PRs as needed and we merged as necessary. | 
+| Additional Features | Discussed more implementations such as win and loss storage. Store to create a method for gamestate saving wins and losses. |
