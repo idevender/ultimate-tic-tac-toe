@@ -23,7 +23,7 @@ class GameStateManager:
         with shelve.open(self.db_name) as db:
             return len(db)
 
-    def save_game(self, game_id="id", player1="player1", player2="player2", turn="player1", board=[[0 for _ in range(9)] for _ in range(9)]):
+    def save_game(self, game_id="id", player1="player1", player2="player2", turn="player1", board=[[0 for _ in range(9)] for _ in range(9)], winner = None):
         """Saves a game state to the database.
 
         Parameters:
@@ -39,7 +39,8 @@ class GameStateManager:
                 'player1': player1,
                 'player2': player2,
                 'board' : board,
-                'turn' : turn
+                'turn' : turn,
+                'winner' : winner
             }
 
     def load_game(self, game_id):
