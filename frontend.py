@@ -59,7 +59,7 @@ class FrontEndOps:
         return cell_x_coord, cell_y_coord
     
 
-    def update_board(self, game_board):
+    def update_board(self, game_board, turn, current_user, opponent, game_id):
         """
         Updates the game board on the front end.
 
@@ -80,13 +80,13 @@ class FrontEndOps:
         for row in game_board:
             for col in row:
                 if col == 0:
-                    col = ""
+                    col = " "
                 elif col == 1:
                     col = "X"
                 elif col == 2:
                     col = "O"
 
-        return self.AppRenderEngine.render_updated_board(game_board)
+        return self.AppRenderEngine.render_updated_board(game_board, turn, current_user, opponent, game_id)
 
 
     def process_online_players(self, online_players, current_player):
@@ -171,7 +171,7 @@ class RenderEngine:
         return self.main_game_page
 
 
-    def render_updated_board(self, board_config):
+    def render_updated_board(self, board_config, turn, current_user, opponent, game_id):
         """
         Updates the game board on the main game page of the game app.
 
@@ -179,7 +179,7 @@ class RenderEngine:
             board_config (2d list): A 9x9 list representing the game board.
         """
 
-        return template('gamepage.html', board_config=board_config)
+        return template('gamepage.html', board_config=board_config, turn=turn, current_user = current_user, opponent=opponent, game_id=game_id)
 
 
     def render_online_players(self, online_players, current_player):

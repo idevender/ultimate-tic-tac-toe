@@ -13,16 +13,16 @@
         <h1 class="h1-label">Current Player</h1>
 
         <!-- This is temporary Dummy text- This will be replaced with dynamic usernames -->
-        <h1 class="h1-output">Player1Username</h1> 
+        <h1 class="h1-output">{{current_user}}</h1> 
 
         <h1 class="h1-label">Opponent Username</h1>
 
         <!-- This is temporary Dummy text- This will be replaced with dynamic usernames -->
-        <h1 class="h1-output">Player2Username</h1>
+        <h1 class="h1-output">{{{opponent}}</h1>
 
         <h1 class="h1-label">Turn</h1>
 
-        <h1 class="h1-output">It's your turn!</h1>
+        <h1 class="h1-output">{{turn}}</h1>
 
     </div>
 
@@ -34,6 +34,11 @@
         <table class="board">
             <tr>
                 <form action="/check_game" method="post">
+
+                    <input type="hidden" name="game_id" id="game_id" value="{{game_id}}" hidden>
+                    <input type="hidden" name="current_user" id="current_user" value="{{current_user}}" hidden>
+                    <input type="hidden" name="opponent" id="opponent" value="{{opponent}}" hidden>
+
                     <td class="cell"><button type="submit" name="coordinate" value="0,0">{{board_config[0][0]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="0,1">{{board_config[0][1]}}</button></td>
                     <td class="cell"><button type="submit" name="coordinate" value="0,2">{{board_config[0][2]}}</button></td>
