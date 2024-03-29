@@ -153,6 +153,7 @@ def check_game_state():
     if applogic.SuperTicTacToe().make_move(game_id,x,y):
         response.status = 200
         board, playerturn = applogic.SuperTicTacToe().load_board(game_id)
+        print(board)
         return frontend.FrontEndOps().update_board(board,playerturn,user_id1,user_id2,game_id)
     else :
         response.status = 400
