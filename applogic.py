@@ -51,6 +51,7 @@ class SuperTicTacToe:
                 self.playerTurn = SuperTicTacToe.PLAYER_TWO
             else:
                 self.playerTurn = SuperTicTacToe.PLAYER_ONE
+            self.save_board()
             return True
     
     def check_states(self):
