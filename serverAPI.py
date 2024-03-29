@@ -119,7 +119,7 @@ def register_user():
     form_data = dict(request.forms)
     if UserMan.register_user(request.forms.get('username'), request.forms.get('password')):
         response.status = 200
-        frontend.FrontEndOps.process_online_players(UserMan.get_online_users(),form_data['username']) 
+        frontend.FrontEndOps.process_online_players(UserMan.get_all_online_users(),form_data['username']) 
     else:
         response.status = 400
         return "User already exists"
