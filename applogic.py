@@ -39,7 +39,7 @@ class SuperTicTacToe:
         Returns:
             bool: True if the move resulted in a win or draw, False otherwise.
         """
-        self.load_board(gameid)
+        print("Testing display",self.load_board(gameid))
         self.subBoard = row
 
         if self.board[row][col] != 0:
@@ -178,9 +178,10 @@ class SuperTicTacToe:
         - list: A 2D list representing the game board, where each element represents a cell on the board.
         """
         display = [[0 for _ in range(9)] for _ in range(9)]
-        for i in range(9):
-            for j in range(3):
-                display[i] = self.board[j][(0):(3)] + self.board[j][(3):(6)] + self.board[j][(6):(9)] 
+        for i in range(0,9,3):
+            display[i] = self.board[i][0:3] + self.board[i+1][0:3] + self.board[i+2][0:3]
+            display[i+1] = self.board[i][3:6] + self.board[i+1][3:6] + self.board[i+2][3:6]
+            display[i+2] = self.board[i][6:9] + self.board[i+1][6:9] + self.board[i+2][6:9]
         return display
        
     def save_board(self):
