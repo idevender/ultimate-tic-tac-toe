@@ -47,7 +47,7 @@ class FrontEndOps:
         """
 
         # Getting the cell Coordinates from the request
-        cell_coords = request.forms.get('cordinate')
+        cell_coords = request.forms.get('coordinate')
 
         # Seperating the X and Y Coordinates from the cell ID String
         cell_coords = cell_coords.split(',') 
