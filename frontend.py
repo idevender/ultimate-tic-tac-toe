@@ -70,6 +70,22 @@ class FrontEndOps:
             str: The updated game board on the front end.
         """
 
+        # Making sure the game_board is well recieved
+        if not game_board:
+            return "Game Board Not Found"
+        if not isinstance(game_board, list):
+            raise TypeError("The game board is not a list.")
+        
+        # Converting the game board to the frontend format according to the board received
+        for row in game_board:
+            for col in row:
+                if col == 0:
+                    col = ""
+                elif col == 1:
+                    col = "X"
+                elif col == 2:
+                    col = "O"
+
         return self.AppRenderEngine.render_updated_board(game_board)
 
 
@@ -111,7 +127,7 @@ class RenderEngine:
 
         self.signup_page = template('signup.html')
         self.login_page = template('login.html')
-        self.main_game_page = template('gamepage.html')
+        # self.main_game_page = template('gamepage.html')
 
     def render_signup_page(self):
         """
@@ -163,7 +179,7 @@ class RenderEngine:
             board_config (2d list): A 9x9 list representing the game board.
         """
 
-        return template('main_game_page', board_config=board_config)
+        return template('gamepage.html', board_config=board_config)
 
 
     def render_online_players(self, online_players, current_player):
