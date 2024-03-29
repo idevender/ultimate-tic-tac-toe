@@ -72,10 +72,11 @@ def login_user():
     if UserMan.login_user(form_data['username'], form_data['password']):
         response.status = 200
         
-        """TODO : decide which page to render after login"""
-        frontend.RenderEngine().render_user_page() 
-        username = request.forms.get('username') 
+        username = request.forms.get('username')
+        
+         
         UserMan.get_user_history(username)
+        return frontend.FrontEndOps().process_online_players(UserMan.get_all_online_users(),username) 
     else:
         response.status = 404
         return "User not found"
@@ -115,10 +116,10 @@ def register_user():
     Returns:
         Int: 400 if there is an issue, 200 if the user is created.
     """
-    
+    form_data = dict(request.forms)
     if UserMan.register_user(request.forms.get('username'), request.forms.get('password')):
         response.status = 200
-        frontend.RenderEngine().render_online_players()
+        frontend.FrontEndOps.process_online_players(UserMan.get_online_users(),form_data['username']) 
     else:
         response.status = 400
         return "User already exists"
