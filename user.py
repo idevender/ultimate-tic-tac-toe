@@ -2,6 +2,7 @@ import store
 import hashlib
 import uuid
 
+
 class User:
     """Represents a user with a username and password.
 
@@ -71,7 +72,8 @@ class UserManager:
             hashed_password = self.hash_password(password)
 
             # Store the user with the hashed password
-            db[username] = {'username': username, 'password': hashed_password, 'online': True}
+            db[username] = {'username': username,
+                            'password': hashed_password, 'online': True}
 
         # Return True
         return True
@@ -145,7 +147,8 @@ class UserManager:
                 # Update the user's password with the hashed new password
                 user_data = db[username]
                 user_data['password'] = hashed_new_password
-                db[username] = user_data  # Ensuring the updated user data is saved back to the database
+                # Ensuring the updated user data is saved back to the database
+                db[username] = user_data
                 return True  # Password update was successful
             else:
                 # User does not exist in the database
@@ -172,7 +175,8 @@ class UserManager:
         online_users = []
         with store.shelve.open(self.user_db.db_name) as db:
             for username, user_info in db.items():
-                if user_info.get('online', False):  # Defaults to False if 'online' key is not there
+                # Defaults to False if 'online' key is not there
+                if user_info.get('online', False):
                     online_users.append(username)
         return online_users
 
@@ -191,6 +195,28 @@ class UserManager:
 
         # Initialize a new game with the generated ID, user1, and user2
         game_state_manager = store.GameStateManager(db_name='gameStates')
-        game_state_manager.save_game(game_id=unique_id, player1=user_id1, player2=user_id2, turn=user_id1)
+        game_state_manager.save_game(
+            game_id=unique_id, player1=user_id1, player2=user_id2, turn=user_id1)
 
         return unique_id
+
+    def get_active_games(self, username):
+        """
+        Retrieves a list of active games for a specified user without modifying store.py.
+
+        Args:
+            username (str): The username to fetch active games for.
+
+        Returns:
+            list: A list of lists, each containing [game_id, opponent_username] for active games.
+        """
+        active_games = []
+        with store.shelve.open("data/gameStates.db") as db:
+            for game_id, game_info in db.items():
+                # Check if the game is active and if the user is a participant
+                if game_info['winner'] is None and (game_info['player1'] == username or game_info['player2'] == username):
+                    # Determine the opponent and append the game info to the list
+                    opponent = game_info['player2'] if game_info['player1'] == username else game_info['player1']
+                    active_games.append([game_id, opponent])
+
+        return active_games
