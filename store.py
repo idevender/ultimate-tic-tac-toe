@@ -11,7 +11,7 @@ class GameStateManager:
         Parameters:
             db_name (str): The name of the shelve database for game states.
         """
-        self.db_name = db_name
+        self.db_name = "data/" + db_name
 
 
     def setup_db(self):
@@ -91,7 +91,7 @@ class UserManager:
         Parameters:
             db_name (str): The name of the shelve database for user information.
         """
-        self.db_name = db_name
+        self.db_name = "data/" + db_name
 
 
     def setup_db(self):
