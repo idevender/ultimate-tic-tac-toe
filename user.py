@@ -2,6 +2,7 @@ import store
 import hashlib
 import uuid
 
+
 class User:
     """Represents a user with a username and password.
 
@@ -71,7 +72,8 @@ class UserManager:
             hashed_password = self.hash_password(password)
 
             # Store the user with the hashed password
-            db[username] = {'username': username, 'password': hashed_password, 'online': True}
+            db[username] = {'username': username,
+                            'password': hashed_password, 'online': True}
 
         # Return True
         return True
@@ -145,7 +147,8 @@ class UserManager:
                 # Update the user's password with the hashed new password
                 user_data = db[username]
                 user_data['password'] = hashed_new_password
-                db[username] = user_data  # Ensuring the updated user data is saved back to the database
+                # Ensuring the updated user data is saved back to the database
+                db[username] = user_data
                 return True  # Password update was successful
             else:
                 # User does not exist in the database
@@ -172,7 +175,8 @@ class UserManager:
         online_users = []
         with store.shelve.open(self.user_db.db_name) as db:
             for username, user_info in db.items():
-                if user_info.get('online', False):  # Defaults to False if 'online' key is not there
+                # Defaults to False if 'online' key is not there
+                if user_info.get('online', False):
                     online_users.append(username)
         return online_users
 
@@ -191,6 +195,29 @@ class UserManager:
 
         # Initialize a new game with the generated ID, user1, and user2
         game_state_manager = store.GameStateManager(db_name='gameStates')
-        game_state_manager.save_game(game_id=unique_id, player1=user_id1, player2=user_id2, turn=user_id1)
+        game_state_manager.save_game(
+            game_id=unique_id, player1=user_id1, player2=user_id2, turn=user_id1)
 
         return unique_id
+
+    def get_leaderboard(self):
+        """Retrieves the top 10 players sorted by their win counts.
+
+        Returns:
+            list: A list of tuples containing the username and win count of the top 10 players.
+        """
+        win_counts = {}
+
+        # Load all games and count wins for each player
+        with store.shelve.open('gameStates') as db:
+            for game_id, game_details in db.items():
+                winner = game_details.get('winner')
+                if winner:
+                    win_counts[winner] = win_counts.get(winner, 0) + 1
+
+        # Sort players by win counts in descending order
+        sorted_win_counts = sorted(
+            win_counts.items(), key=lambda x: x[1], reverse=True)
+
+        # Return the top 10 players
+        return sorted_win_counts[:10]
