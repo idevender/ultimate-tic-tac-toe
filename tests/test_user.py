@@ -4,6 +4,7 @@ from user import UserManager, User
 import unittest
 import sys
 import os
+from unittest.mock import patch
 
 # Get the absolute path of the directory containing the current script (test_quiz.py)
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -213,35 +214,37 @@ class TestUserManager(unittest.TestCase):
             # Expect exception since users do not exist and pass the test if an exception is caught.
             pass
 
-    def test_get_all_online_users(self):
-        """Test retrieving all online usernames from the database."""
-        # Register some users and explicitly mark them as online
-        self.user_manager.register_user("userOnline1", "password1")
-        self.user_manager.set_user_online_status("userOnline1", True)
-        self.user_manager.register_user("userOnline2", "password2")
-        self.user_manager.set_user_online_status("userOnline2", True)
-        # Register a user but do not mark as online
-        self.user_manager.register_user("userOffline", "password3")
+    @patch('store.shelve.open')
+    def test_get_active_games_with_games(self, mock_shelve_open):
+        """Test retrieving active games for a user with active games."""
+        username = "activeUser"
+        # Mock database response
+        mock_db = {
+            'game1': {'player1': username, 'player2': 'opponent1', 'winner': None},
+            'game2': {'player1': 'opponent2', 'player2': username, 'winner': None},
+        }
+        mock_shelve_open.return_value.__enter__.return_value = mock_db
 
-        # Fetch all online users
-        online_users = self.user_manager.get_all_online_users()
+        # Perform the test
+        active_games = self.user_manager.get_active_games(username)
+        self.assertEqual(len(active_games), 2,
+                         "Should return 2 active games for the user")
 
-        # Check if only online users are returned
-        self.assertIn("userOnline1", online_users)
-        self.assertIn("userOnline2", online_users)
-        self.assertNotIn("userOffline", online_users)
+    @patch('store.shelve.open')
+    def test_get_active_games_no_games(self, mock_shelve_open):
+        """Test retrieving active games for a user with no active games."""
+        username = "lonelyUser"
+        # Mock database response to simulate no active games for the user
+        mock_db = {
+            'game1': {'player1': 'otherUser1', 'player2': 'otherUser2', 'winner': 'otherUser1'},
+            'game2': {'player1': 'otherUser3', 'player2': 'otherUser4', 'winner': None},
+        }
+        mock_shelve_open.return_value.__enter__.return_value = mock_db
 
-    def test_get_all_online_users_none_online(self):
-        """Test retrieving online users when no users are online."""
-        # Register some users without marking them as online
-        self.user_manager.register_user("user1", "password1")
-        self.user_manager.register_user("user2", "password2")
-
-        # Fetch all online users
-        online_users = self.user_manager.get_all_online_users()
-
-        # Verify no users are returned
-        self.assertEqual(len(online_users), 0)
+        # Perform the test
+        active_games = self.user_manager.get_active_games(username)
+        self.assertEqual(len(active_games), 0,
+                         "Should return no active games for the user")
 
 
 if __name__ == '__main__':
