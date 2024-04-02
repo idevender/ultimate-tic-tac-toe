@@ -427,7 +427,7 @@ The meeting was productive, with significant progress made on code reviews and s
 
 **Venue:** Discord/Screen Sharing
 
-**Time:** 1:00pm to 
+**Time:** 1:00pm to 3:00pm
 
 **Attendance:** Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
 
@@ -441,4 +441,9 @@ The meeting was productive, with significant progress made on code reviews and s
 | Code Review | Store; changed path of shelve db, reviewed and accepted by the team. |
 | New Issue | Store; need to update the remove_game method to take an extra parameter of the player who won so that the players involved can have their win/loss/draw histories updated |
 | New Issue | API/Applogic; need to refactor `check_game_state()` and `make_move()` so that we dont get caught in a trap of trying to load a finished game after its deleted. |
-| New Issue |  |
+| New Issue | API/Frontend; Implement adding error messages to the front-end when things are incorrect. |
+| New Issue | Lock the game for a user whos turn it is not |
+| User Stories | Everyone in the team document a user story |
+| Game Framework | Everyone take the time between now and our next meeting to reflect on what changes need to be made to their individual modules. |
+| Performance Review | Everyone complete the performance reviews for each other member between now and our next meeting |
+| Next meeting | Marathon meeting planned for thursday to finalize the requirements for the project submission on friday. |
