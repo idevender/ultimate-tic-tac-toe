@@ -22,7 +22,7 @@
                   <!-- All temporary Dummy texts will be replaced with dynamic data  in the future -->
                 <h2 class="h1-label">Username</h2> 
 
-                <h2 class="h1-output">SimonRileyMW3</h2>
+                <h2 class="h1-output">{{current_player}}</h2>
         
                 <h2 class="h1-label">Wins</h2>
 
@@ -34,7 +34,7 @@
         
                 <h2 class="h1-label">Rank</h2>
 
-                <h2 class="h1-output">5</h2>
+                <h2 class="h1-output">{{current_player_rank}}</h2>
 
             </div>
           
@@ -84,66 +84,15 @@
                     </tr>
         
                     <tbody class="table-body">
-                        <tr class="data-row">
-                            <td>1</td>
-                            <td>TackyToeBoi</td>
-                            <td>10</td>
-                        </tr>
+
+                        % for player in leaderboard_list:
                         <tr>
-                            <td>2</td>
-                            <td>TackyToeBoi</td>
-                            <td>9</td>
+                            <td>{{loop.index}}</td>
+                            <td>{{player[0]}}</td>
+                            <td>{{player[1]}}</td>  
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>TackyToeBoi</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>TackyToeBoi</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>TackyToeBoi</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>TackyToeBoi</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>TackyToeBoi</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>TackyToeBoi</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>TackyToeBoi</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>TackyToeBoi</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>TackyToeBoi</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>TackyToeBoi</td>
-                            <td>0</td>
-                        </tr>
+                        % end
+
                     </tbody>
                    
                 </table>
