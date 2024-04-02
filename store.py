@@ -103,7 +103,7 @@ class UserManager:
         with shelve.open(self.db_name) as db:
             return len(db)
 
-    def save_user(self, username, password, online = False):
+    def save_user(self, username, password, online = False, wins = 0, losses = 0, draws = 0):
         """Saves a user to the database.
 
         Parameters:
@@ -121,7 +121,10 @@ class UserManager:
             db[username] = {
                 'username': username,
                 'password': password,
-                'online': online
+                'online': online,
+                'wins': wins,
+                'losses': losses,
+                'draws': draws
                 }
 
     def load_user(self, username):
