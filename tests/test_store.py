@@ -27,19 +27,31 @@ class TestGameStateManager(unittest.TestCase):
         result = self.manager.setup_db()
         self.assertEqual(result, 0)
 
-    def test_save_game(self):
+    def test_create_game_pass(self):
+        # Pass test for create_game
         self.setUp()
-        # Test saving a game state
+        self.manager.create_game()
+        # If no exception is raised, the test passes
+
+    def test_create_game_fail(self):
+        # Fail test for create_game
+        # Creating a game with the same ID should raise an IOError
+        self.setUp()
         with self.assertRaises(IOError):
-            self.manager.save_game("test_game")
+            self.manager.create_game(game_id="id")
+
+    def test_save_game_pass(self):
+        # Pass test for save_game
+        self.setUp()
+        self.manager.create_game(game_id="test_game")
+        self.manager.save_game("test_game", [], "player1", "player1")
 
     def test_save_game_fail(self):
+        # Fail test for save_game
+        # Saving a game with non-existent ID should raise an IOError
         self.setUp()
-        self.manager.save_game("test_game")
-        # Raise error on second save attempt since game is already saved.
         with self.assertRaises(IOError):
-            self.manager.save_game("test_game")
-
+            self.manager.save_game("non_existent_game", [], "player1", "player1")
 
     def test_load_game(self):
         # Test loading a game state.
@@ -49,6 +61,7 @@ class TestGameStateManager(unittest.TestCase):
 
     def test_load_game_fail(self):
         # Test loading a game state that is not saved.
+        self.setUp()
         with self.assertRaises(IOError):
             self.manager.load_game("test_game")
 
@@ -60,6 +73,7 @@ class TestGameStateManager(unittest.TestCase):
 
     def test_remove_game_fail(self):
         # Test removing the game state that is not saved.
+        self.setUp()
         with self.assertRaises(IOError):
             self.manager.remove_game("test_game")
 
@@ -71,31 +85,37 @@ class TestUserManager(unittest.TestCase):
         self.db_name = 'test_users'
         self.manager = UserManager(self.db_name)
 
-    def test_setup_db(self):
+    def test_create_user(self):
+        # Test creating a user
         self.setUp()
-        # Test the user shelve setup, inital length should be 0.
-        result = self.manager.setup_db()
-        self.assertEqual(result, 0)
+        self.manager.create_user("test_user","test_user_password")
+
+    def test_create_user_fail(self):
+        # Test creating a user that already exists
+        self.setUp()
+        self.manager.create_user("test_user","test_user_password")
+        with self.assertRaises(IOError):
+            self.manager.create_user("test_user","test_user_password")
 
     def test_save_user(self):
         # Test saving a user
         self.setUp()
-        self.manager.save_user("test_user","test_user_password")
+        self.manager.create_user("test_user","test_user_password")
+        self.manager.save_user("test_user", wins=1, losses=0 , draws=0)
     
     def test_save_user_fail(self):
         self.setUp()
-        self.manager.save_user("test_user","test_user_password")
-        # Raise error on second save attempt since user is already saved.
+        # Raise error when trying to update a user that doesn't exist.
         with self.assertRaises(IOError):
-            self.manager.save_user("test_user","test_user_password")
+            self.manager.save_user("test_username", wins=1, losses=0 , draws=0)
 
     def test_load_user(self):
-        # Test loading a user after save
         self.setUp()
-        self.manager.save_user("test_user","test_password")
+        # Test loading a user after creation.
+        self.manager.create_user("test_user","test_password")
         self.manager.load_user("test_user")
 
-    def load_user_fail(self):
+    def test_load_user_fail(self):
         self.setUp()
         with self.assertRaises(IOError):
             self.manager.load_user("test_user")
@@ -103,10 +123,11 @@ class TestUserManager(unittest.TestCase):
     def test_remove_user(self):
         # Test removing a user
         self.setUp()
-        self.manager.save_user("test_user","test_user_password")
+        self.manager.create_user("test_user","test_user_password")
         self.manager.remove_user("test_user")
 
     def test_remove_user_fail(self):
         # Test removing a user that has not been saved.
+        self.setUp()
         with self.assertRaises(IOError):
             self.manager.remove_user("test_user")
