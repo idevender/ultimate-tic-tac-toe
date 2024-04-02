@@ -131,3 +131,6 @@ class TestUserManager(unittest.TestCase):
         self.setUp()
         with self.assertRaises(IOError):
             self.manager.remove_user("test_user")
+
+if __name__ == '__main__':
+    unittest.main()
