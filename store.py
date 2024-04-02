@@ -23,7 +23,7 @@ class GameStateManager:
         with shelve.open(self.db_name) as db:
             return len(db)
 
-    def save_game(self, game_id="id", player1="player1", player2="player2", turn="player1", board=[[0 for _ in range(9)] for _ in range(9)], winner = None):
+    def create_game(self, game_id="id", player1="player1", player2="player2", turn="player1", board=[[0 for _ in range(9)] for _ in range(9)], winner = None):
         """Saves a game state to the database.
 
         Parameters:
@@ -32,8 +32,13 @@ class GameStateManager:
             player2 (str): Assign the name of the second player.
             turn (str): Assign the name of the player whose turn it is.
             board (list): Assign the current state of the game board.
+
+        Raises:
+            IOError: If the ID is already taken.
         """
         with shelve.open(self.db_name) as db:
+            if game_id in db:
+                raise IOError(f"The game '{game_id}' already exists, please choose another ID.")
             db[game_id] = {
                 'gameID' : game_id,
                 'player1': player1,
@@ -42,6 +47,30 @@ class GameStateManager:
                 'turn' : turn,
                 'winner' : winner
             }
+
+    def save_game(self, game_id, board, winner, turn):
+        """Saves changes to a game state in the database.
+
+        Parameters:
+            game_id (str): The id of the game state to be updated.
+            board (list): The updated game board.
+            winner (str): The winner of the game.
+            turn (str): The name of the player whose turn it is.
+
+        Raises:
+            IOError: If the ID is not found in the database.
+        """
+        with shelve.open(self.db_name) as db:
+            game_state = db.get(game_id)
+
+            if game_state is None:
+                raise IOError(f"The game '{game_id}' does not exist.")
+            
+            game_state['board'] = board
+            game_state['winner'] = winner
+            game_state['turn'] = turn
+        
+            db[game_id] = game_state
 
     def load_game(self, game_id):
         """Loads a previously stored game state from the database.
@@ -103,7 +132,7 @@ class UserManager:
         with shelve.open(self.db_name) as db:
             return len(db)
 
-    def save_user(self, username, password, online = False):
+    def create_user(self, username, password, online = False, wins = 0, losses = 0, draws = 0):
         """Saves a user to the database.
 
         Parameters:
@@ -112,17 +141,43 @@ class UserManager:
             online (bool): Save the online status of the user.
 
         Raises:
-            OSError: If the user cannot be saved properly.
+            IOError: If the user cannot be saved properly.
         """
         with shelve.open(self.db_name) as db:
             if username in db:
-                raise OSError(f"The user '{username}' is already taken, please choose another username.")
+                raise IOError(f"The user '{username}' is already taken, please choose another username.")
 
             db[username] = {
                 'username': username,
                 'password': password,
-                'online': online
+                'online': online,
+                'wins': wins,
+                'losses': losses,
+                'draws': draws
                 }
+            
+    def save_user(self, username, wins, losses, draws):
+        """Saves changes to a user in the database.
+
+        Parameters:
+            username (str): The name of the user to be updated.
+            wins (int): The number of wins of the user.
+            losses (int): The number of losses of the user.
+            draws (int): The number of draws of the user.
+
+        Raises:
+            IOError: If the user cannot be updated properly.
+        """
+        with shelve.open(self.db_name) as db:
+            user = db.get(username)
+            if user is None:
+                raise IOError(f"The user '{username}' does not exist.")
+            
+            user['wins'] = wins
+            user['losses'] = losses
+            user['draws'] = draws
+
+            db[username] = user
 
     def load_user(self, username):
         """Loads a previously stored user from the database.
@@ -133,13 +188,13 @@ class UserManager:
         Returns:
             user (dict): The user information in a dictionary.
         Raises:
-            OSError: If the user state cannot be loaded properly.
+            IOError: If the user state cannot be loaded properly.
         
         """
         with shelve.open(self.db_name) as db:
             user = db.get(username)
             if user is None:
-                raise OSError(f"The user '{username}' does not exist.")
+                raise IOError(f"The user '{username}' does not exist.")
         return user
 
     def remove_user(self, username):
@@ -167,11 +222,11 @@ class UserManager:
             status (bool): The online status of the user.
 
         Raises:
-            OSError: If the user status cannot be updated properly.
+            IOError: If the user status cannot be updated properly.
         """
         with shelve.open(self.db_name) as db:
             user = db.get(username)
             if user is None:
-                raise OSError(f"The user '{username}' does not exist.")
+                raise IOError(f"The user '{username}' does not exist.")
             
             user['online'] = status
