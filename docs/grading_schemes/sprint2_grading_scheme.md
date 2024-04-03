@@ -19,8 +19,8 @@ Team submission evaluation will be based on the following:
     * **3 points** Minutes committed and pushed regularly, so team members can access.
     * **3 points** Reasonable distribution of tasks among team. Design interface/services and Coding tasks assigned to individual team members. Tasks on KanBan board.
   * Maintenance of the Kanban Board and the issue tracker in your project repository (15%)
-    * Kanban board must be set up early in the first sprint. 
-    * **2 points** Consistent continuous use. Assignment, labels, color coding, categories, etc. used appropriately and consistently by team. 
+    * Kanban board must be set up early in the first sprint.
+    * **2 points** Consistent continuous use. Assignment, labels, color coding, categories, etc. used appropriately and consistently by team.
     * **5 points** Create cards for backlog features, required functionality for sprint 2, and assigned tasks.
     * **3 points** Progress of tasks/issues noted on board and tracker
     * **5 points** New issues (tasks) arising in meetings, reviews and otherwise are noted on issue tracker (board)
@@ -29,7 +29,7 @@ Team submission evaluation will be based on the following:
   * Code reviews conducted and documented. (20%)
     * Code should be regularly presented and discussed as a team, not just at end of cycle.
     * **5 points** Code review details incorporated into process model and pull requests.
-    * **10 points** Code reviews are thorough, including style issues. 
+    * **10 points** Code reviews are thorough, including style issues.
     * **3 points** All code should be reviewed by entire team before pull request is merged.
     * **2 points** Pull request deadlines for code contributions established and enforced.
   * User stories (10%)
