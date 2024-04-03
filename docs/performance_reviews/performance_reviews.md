@@ -50,4 +50,3 @@
 | Ali | Cameron could be more attentive during meeting, and overall decision making process of the repository. |
 | Devender | Displays a strong work ethic and knowledge; would benefit from a more consistent dedication to timelines and task completion. |
 | Evan | Cameron Attended all meetings, and communicated with all members of the team. Could work on being on time for meetings. Kept the task board up to date with closing issues and contributed greatly through his part of the project.|
-
