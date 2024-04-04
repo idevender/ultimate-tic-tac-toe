@@ -109,24 +109,21 @@ Furthermore, this section will include architectural diagrams and explanations o
 
 ## Database
 
-- **Description:** [Brief description of the module and its purpose]
-- **Refactoring Needed:** [Explanation of refactoring requirements]
-- **Interface Changes:** [Details of interface changes required]
-- **Architectural Diagrams:** [Illustrations of architectural changes, if needed]
+- **Description:** This module currently handles the persistent storage of game states and user information using a shelve database. It allows for the creation, modification, loading, and removal of both game states and user data.
+- **Refactoring Needed:** To convert this module into a framework, the main changes required would involve abstracting the database handling to support different database backends (not just shelve). Additionally, the framework should allow for customization of data schema, error handling, and potentially support for asynchronous operations.
+- **Interface Changes:** The interface would need to be redesigned to be more generic, allowing users of the framework to easily switch between different database implementations and customize data storage formats.
 
 ### Redesign Comparison
 
 #### Existing Architecture
 
-- **Overview:** [Description of the current architecture]
-- **Module Diagrams:** [Module diagrams illustrating the existing architecture]
+- **Overview:** The current architecture tightly couples the application with shelve for data storage. Modules directly interact with shelve for storing and retrieving data.
 
 #### Proposed Redesign
 
-- **Overview:** [Description of the proposed redesign]
-- **Module Diagrams:** [Module diagrams illustrating the proposed redesign]
+- **Overview:** The proposed redesign aims to decouple the application from specific database implementations. It introduces abstraction layers for database interactions, allowing for easier integration of different databases.
 
 #### Framework Usage
 
-- **Decoupling Considerations:** [Explanation of how the framework addresses decoupling issues]
-- **Clear Usage Instructions:** [Instructions on how to use the framework effectively]
+- **Decoupling Considerations:** The framework provides interfaces for database interactions, allowing users to switch between different databases without modifying application code significantly.
+- **Clear Usage Instructions:** To use the framework to manage game states and user information effectively, developers should defer to the python shelve documentation. Otherwise, there is documentation in ```arch_store.py``` which outlines the methods and their use.
