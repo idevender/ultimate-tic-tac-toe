@@ -37,8 +37,7 @@ class GameStateManager:
             IOError: If the ID is already taken.
         """
         with shelve.open(self.db_name) as db:
-            if game_id in db:
-                raise IOError(f"The game '{game_id}' already exists, please choose another ID.")
+
             db[game_id] = {
                 'gameID' : game_id,
                 'player1': player1,

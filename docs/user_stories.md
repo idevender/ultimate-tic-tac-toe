@@ -98,38 +98,27 @@ Integrate personalized player profiles within the game interface, showcasing ind
 - **Reference and Best Practices:** Study existing social gaming platforms and community-driven games for insights into engaging social feature implementation. Adopting industry best practices can guide the development process and help avoid common pitfalls.
 - **User Feedback Loop:** Create channels for collecting user feedback specifically regarding the new social features. Regularly review and analyze this feedback to understand user needs, preferences, and pain points, facilitating continuous improvement of the friend system and chat functionality.
 
-## Story 3: [Title of User Story]
+## Story 3: Livin' the Dream
 
-### Written by: [Your Name]
+### Written by: Cameron Ramolio Selci
 
-**As a** [type of user or persona],  
-**I want** [a goal or desired functionality],  
-**So that** [reason or benefit].
+**As a** Human,  
+**I want** to have fun and be happy,  
+**So that** I enjoy life and am not miserable.
 
 ### Description
 
-[Provide a brief description of the user story, including any context or background information that helps understand the user's needs.
+I like playing games with friends. Playing games with friends is a grand ol' time. I have spent a lot of my life talking to and gaming with friends. Heck yeah I'll play some tic-tac-toe with a friend. Maybe I'll meet a new friend over tic-tac-toe. Login, linkup, chat, and play.
 
-[User's name or role] is a [description of the user's background or role] who [describe the user's action or interaction with the product].
-
-When [describe the trigger or event that initiates the user's action], the system responds with [describe the system's response, such as feedback, output, or outcome].
-
-This results in [describe the issue, problem, or impact faced by the user as a result of the system's response].
-
-As a result, [user's name or role] is uncertain about [specific uncertainty or question related to the issue].
-
-The desired outcome is [describe the user's expectation, goal, or desired resolution].
-
-]
 
 #### Feature Suggestion
 
-Incorporate an [interactive element or feature] directly within the [system or platform] to assist [users or specific user group] in [specific action or objective]. The [element or feature] should provide [description of functionality or benefits] to ensure [desired outcome or improvement].
+Incorporate a chat feature so people can introduce themselves and chat. Poeple make life long friends on the internet, I have a group of friends I met online and talk to almost every day and have been for 8 years now.
 
 #### Design Suggestions
 
-- Include [additional feature or functionality] during [specific user interaction or scenario] to enhance [user experience or outcome].
-- Implement a [new system component or tool] where users can [specific action or benefit] without [potential issue or limitation].
+- Some of those three.js ui implementations that look cool, that fancy 3d text.
+- Implement a 
 
 ### Acceptance Criteria
 
