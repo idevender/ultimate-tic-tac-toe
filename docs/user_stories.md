@@ -79,10 +79,12 @@ Integrate personalized player profiles within the game interface, showcasing ind
 - The system must support notifications for friend requests, messages, and game challenges to enhance user interaction and engagement.
 
 ### Tasks
-- **Backend Framework:** Construct backend infrastructure for managing user profiles, friend connections, interaction requests, and real-time notifications.
+- **Backend Framework:** Construct backend infrastructure for managing user profiles, friend connections, interaction requests, and real-time notifications. This includes the development of APIs for friend requests, message exchange, and updating user profiles.
 - **UI/UX Development:** Design and implement the interface for user profiles, friend interactions, chat functionalities, and notifications.
 - **Integration and Testing:** Ensure the seamless integration of these features with existing game mechanics, like matchmaking and authentication, utilizing the current online player list feature for displaying friends' online status.
 - **Chat System Implementation:** Develop a chat system that allows players to communicate directly within the game interface, enhancing the community experience.
+- **Real-Time Notifications:**  Implement real-time notifications for friend requests, messages, and game invites, ensuring that players are promptly informed of any new interactions or updates.
+- **Feedback Mechanism:** Create a feedback mechanism that allows players to submit suggestions and report issues related to the social features. 
 
 ### Additional Information
 - **Dependencies:** Relies on the established user authentication system and matchmaking algorithms. The implementation of chat and friend interactions will leverage the existing infrastructure for displaying online players.
