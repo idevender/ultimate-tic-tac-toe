@@ -412,5 +412,38 @@ The meeting was productive, with significant progress made on code reviews and s
 | Code Review | Getting Applogic and gamepage coordinates to work together. |
 | Code Review | Store, user, and server interaction. |
 | Code Review | Reset functionality page and functionality. |
-| General note | Members reviewed PRs as needed and we merged as necessary. | 
+| General note | Members reviewed PRs as needed and we merged as necessary. |
 | Additional Features | Discussed more implementations such as win and loss storage. Store to create a method for gamestate saving wins and losses. |
+
+## April 2nd, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:**  Cameron Selci
+
+**Recorded by:** Jager Cooper
+
+**Venue:** Discord/Screen Sharing
+
+**Time:** 1:00pm to 3:00pm
+
+**Attendance:** Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item       | Brief Description |
+|-------------------|-------------------|
+| Discussion | discussed trying to test our game on two browsers, and therefore implementing page refresh and board permissions.   |
+| New Issue | DB; Add a `create_game()` method for the user module to use, refactor `save_game()` to remove playerid parameters |
+| Code Review | Frontend; Implemented dynamic leadboard data on the front, reviewed and accepted by the team. |
+| Code Review | User module; Added leaderboard functionality and unit tests, Reviewed, code execution is good, however this PR has been rejected due to new design decisions being currently implemented in the database. |
+| Code Review | User module; Gather currently active games, reviewed and accepted by the team.  |
+| Code Review | Store; changed path of shelve db, reviewed and accepted by the team. |
+| New Issue | Store; need to update the remove_game method to take an extra parameter of the player who won so that the players involved can have their win/loss/draw histories updated |
+| New Issue | API/Applogic; need to refactor `check_game_state()` and `make_move()` so that we dont get caught in a trap of trying to load a finished game after its deleted. |
+| New Issue | API/Frontend; Implement adding error messages to the front-end when things are incorrect. |
+| New Issue | Lock the game for a user whos turn it is not |
+| User Stories | Everyone in the team document a user story |
+| Game Framework | Everyone take the time between now and our next meeting to reflect on what changes need to be made to their individual modules. |
+| Performance Review | Everyone complete the performance reviews for each other member between now and our next meeting |
+| Next meeting | Marathon meeting planned for thursday to finalize the requirements for the project submission on friday. |

@@ -12,7 +12,7 @@
 | -------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cameron | Needs to slow down on implementation so that others have a chance to plan their own design.                                                                                                                                         |
 | Ali | Cooper could focus more on designs and implementation choices before producing code to better syncronize between other members' designs and implementations |
-| Devender |  Shows strong individual performance; encouraged to seek more opportunities for team collaboration to leverage collective strengths.                         |                                                                       |
+| Devender |  Shows strong individual performance; encouraged to seek more opportunities for team collaboration to leverage collective strengths.                         |
 | Evan | Attended all meetings and communicated changes with the team effectively. Could work on keeping the task board up to date with issues. Helped teammates where they needed it and consistently worked on his portion of the project. |
 
 ## Devender's Performance review
@@ -50,4 +50,3 @@
 | Ali | Cameron could be more attentive during meeting, and overall decision making process of the repository. |
 | Devender | Displays a strong work ethic and knowledge; would benefit from a more consistent dedication to timelines and task completion. |
 | Evan | Cameron Attended all meetings, and communicated with all members of the team. Could work on being on time for meetings. Kept the task board up to date with closing issues and contributed greatly through his part of the project.|
-

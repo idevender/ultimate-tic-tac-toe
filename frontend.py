@@ -100,13 +100,19 @@ class FrontEndOps:
         return self.AppRenderEngine.render_updated_board(converted_board, turn, current_user, opponent, game_id)
 
 
-    def process_online_players(self, online_players, current_player):
+    def process_online_players(self, online_players, current_player, leaderboard_list):
         """
         Gets the list of online players from the server.
         
         Args:
             online_players (list): A list of online players.
             current_player (str): The current player.
+            leaderboard_list (list): A list of leaderboard entries.
+
+        Throws:
+            TypeError: If the online players list is not a list.
+            TypeError: If the online players list contains non-string elements.
+            TypeError: If the leaderboard list is not a list.
 
         Returns:
             self.AppRenderEngine.render_online_players (str): The template for the online player list page.
@@ -116,8 +122,18 @@ class FrontEndOps:
             raise TypeError("The online players list is not a list.")
         if not all(isinstance(player, str) for player in online_players):
             raise TypeError("The online players list contains non-string elements.")
+        if not isinstance(leaderboard_list, list):
+            raise TypeError("The leaderboard list is not a list.")
 
-        return self.AppRenderEngine.render_online_players(online_players, current_player)
+
+        current_player_rank = 0 # Variable to store the rank of the current player
+
+        # Looping through the leaderboard list to get the rank of the current player
+        for i in range(len(leaderboard_list)):
+            if leaderboard_list[i][0] == current_player:
+                current_player_rank = leaderboard_list[i][1]
+
+        return self.AppRenderEngine.render_online_players(online_players, current_player, leaderboard_list, current_player_rank)
 
 
 # Class that handles the rendering of all the html templates for the super tic tac toe app
@@ -217,9 +233,9 @@ class RenderEngine:
         return template('gamepage.html', board_config=board_config, turn=turn, current_user = current_user, opponent=opponent, game_id=game_id)
 
 
-    def render_online_players(self, online_players, current_player):
+    def render_online_players(self, online_players, current_player, leaderboard_list,current_player_rank):
         """
         Renders the online players page of the game app.    
         """
 
-        return template('onlineplayers.html', online_players=online_players, current_player=current_player)
+        return template('onlineplayers.html', online_players=online_players, current_player=current_player, leaderboard_list=leaderboard_list, current_player_rank=current_player_rank)
