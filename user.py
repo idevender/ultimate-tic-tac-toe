@@ -197,7 +197,7 @@ class UserManager:
         users_stats = []
 
         # Load all user data and collect wins
-        with store.shelve.open(self.db_name) as db:
+        with store.shelve.open(self.user_db.db_name) as db:
             for username, user_details in db.items():
                 users_stats.append((username, user_details.get('wins', 0)))
 

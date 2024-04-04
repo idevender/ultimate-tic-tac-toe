@@ -76,7 +76,7 @@ def login_user():
         
          
         UserMan.get_user_history(username)
-        return frontend.FrontEndOps().process_online_players(UserMan.get_all_online_users(),username,UserMan.get_leaderboard()) 
+        return frontend.FrontEndOps().process_online_players(UserMan.get_all_online_users(),username,UserMan.get_leaderboard(),1,2) 
     else:
         response.status = 404
         return "User not found"
