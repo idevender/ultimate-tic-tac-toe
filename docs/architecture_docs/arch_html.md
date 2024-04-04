@@ -1,13 +1,13 @@
 # HTML (Frontend) Architecture Documentation
 **Created by:** Mohd Ali Bin Naser
 
-This file contains a brief description about the architecture of the HTML frontend that'll be used in the web app.
+This file contains a brief description about the architecture of the HTML and frontend module that'll be used in the web app.
 
 ### Library/Module Imports:
 ---
 
 - `template from bottle`: To generate dynamic HTML content with the combination of static HTML templates with dynamic data.
-- `request from bottle`: To generate dynamic HTML content with the combination of static HTML templates with dynamic data.
+- `request from bottle`: To get the data submitted on the frontend by the user.
 - `os`: To locate the paths of the HTML templates.
 
 <br>
@@ -21,10 +21,9 @@ This file contains a brief description about the architecture of the HTML fronte
   - `self.AppRenderEngine`: Instance of the RenderEngine() class used for processing data to and from the frontend dynamically.
 - **Methods:**
   - `__init__(self)`:
-  - `process_board_config(self, game_board)`:
   - `get_cell_coords(self, cell_id)`:
-  - `update_board(self, game_board)`:
-  -  `process_online_players(self, online_players)`
+  - `update_board(self, game_board, turn, current_user, opponent, game_id)`:
+  -  `process_online_players(self, online_players, current_player, leaderboard_list, current_wins, current_losses)`
 
 #### `RenderEngine()`
 - **Description:**
@@ -32,16 +31,14 @@ This file contains a brief description about the architecture of the HTML fronte
 - **Attributes:**
   - `self.signup_page`: The HTML template for the user signup/registration page.
   - `self.login_page`: The HTML template for the user login page.
-  - `self.main_game_page`: The HTML template for the game/home page.
-  - `self.online_players_page`: The HTML template for the online players list page.
+  - `self.reset_password_page`: The HTML template for the reset password page.
 - **Methods:**
   - `__init__(self)`:
   - `render_signup_page(self)`:
   - `render_login_page(self)`:
-  - `render_main_game_page(self, board_config)`:
-  - `render_updated_board(self, board_config)`:
-  - `render_online_players(self, online_players)`:
-
+  - `render_reset_password_page(self)`:
+  - `render_updated_board(self, board_config, turn, current_user, opponent, game_id)`:
+  - `render_online_players(self, online_players, current_player, leaderboard_list,current_player_rank, curr_wins, curr_losses)`:
 
 <br>
 

@@ -142,7 +142,6 @@ class RenderEngine:
         self.signup_page = template('signup.html')
         self.login_page = template('login.html')
         self.reset_password = template('resetpassword.html')
-        # self.main_game_page = template('gamepage.html')
 
     def render_signup_page(self):
         """
@@ -193,20 +192,6 @@ class RenderEngine:
             raise OSError("The reset password template file cannot be found.")
 
         return self.reset_password
-
-
-    def render_main_game_page(self, board_config):
-        """
-        Renders the main game page of the game app.
-
-        Returns:
-            main_game_page (str): The template for the main game page.
-        
-        OSError:
-            If the template file cannot be found.
-        """
-        
-        return self.main_game_page
 
 
     def render_updated_board(self, board_config, turn, current_user, opponent, game_id):
