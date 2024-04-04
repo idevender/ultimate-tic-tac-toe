@@ -17,24 +17,6 @@ class FrontEndOps:
         """
 
         self.AppRenderEngine = RenderEngine()
-
-    
-    def process_board_config(self, game_board):
-        """
-        Processes the game board configuration recieved from the backend.
-
-        Args:
-        game_board (2d list): A 9x9 list representing the game board.
-        """
-
-        # Make sure the game_board is well recieved
-        if not game_board:
-            return "Game Board Not Found"
-        if not isinstance(game_board, list):
-            raise TypeError("The game board is not a list.")
-
-
-        return self.AppRenderEngine.render_updated_board(game_board)
     
 
     def get_cell_coords(self):
