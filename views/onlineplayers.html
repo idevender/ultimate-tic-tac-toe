@@ -30,7 +30,7 @@
         
                 <h2 class="h1-label">Losses</h2>
 
-                <h2 class="h1-output">3</h2>
+                <h2 class="h1-output">{{curr_losses}}</h2>
         
                 <h2 class="h1-label">Rank</h2>
 
@@ -38,6 +38,11 @@
 
             </div>
           
+            <div class="reset-container">
+                <form method="post" action="/resetpassword">
+                    <button class="reset-button" type="submit" name="reset" value="reset">Reset Password</button>
+                </form>
+            </div>
 
         </div>
 
