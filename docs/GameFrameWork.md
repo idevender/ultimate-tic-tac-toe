@@ -59,29 +59,29 @@ Furthermore, this section will include architectural diagrams and explanations o
 - **Decoupling Considerations:** [Explanation of how the framework addresses decoupling issues]
 - **Clear Usage Instructions:** [Instructions on how to use the framework effectively]
 
-## Frontend 
+# Frontend
 
-- **Description:** [Brief description of the module and its purpose]
-- **Refactoring Needed:** [Explanation of refactoring requirements]
-- **Interface Changes:** [Details of interface changes required]
-- **Architectural Diagrams:** [Illustrations of architectural changes, if needed]
+**Description:** This module handles front end operations for a 2-player game, including rendering game boards, managing player interactions, and displaying online player lists.
 
-### Redesign Comparison
+**Refactoring Needed:** Refactor the module to make it more generic, abstracting game-specific details to make it suitable for any 2-player game, not just tic-tac-toe.
 
-#### Existing Architecture
+**Interface Changes:** Update method names and parameters to reflect a more generic interface that can be used for various 2-player games.
 
-- **Overview:** [Description of the current architecture]
-- **Module Diagrams:** [Module diagrams illustrating the existing architecture]
+**Architectural Diagrams:** https://github.com/CS2005W24/term-project-teamg/blob/master/docs/diagrams/html_arch_uml_diagram.png
 
-#### Proposed Redesign
+### Existing Architecture
 
-- **Overview:** [Description of the proposed redesign]
-- **Module Diagrams:** [Module diagrams illustrating the proposed redesign]
+**Overview:** The current architecture of the frontend module is tightly coupled with the specific requirements of a tic-tac-toe game, handling tasks such as rendering the game board and processing player moves.
 
-#### Framework Usage
+### Proposed Redesign
 
-- **Decoupling Considerations:** [Explanation of how the framework addresses decoupling issues]
-- **Clear Usage Instructions:** [Instructions on how to use the framework effectively]
+**Overview:** The proposed redesign aims to decouple the module from game-specific details, providing a more generic interface for rendering game boards, managing player interactions, and displaying online players. This includes abstracting game-specific logic into separate components to facilitate integration with different 2-player games.
+
+### Framework Usage
+
+**Decoupling Considerations:** Refactor the module to abstract game-specific logic into separate components, allowing for easier integration with different 2-player games.
+
+**Clear Usage Instructions:** Provide clear documentation and usage examples for developers to easily integrate this frontend module into their 2-player games. Detailed instructions and examples can be provided in the framework documentation.
 
 ## Application Logic
 

@@ -63,4 +63,4 @@ Each class has 2 units tests for each method in `FrontEndOps()` and `RenderEngin
 ### HTML Architecture UML Diagram:
 ---
 
-![User UML Diagram](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/diagrams/html_arch_uml_diagram.png)
+![HTML UML Diagram](https://github.com/CS2005W24/term-project-teamg/blob/master/docs/diagrams/html_arch_uml_diagram.png)
