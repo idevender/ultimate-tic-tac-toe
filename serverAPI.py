@@ -76,7 +76,7 @@ def login_user():
         
          
         UserMan.get_user_history(username)
-        return frontend.FrontEndOps().process_online_players(UserMan.get_all_online_users(),username) 
+        return frontend.FrontEndOps().process_online_players(UserMan.get_all_online_users(),username,UserMan.get_leaderboard()) 
     else:
         response.status = 404
         return "User not found"
@@ -119,7 +119,9 @@ def register_user():
     form_data = dict(request.forms)
     if UserMan.register_user(request.forms.get('username'), request.forms.get('password')):
         response.status = 200
-        frontend.FrontEndOps.process_online_players(UserMan.get_all_online_users(),form_data['username']) 
+        active_games = UserMan.get_active_games(form_data['username']) # gets active games for current user, pending frontend implementation
+        
+        frontend.FrontEndOps.process_online_players(UserMan.get_all_online_users(),form_data['username'],UserMan.get_leaderboard()) 
     else:
         response.status = 400
         return "User already exists"
@@ -149,11 +151,11 @@ def check_game_state():
     user_id1 = data['current_user']
     user_id2 = data['opponent']
     x,y = frontend.FrontEndOps().get_cell_coords()
+    valid,board,playerturn = applogic.SuperTicTacToe().make_move(game_id,x,y)
     
-    if applogic.SuperTicTacToe().make_move(game_id,x,y):
+    if valid:
         response.status = 200
-        board, playerturn = applogic.SuperTicTacToe().load_board(game_id)
-        print(board)
+       
         return frontend.FrontEndOps().update_board(board,playerturn,user_id1,user_id2,game_id)
     else :
         response.status = 400
@@ -168,9 +170,13 @@ def load_game_state(game_id):
     Returns:
         Array: Returns the game state in a matrix.
     """
-    if applogic.SuperTicTacToe().load_board(game_id):
+    data = dict(request.forms)
+    user_id1 = data['current_user']
+    user_id2 = data['opponent']
+    board, playerturn = applogic.SuperTicTacToe().load_board(game_id)
+    if isinstance(board, list):
         response.status = 200
-        return frontend.FrontEndOps().update_board(applogic.SuperTicTacToe().load_board(game_id))
+        return frontend.FrontEndOps().update_board(board,playerturn,user_id1,user_id2,game_id)
     else :
         response.status = 404
         return "Game Not Found"

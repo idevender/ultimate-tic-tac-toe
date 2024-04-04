@@ -154,18 +154,6 @@ class UserManager:
                 # User does not exist in the database
                 return False
 
-    # Old Functionality
-    # def get_all_users(self):
-    #     """Retrieves all users from the database and returns them as a list of usernames.
-    #
-    #     Returns:
-    #         list: A list of usernames representing all the users.
-    #     """
-    #     all_usernames = []
-    #     with store.shelve.open(self.user_db.db_name) as db:
-    #         all_usernames.extend(db.keys())
-    #     return all_usernames
-
     def get_all_online_users(self):
         """Retrieves all users from the database who are currently marked as online.
 
@@ -201,23 +189,41 @@ class UserManager:
         return unique_id
 
     def get_leaderboard(self):
-        """Retrieves the top 10 players sorted by their win counts.
+        """Retrieves the top 10 players sorted by their win counts from the user database.
 
         Returns:
             list: A list of tuples containing the username and win count of the top 10 players.
         """
-        win_counts = {}
+        users_stats = []
 
-        # Load all games and count wins for each player
-        with store.shelve.open('gameStates') as db:
-            for game_id, game_details in db.items():
-                winner = game_details.get('winner')
-                if winner:
-                    win_counts[winner] = win_counts.get(winner, 0) + 1
+        # Load all user data and collect wins
+        with store.shelve.open(self.db_name) as db:
+            for username, user_details in db.items():
+                users_stats.append((username, user_details.get('wins', 0)))
 
-        # Sort players by win counts in descending order
-        sorted_win_counts = sorted(
-            win_counts.items(), key=lambda x: x[1], reverse=True)
+        # Sort users by win counts in descending order
+        leaderboard = sorted(users_stats, key=lambda x: x[1], reverse=True)
 
         # Return the top 10 players
-        return sorted_win_counts[:10]
+        return leaderboard[:10]
+
+    def get_active_games(self, username):
+        """
+        Retrieves a list of active games for a specified user without modifying store.py.
+
+        Args:
+            username (str): The username to fetch active games for.
+
+        Returns:
+            list: A list of lists, each containing [game_id, opponent_username] for active games.
+        """
+        active_games = []
+        with store.shelve.open("data/gameStates.db") as db:
+            for game_id, game_info in db.items():
+                # Check if the game is active and if the user is a participant
+                if game_info['winner'] is None and (game_info['player1'] == username or game_info['player2'] == username):
+                    # Determine the opponent and append the game info to the list
+                    opponent = game_info['player2'] if game_info['player1'] == username else game_info['player1']
+                    active_games.append([game_id, opponent])
+
+        return active_games

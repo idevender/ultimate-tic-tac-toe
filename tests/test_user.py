@@ -4,6 +4,8 @@ from user import UserManager, User
 import unittest
 import sys
 import os
+from unittest.mock import patch
+import store
 
 # Get the absolute path of the directory containing the current script (test_quiz.py)
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -234,8 +236,8 @@ class TestUserManager(unittest.TestCase):
         # Set up users and simulate game wins
         for i in range(5):  # Less than 10 players
             username = f"Player{i}"
-            self.user_manager.register_user(username, "password")
-            self.user_manager.update_user_history(username, 'win')
+            wins = i  # Assign a varying number of wins to each player
+            self.user_manager.create_user(username, "password", wins=wins)
 
         leaderboard = self.user_manager.get_leaderboard()
         self.assertEqual(
@@ -246,9 +248,45 @@ class TestUserManager(unittest.TestCase):
 
     def test_get_leaderboard_no_players(self):
         """Test the leaderboard when no players have played any games."""
+        # Ensure no players are registered or have wins
+        # This might need adjustment based on how setup_db is implemented
+        self.user_manager.setup_db()
+
         leaderboard = self.user_manager.get_leaderboard()
-        self.assertEqual(
-            len(leaderboard), 0, "Leaderboard should be empty if no games have been played.")
+        self.assertEqual(len(leaderboard), 0,
+                         "Leaderboard should be empty if no players exist.")
+
+    @patch('store.shelve.open')
+    def test_get_active_games_with_games(self, mock_shelve_open):
+        """Test retrieving active games for a user with active games."""
+        username = "activeUser"
+        # Mock database response
+        mock_db = {
+            'game1': {'player1': username, 'player2': 'opponent1', 'winner': None},
+            'game2': {'player1': 'opponent2', 'player2': username, 'winner': None},
+        }
+        mock_shelve_open.return_value.__enter__.return_value = mock_db
+
+        # Perform the test
+        active_games = self.user_manager.get_active_games(username)
+        self.assertEqual(len(active_games), 2,
+                         "Should return 2 active games for the user")
+
+    @patch('store.shelve.open')
+    def test_get_active_games_no_games(self, mock_shelve_open):
+        """Test retrieving active games for a user with no active games."""
+        username = "lonelyUser"
+        # Mock database response to simulate no active games for the user
+        mock_db = {
+            'game1': {'player1': 'otherUser1', 'player2': 'otherUser2', 'winner': 'otherUser1'},
+            'game2': {'player1': 'otherUser3', 'player2': 'otherUser4', 'winner': None},
+        }
+        mock_shelve_open.return_value.__enter__.return_value = mock_db
+
+        # Perform the test
+        active_games = self.user_manager.get_active_games(username)
+        self.assertEqual(len(active_games), 0,
+                         "Should return no active games for the user")
 
 
 if __name__ == '__main__':

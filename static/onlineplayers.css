@@ -34,6 +34,7 @@ body {
     gap: 10px;
     border-radius: 20px;
     background-color: #000000;
+    height: 500px;
 
 }
 
@@ -136,4 +137,28 @@ tbody tr{
 
 .dark-title{
     color: #fff;
+}
+
+.reset-container{
+    width: 100%;
+    margin-top: 25px;
+}
+
+.reset-button{
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 200px;
+    background-color: #5500ff;
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.reset-button:hover{
+    background-color: #000000;
+    transition: background-color 0.3s;
+    cursor: pointer;
 }

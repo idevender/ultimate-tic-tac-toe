@@ -1,4 +1,5 @@
 # Server API Documentation
+
 Created by: Jager Cooper
 
 This document provides an overview of the server API implemented using the Bottle web framework in Python.
@@ -49,7 +50,7 @@ A Bottle app is created to handle the routes and server responses.
   - Method: GET (to retrieve login page), POST (to process login data)
   - Response: String - The login page or "User not found" (404) for unsuccessful login.
 
-- `/update_user/<username>`:
+- `/update_user`:
   - Description: Updates user information if the user exists or creates a new user.
   - Method: POST
   - Parameters: username (String) - Username of the user to update.
@@ -70,10 +71,9 @@ A Bottle app is created to handle the routes and server responses.
   - Parameters: user_id1, user_id2 (Strings) - IDs of the users involved in the game.
   - Response: String - The game's page.
 
-- `/check_game/<game_id>/<x>/<y>`:
+- `/check_game`:
   - Description: Checks the game state for a given ID and updates the frontend.
-  - Method: GET
-  - Parameters: game_id (String) - ID of the game, x, y (Integers) - Coordinates for the move.
+  - Method: POST
   - Response: String - Updated board state or "Invalid Move" (400) for invalid move.
 
 - `/save_game/<game_id>`:
