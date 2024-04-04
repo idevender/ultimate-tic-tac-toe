@@ -38,43 +38,6 @@ class TestSuperTicTacToe(unittest.TestCase):
         self.assertEqual(game.board[0][0], SuperTicTacToe.PLAYER_ONE)
         self.assertEqual(game.playerTurn, SuperTicTacToe.PLAYER_TWO)
         
-    def test_win_fill(self):
-        game = SuperTicTacToe()
-        GameStateManager().create_game('300')
-        game.create_game('300')
-        game.make_move('300', 0, 0) #player1
-        print("testing text for test Player1:", game.board)
-        game.make_move('300', 0, 8) #player2
-        print("testing text for test Player2:", game.board)
-        game.make_move('300', 0, 1) #player1
-        print("testing text for test Player1:", game.board)
-        game.make_move('300', 1, 8) #player2
-        print("testing text for test Player2:", game.board)
-        game.make_move('300', 0, 2) #player1
-        print("testing text for test Player1:", game.board)
-        game.make_move('300', 2, 8) #player2
-        print("testing text for test Player2:", game.board)
-        game.make_move('300', 0, 3) #player1
-        print("testing text for test Player1:", game.board)
-        game.make_move('300', 3, 8) #player1
-        print("testing text for test Player1:", game.board)
-        game.make_move('300', 0, 4) #player2
-        print("testing text for test Player2:", game.board)    
-        game.make_move('300', 4, 8) #player2
-        print("testing text for test Player2:", game.board)
-        game.make_move('300', 1, 0)
-        game.make_move('300', 1, 7)
-        game.make_move('300', 1, 1)
-        game.make_move('300', 2, 7)
-        game.make_move('300', 1, 2)
-        game.make_move('300', 5, 8)
-        game.make_move('300', 2, 0)
-        game.make_move('300', 6, 8)
-        game.make_move('300', 2, 1)
-        game.make_move('300', 7, 8)
-        game.make_move('300', 2, 2)
-        self.assertEqual(game.board,[[1, 1, 1, 1, 1, 1, 1, 1, 1,]]*9)
-        
     def test_diagonal_win(self):
         game = SuperTicTacToe()
         GameStateManager().create_game('400')

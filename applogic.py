@@ -53,7 +53,7 @@ class SuperTicTacToe:
                 self.playerTurn = SuperTicTacToe.PLAYER_TWO
             else:
                 self.playerTurn = SuperTicTacToe.PLAYER_ONE
-                self.save_board()
+            self.save_board()
             self.game_over()
             return True, self.board, self.playerTurn
     
