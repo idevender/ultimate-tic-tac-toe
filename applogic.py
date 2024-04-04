@@ -171,6 +171,7 @@ class SuperTicTacToe:
         self.board = game.get('board')
         self.playerTurn = game.get('turn')
         self.winner = None
+        return self.board, self.playerTurn
        
     def save_board(self):
         """

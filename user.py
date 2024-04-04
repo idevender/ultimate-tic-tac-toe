@@ -183,7 +183,7 @@ class UserManager:
 
         # Initialize a new game with the generated ID, user1, and user2
         game_state_manager = store.GameStateManager(db_name='gameStates')
-        game_state_manager.save_game(
+        game_state_manager.create_game(
             game_id=unique_id, player1=user_id1, player2=user_id2, turn=user_id1)
 
         return unique_id

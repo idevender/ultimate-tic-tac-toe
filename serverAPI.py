@@ -28,6 +28,14 @@ def get_homepage():
     
     return redirect('/login')
 
+@app.route('/resetpassword', method='GET')
+def reset_password():
+    """ This function returns the reset password page.
+
+    Returns:
+        String: The reset password page.
+    """
+    return frontend.RenderEngine().render_reset_password()
 
 @app.route('/game/<game_id>')
 def get_game_page(game_id):
@@ -89,8 +97,9 @@ def update_user_info():
     Returns:
         Int: 404 if the user is not found, 200 if the user is found.
     """
-    if UserMan.update_user_password(request.forms.get('username'), request.forms.get('old_password'), request.forms.get('new_password')):
+    if UserMan.update_user_password(request.forms.get('username'),  request.forms.get('new_password')):
         response.status = 200
+        return frontend.FrontEndOps().process_online_players(UserMan.get_all_online_users(),request.forms.get('username'),UserMan.get_leaderboard(),1,2)
     else:
         response.status = 404
     
