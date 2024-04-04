@@ -44,7 +44,7 @@ Incorporate an interactive tutorial or rulebook directly within the game interfa
 - **Localization:** Consider the possibility of translating the tutorial into multiple languages to cater to a wider audience of new players.
 - **Accessibility:** Ensure that the tutorial is accessible to all users, including those with disabilities, by following accessibility guidelines for UI elements and content presentation.
 
-## Story 2: Improving User Connectivity through Profiles and Friend Lists
+## Story 2: FriendForge: Forging Bonds in the Ultimate Tic Tac Toe Univers
 
 ### Written by: Devender Singh
 
