@@ -16,27 +16,24 @@ Furthermore, this section will include architectural diagrams and explanations o
 
 ## ServerAPI
 
-- **Description:** [Brief description of the module and its purpose]
-- **Refactoring Needed:** [Explanation of refactoring requirements]
-- **Interface Changes:** [Details of interface changes required]
-- **Architectural Diagrams:** [Illustrations of architectural changes, if needed]
+- **Description:** This module is constructed useing RESTful API's, enforicing decoupling and stateless methods of handling routing requests for updating the game page, moving data, executing updates, and directing calls to game logic.
+- **Refactoring Needed:** The ServerAPI needs minimal refactoring, it only needs to implement a way to add more routes/pages and how to set those up, the primary routes of logging in, registering, showing the dashboard, and starting games can work for any implementation. The only refactoring needed in this module would be the check_game_state route which handles move making and updating the front-end, this would need to be adjusted to handle whatever additonal or different data that needs to be passed to the app logic module, given that the game is on a 2d board no refactoring needed, if the game being constructed is more complex then additonal parameters need to be added.
+- **Interface Changes:** The interface of the ServerAPI module should be updated to include clear methods for handling game state updates, user authentication, game creation, and move validation.
 
 ### Redesign Comparison
 
 #### Existing Architecture
 
-- **Overview:** [Description of the current architecture]
-- **Module Diagrams:** [Module diagrams illustrating the existing architecture]
+- **Overview:** The current architecture of the ServerAPI module is designed to handle basic routing functionalities effectively. It includes routes for logging in, registering, displaying the dashboard, and starting games, which can be easily extended to accommodate additional routes/pages as needed. The primary focus of this module is to facilitate communication between the frontend, user manager and the game logic, particularly through the check_game_state route, which manages move making and frontend updates. However, this route may require adjustments to handle diverse data requirements for different game implementations.
 
 #### Proposed Redesign
 
-- **Overview:** [Description of the proposed redesign]
-- **Module Diagrams:** [Module diagrams illustrating the proposed redesign]
+- **Overview:** The proposed redesign of the ServerAPI module aims to maintain its flexibility while enhancing its scalability and adaptability. The primary focus remains on accommodating additional routes/pages seamlessly. Specifically, the check_game_state route will undergo refinements to handle a variety of data structures and parameters required by different game implementations. This includes potential adjustments for complex game structures beyond the basic 2D board scenario.
 
 #### Framework Usage
 
-- **Decoupling Considerations:** [Explanation of how the framework addresses decoupling issues]
-- **Clear Usage Instructions:** [Instructions on how to use the framework effectively]
+- **Decoupling Considerations:** The framework addresses decoupling by defining clear interfaces between modules, allowing for independent development and testing of each component.
+- **Clear Usage Instructions:** To use the framework effectively, developers should follow the guidelines for implementing routes, handling game state updates, managing user authentication, and integrating with the game logic module. Detailed instructions and examples can be provided in the framework documentation.
 
 ## User
 
