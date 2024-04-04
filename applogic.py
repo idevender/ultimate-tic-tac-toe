@@ -65,11 +65,13 @@ class SuperTicTacToe:
             if self.check_game_win():
                 self.fillGame(self.playerTurn)
                 self.winner = self.playerTurn
+                self.game_over()
         elif self.check_board_draw():
             self.fill(SuperTicTacToe.DRAW)
             if self.check_game_draw():
                 self.fillGame(SuperTicTacToe.DRAW)
                 self.winner = SuperTicTacToe.DRAW
+                self.game_over()
             
     def fill(self, state):
         """
@@ -166,15 +168,10 @@ class SuperTicTacToe:
             list: The loaded game board.
         """
         self.gameid = gameid
-        try:
-            game = db.load_game(gameid)
-            self.board = game.get('board')
-            self.playerTurn = game.get('turn')
-            self.winner = game.get('winner')
-            if(self.winner != None):
-                self.game_over()
-        except:
-            self.create_game(gameid)
+        game = db.load_game(gameid)
+        self.board = game.get('board')
+        self.playerTurn = game.get('turn')
+        self.winner = game.get('winner')
        
     def save_board(self):
         """
