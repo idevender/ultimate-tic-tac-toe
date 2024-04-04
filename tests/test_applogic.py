@@ -15,11 +15,13 @@ sys.path.append(root_dir)
 import unittest
 from applogic import SuperTicTacToe
 import unittest
+from store import GameStateManager
 
 class TestSuperTicTacToe(unittest.TestCase):
     
     def test_create_game(self):
         game = SuperTicTacToe()
+        GameStateManager().create_game('100')
         game.create_game('100')
         self.assertEqual(game.board, [[0 for _ in range(9)] for _ in range(9)])
         self.assertEqual(game.playerTurn, SuperTicTacToe.PLAYER_ONE)
@@ -27,6 +29,7 @@ class TestSuperTicTacToe(unittest.TestCase):
     
     def test_make_move(self):
         game = SuperTicTacToe()
+        GameStateManager().create_game('200')
         game.create_game('200')
         game.make_move('200', 0, 0)
         self.assertEqual(game.board[0][0], SuperTicTacToe.PLAYER_ONE)
@@ -37,6 +40,7 @@ class TestSuperTicTacToe(unittest.TestCase):
         
     def test_win_fill(self):
         game = SuperTicTacToe()
+        GameStateManager().create_game('300')
         game.create_game('300')
         game.make_move('300', 0, 0) #player1
         print("testing text for test Player1:", game.board)
@@ -73,6 +77,7 @@ class TestSuperTicTacToe(unittest.TestCase):
         
     def test_diagonal_win(self):
         game = SuperTicTacToe()
+        GameStateManager().create_game('400')
         game.create_game('400')
         game.make_move('400', 0, 0)
         game.make_move('400', 0, 7)
@@ -83,6 +88,7 @@ class TestSuperTicTacToe(unittest.TestCase):
         
     def test_draw_fill(self):
         game = SuperTicTacToe()
+        GameStateManager().create_game('500')
         game.create_game('500')
         game.make_move('500', 0, 0)
         print(game.board[0])
@@ -107,6 +113,7 @@ class TestSuperTicTacToe(unittest.TestCase):
     def test_draw_game(self):
         
         game = SuperTicTacToe()
+        GameStateManager().create_game('500')
         game.create_game('500')
         for i in range(7):
             game.make_move('500', i, 0)
