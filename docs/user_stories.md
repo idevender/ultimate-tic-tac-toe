@@ -136,54 +136,46 @@ Additional tasks as needed: Continuously gather player feedback and iterate on g
 
 This project is not just about reimagining a classic game; it's about crafting a digital space where people can come together, share joyful moments, and forge lasting friendships. In this journey, we embrace innovation, community, and the simple pleasure of playing games with friends, whether old or new.
 
-## Story 4: [Title of User Story]
+## Story 4: Implementing Real-Time Multiplayer Functionality
 
-### Written by: [Your Name]
+### Written by: Mohd Ali Bin Naser
 
-**As a** [type of user or persona],  
-**I want** [a goal or desired functionality],  
-**So that** [reason or benefit].
+**As a** fan of Ultimate Tic Tac Toe seeking interactive gameplay experiences,  
+**I want** the ability to play real-time multiplayer matches with other players online,  
+**So that** I can enjoy dynamic and engaging gameplay interactions.
 
 ### Description
 
-[Provide a brief description of the user story, including any context or background information that helps understand the user's needs.
-
-[User's name or role] is a [description of the user's background or role] who [describe the user's action or interaction with the product].
-
-When [describe the trigger or event that initiates the user's action], the system responds with [describe the system's response, such as feedback, output, or outcome].
-
-This results in [describe the issue, problem, or impact faced by the user as a result of the system's response].
-
-As a result, [user's name or role] is uncertain about [specific uncertainty or question related to the issue].
-
-The desired outcome is [describe the user's expectation, goal, or desired resolution].
-
-]
+Simon is an enthusiast of Ultimate Tic Tac Toe, but he often finds himself playing against his friends on paper due to the lack of real-time multiplayer functionality in the current web-based game. He craves the excitement and challenge of competing against other human players in live matches, where each move and strategy unfolds in real-time. Simon imagines the thrill of engaging in strategic battles with opponents from around the world, testing his skills and adapting his strategies on the fly to outsmart his adversaries.
 
 #### Feature Suggestion
 
-Incorporate an [interactive element or feature] directly within the [system or platform] to assist [users or specific user group] in [specific action or objective]. The [element or feature] should provide [description of functionality or benefits] to ensure [desired outcome or improvement].
+Introduce a real-time multiplayer feature that allows players to engage in live matches against each other online. This feature should enable players like Simon to create or join multiplayer game rooms, where they can compete against opponents in Ultimate Tic Tac Toe matches in real-time. By offering real-time multiplayer functionality, this feature aims to enhance player engagement, promote social interaction, and provide a more immersive gaming experience.
 
 #### Design Suggestions
 
-- Include [additional feature or functionality] during [specific user interaction or scenario] to enhance [user experience or outcome].
-- Implement a [new system component or tool] where users can [specific action or benefit] without [potential issue or limitation].
+- Develop a responsive and intuitive user interface for creating, joining, and managing multiplayer game rooms, ensuring ease of use and accessibility for players.
+- Implement real-time communication protocols and mechanisms to synchronize game state updates between players during multiplayer matches, enabling seamless gameplay interactions.
 
 ### Acceptance Criteria
 
-1. [Specific condition or action that must be met for the user story to be considered complete]
-2. [Another condition or action]
-3. [Additional conditions as needed]
+1. Players must be able to create or join multiplayer game rooms and engage in real-time matches against other human opponents.
+2. Multiplayer matches should synchronize game state updates between players in real-time, ensuring that each move and action is reflected accurately across all participants.
+3. The multiplayer feature should support multiple concurrent game sessions and handle player connections and disconnections gracefully, minimizing disruptions and ensuring a smooth gaming experience.
+4. Players should have the option to invite friends to join multiplayer game rooms and compete against them in live matches, fostering social interaction and friendly competition.
 
 ### Tasks
 
-- [Task 1: Description of task]
-- [Task 2: Description of task]
-- [Additional tasks as needed]
+- **Backend Development:** Implement server-side functionality for managing multiplayer game rooms, handling player connections, and synchronizing game state updates in real-time.
+- **Frontend Integration:** Integrate the multiplayer feature into the web-based game client application, enabling players to create, join, and participate in multiplayer matches seamlessly.
+- **Real-Time Communication:** Develop communication protocols and mechanisms for exchanging game state updates between players during multiplayer matches, ensuring synchronization and consistency across all participants.
+- **Testing:** Conduct thorough testing of the multiplayer feature to verify its reliability, scalability, and performance under various network conditions and player scenarios.
 
 ### Additional Information
 
-[Include any additional information, such as dependencies, constraints, or references to related user stories or requirements.]
+- **Dependency:** Ensure compatibility with the Python backend and Bottle framework used for the web-based Ultimate Tic Tac Toe game, integrating the multiplayer feature seamlessly with existing game mechanics and infrastructure.
+- **Feedback Loop:** Gather feedback from players on the multiplayer feature's functionality, performance, and overall gaming experience, and iterate based on user suggestions and preferences.
+- **Community Engagement:** Promote the multiplayer feature through in-game announcements, social media channels, and community forums, encouraging player adoption and participation in live matches.
 
 ## Story 5: [Title of User Story]
 
