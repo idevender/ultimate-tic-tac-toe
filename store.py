@@ -173,9 +173,9 @@ class UserManager:
             if user is None:
                 raise IOError(f"The user '{username}' does not exist.")
             
-            user['wins'] = wins
-            user['losses'] = losses
-            user['draws'] = draws
+            user['wins'] += wins
+            user['losses'] += losses
+            user['draws'] += draws
 
             db[username] = user
 
