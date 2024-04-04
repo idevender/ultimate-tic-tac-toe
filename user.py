@@ -154,18 +154,6 @@ class UserManager:
                 # User does not exist in the database
                 return False
 
-    # Old Functionality
-    # def get_all_users(self):
-    #     """Retrieves all users from the database and returns them as a list of usernames.
-    #
-    #     Returns:
-    #         list: A list of usernames representing all the users.
-    #     """
-    #     all_usernames = []
-    #     with store.shelve.open(self.user_db.db_name) as db:
-    #         all_usernames.extend(db.keys())
-    #     return all_usernames
-
     def get_all_online_users(self):
         """Retrieves all users from the database who are currently marked as online.
 
@@ -199,6 +187,25 @@ class UserManager:
             game_id=unique_id, player1=user_id1, player2=user_id2, turn=user_id1)
 
         return unique_id
+
+    def get_leaderboard(self):
+        """Retrieves the top 10 players sorted by their win counts from the user database.
+
+        Returns:
+            list: A list of tuples containing the username and win count of the top 10 players.
+        """
+        users_stats = []
+
+        # Load all user data and collect wins
+        with store.shelve.open(self.db_name) as db:
+            for username, user_details in db.items():
+                users_stats.append((username, user_details.get('wins', 0)))
+
+        # Sort users by win counts in descending order
+        leaderboard = sorted(users_stats, key=lambda x: x[1], reverse=True)
+
+        # Return the top 10 players
+        return leaderboard[:10]
 
     def get_active_games(self, username):
         """

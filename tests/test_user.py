@@ -5,6 +5,7 @@ import unittest
 import sys
 import os
 from unittest.mock import patch
+import store
 
 # Get the absolute path of the directory containing the current script (test_quiz.py)
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -213,6 +214,47 @@ class TestUserManager(unittest.TestCase):
         except Exception as e:
             # Expect exception since users do not exist and pass the test if an exception is caught.
             pass
+
+    def test_get_leaderboard_with_enough_players(self):
+        """Test the leaderboard with more than 10 players having different win counts."""
+        # Set up users and simulate game wins
+        for i in range(15):
+            username = f"Player{i}"
+            self.user_manager.register_user(username, "password")
+            for j in range(i):  # Simulate 'i' wins for 'Player i'
+                self.user_manager.update_user_history(username, 'win')
+
+        leaderboard = self.user_manager.get_leaderboard()
+        self.assertEqual(len(leaderboard), 10,
+                         "Leaderboard should have exactly 10 players.")
+        # Ensure the leaderboard is sorted by win count in descending order
+        self.assertTrue(all(leaderboard[i][1] >= leaderboard[i + 1][1] for i in range(len(leaderboard) - 1)),
+                        "Leaderboard should be sorted by win counts in descending order.")
+
+    def test_get_leaderboard_with_insufficient_players(self):
+        """Test the leaderboard when there are fewer than 10 players."""
+        # Set up users and simulate game wins
+        for i in range(5):  # Less than 10 players
+            username = f"Player{i}"
+            wins = i  # Assign a varying number of wins to each player
+            self.user_manager.create_user(username, "password", wins=wins)
+
+        leaderboard = self.user_manager.get_leaderboard()
+        self.assertEqual(
+            len(leaderboard), 5, "Leaderboard should contain all players if fewer than 10.")
+        # Ensure the leaderboard is sorted by win count in descending order
+        self.assertTrue(all(leaderboard[i][1] >= leaderboard[i + 1][1] for i in range(len(leaderboard) - 1)),
+                        "Leaderboard should be sorted by win counts in descending order.")
+
+    def test_get_leaderboard_no_players(self):
+        """Test the leaderboard when no players have played any games."""
+        # Ensure no players are registered or have wins
+        # This might need adjustment based on how setup_db is implemented
+        self.user_manager.setup_db()
+
+        leaderboard = self.user_manager.get_leaderboard()
+        self.assertEqual(len(leaderboard), 0,
+                         "Leaderboard should be empty if no players exist.")
 
     @patch('store.shelve.open')
     def test_get_active_games_with_games(self, mock_shelve_open):
