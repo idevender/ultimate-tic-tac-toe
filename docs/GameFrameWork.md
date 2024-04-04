@@ -85,22 +85,22 @@ Furthermore, this section will include architectural diagrams and explanations o
 
 ## Application Logic
 
-- **Description:** [Brief description of the module and its purpose]
-- **Refactoring Needed:** [Explanation of refactoring requirements]
-- **Interface Changes:** [Details of interface changes required]
-- **Architectural Diagrams:** [Illustrations of architectural changes, if needed]
+- **Description:** Use store and API to manage tic-tac-toe games. Manages tic-tac-toe logic.
+- **Refactoring Needed:** Decoupling to reduce dependencies such as the board being displayed using specific coordinates in the frontend. 
+                            Create a more abstract algorithm where the object is able to manage itself.
+- **Interface Changes:** Allow the gameboard display to be set in applogic rather than coordinates in frontend.
+- **Architectural Diagrams:** An object oriented approach rather with self-reliance rather than relying on the database and server.
 
 ### Redesign Comparison
 
 #### Existing Architecture
 
-- **Overview:** [Description of the current architecture]
-- **Module Diagrams:** [Module diagrams illustrating the existing architecture]
+- **Overview:** Refer to arch_applogic.md
+- **Module Diagrams:** Refer to app_logic_uml.png
 
 #### Proposed Redesign
 
-- **Overview:** [Description of the proposed redesign]
-- **Module Diagrams:** [Module diagrams illustrating the proposed redesign]
+- **Overview:** Create a tic-tac-toe game object that is self sufficient and can interact with the frontend's display itself within the game logic.
 
 #### Framework Usage
 
