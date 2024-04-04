@@ -1,5 +1,4 @@
 from store import GameStateManager
-db = GameStateManager()
 
 class SuperTicTacToe:
     """
@@ -25,6 +24,7 @@ class SuperTicTacToe:
         self.board = [[0 for _ in range(9)] for _ in range(9)]
         self.playerTurn = SuperTicTacToe.PLAYER_ONE
         self.gameid = gameid
+        self.winner = None
         self.save_board()
 
     def make_move(self, gameid, row, col):
@@ -41,7 +41,9 @@ class SuperTicTacToe:
         """
         self.load_board(gameid)
         self.subBoard = row
-
+        self.endGame = False
+        self.winner = None
+        
         if self.board[row][col] != 0:
             return False
         else:
@@ -51,8 +53,9 @@ class SuperTicTacToe:
                 self.playerTurn = SuperTicTacToe.PLAYER_TWO
             else:
                 self.playerTurn = SuperTicTacToe.PLAYER_ONE
-            self.save_board()
-            return True
+                self.save_board()
+            self.game_over()
+            return True, self.board, self.playerTurn
     
     def check_states(self):
         """
@@ -62,10 +65,12 @@ class SuperTicTacToe:
             self.fill(self.playerTurn)
             if self.check_game_win():
                 self.fillGame(self.playerTurn)
+                self.winner = self.playerTurn
         elif self.check_board_draw():
             self.fill(SuperTicTacToe.DRAW)
             if self.check_game_draw():
                 self.fillGame(SuperTicTacToe.DRAW)
+                self.winner = SuperTicTacToe.DRAW
             
     def fill(self, state):
         """
@@ -162,14 +167,24 @@ class SuperTicTacToe:
             list: The loaded game board.
         """
         self.gameid = gameid
-        self.board = db.load_game(gameid).get('board')
-        self.playerTurn = db.load_game(gameid).get('turn')
-        
-        return self.board, self.playerTurn
+        game = GameStateManager().load_game(gameid)
+        self.board = game.get('board')
+        self.playerTurn = game.get('turn')
+        self.winner = None
        
     def save_board(self):
         """
         Saves the game board and player turn to the game state manager.
         """
-        db.save_game(game_id=self.gameid, turn=self.playerTurn, board=self.board)
+        GameStateManager().save_game(game_id=self.gameid, turn=self.playerTurn, board=self.board, winner=self.winner)
+        
+    def game_over(self):
+        """
+        Checks if the game is over.
+
+        Returns:
+            bool: True if the game is over, False otherwise.
+        """
+        if self.winner != None:
+            GameStateManager().remove_game(self.gameid)
        
