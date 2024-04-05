@@ -177,51 +177,54 @@ Introduce a real-time multiplayer feature that allows players to engage in live 
 - **Feedback Loop:** Gather feedback from players on the multiplayer feature's functionality, performance, and overall gaming experience, and iterate based on user suggestions and preferences.
 - **Community Engagement:** Promote the multiplayer feature through in-game announcements, social media channels, and community forums, encouraging player adoption and participation in live matches.
 
-## Story 5: [Title of User Story]
+## Story 5: Community Challenges
 
-### Written by: [Your Name]
+### Written by: Evan Best
 
-**As a** [type of user or persona],  
-**I want** [a goal or desired functionality],  
-**So that** [reason or benefit].
+**As a** Avid gamer seeking the newest challenges and interactions,  
+**I want** the ability to create and participate in community-wide challenges within the game,  
+**So that** I can compete with others and showcase my own skills.
 
 ### Description
 
-[Provide a brief description of the user story, including any context or background information that helps understand the user's needs.
+Bob is an enthusiastic player of Tic Tac Toe and Ultimate Tic Tac Toe who is always looking for a way to push his skills to the limit and engage within the game's community.
 
-[User's name or role] is a [description of the user's background or role] who [describe the user's action or interaction with the product].
+When Bob is looking for this kind of challenging experience, the system responds with nothing of the sort, as there is no type of challenge or time trial modes for the game.
 
-When [describe the trigger or event that initiates the user's action], the system responds with [describe the system's response, such as feedback, output, or outcome].
+This results in Bob becoming upset and searching the web for a different game, where he can be sufficiently challenged.
 
-This results in [describe the issue, problem, or impact faced by the user as a result of the system's response].
+As a result, Bob is uncertain about Team G's Ultimate Tic Tac Toe.
 
-As a result, [user's name or role] is uncertain about [specific uncertainty or question related to the issue].
-
-The desired outcome is [describe the user's expectation, goal, or desired resolution].
-
-]
+The desired outcome is that the developers of Team G's Ultimate Tic Tac Toe would add a feature where there would be time trials or even bigger boards, with their own leaderboards so that he can feel accomplished when squandering his opponents.
 
 #### Feature Suggestion
 
-Incorporate an [interactive element or feature] directly within the [system or platform] to assist [users or specific user group] in [specific action or objective]. The [element or feature] should provide [description of functionality or benefits] to ensure [desired outcome or improvement].
+Incorporate a Game Mode selector when creating a new game, a timer to see who can win the fastest, and bigger boards within the game mode selector directly within the website to assist Bob in fulfilling his need for competitive gaming. The additions should provide Bob with enough satisfaction to ensure that he wants to keep playing Ultimate Tic Tac Toe.
 
 #### Design Suggestions
-
-- Include [additional feature or functionality] during [specific user interaction or scenario] to enhance [user experience or outcome].
-- Implement a [new system component or tool] where users can [specific action or benefit] without [potential issue or limitation].
+- Make additions to the user interface to support creating a game with a specific board type.
+- Implement a timer during the game where users can track how much time it's taking them to win without taking up too much space in the UI.
 
 ### Acceptance Criteria
 
-1. [Specific condition or action that must be met for the user story to be considered complete]
-2. [Another condition or action]
-3. [Additional conditions as needed]
+1. Players must be able to select from a list of boards so that they can increase the difficulty.
+2. Players must be able to clearly know the duration of the game.
+3. Players must be able to clearly see community challenges, in order to complete them (such as time trials, etc.)
 
 ### Tasks
 
-- [Task 1: Description of task]
-- [Task 2: Description of task]
-- [Additional tasks as needed]
+- **Update Frontend** - Implement a new UI that will support all of the aspects of the acceptance criteria, including a clear display of the "challenge" leaderboard so that players can see who they are competing against for the top spot. 
+- **Change Game Logic** - Adjust game logic to support multiple sizes of boards, depending on the selection of the player.
+- **Adjust Storage** - Change storage of game states to include the duration, as well as support for the different sizes of boards.
+- **Backend Framework** - Change from persistent storage to a cloud based storage so no user / game information is saved on the device.
 
 ### Additional Information
 
-[Include any additional information, such as dependencies, constraints, or references to related user stories or requirements.]
+- **Scalability:** Ensure that the infrastructure supporting community challenges can scale effectively to accommodate an increasing number of participants and challenges without compromising performance or user experience.
+- **Feedback Loop:** Establish mechanisms for collecting feedback from players on their experience with community challenges, including suggestions for new challenge types, improvements to existing features, and overall satisfaction with the feature.
+- **Community Moderation:** Implement moderation tools and guidelines to ensure that community challenges remain inclusive, respectful, and free from harassment or abusive behavior. Provide users with the ability to report inappropriate content or behavior and take appropriate action in response to such reports.
+- **Promotion and Awareness:** Develop a strategy for promoting and raising awareness of community challenges among players, including in-game announcements, social media campaigns, and collaborations with influencers or content creators. Encourage player participation and engagement through rewards, incentives, and special events tied to community challenges.
+- **Integration with Existing Features:** Integrate community challenges seamlessly with existing game features, such as leaderboards, achievements, and social interactions, to enhance the overall gaming experience and encourage continued engagement with the game.
+- **Accessibility:** Ensure that community challenges are accessible to all players, including those with disabilities, by following accessibility guidelines for UI design and functionality. Provide alternative modes of participation for players who may face barriers to traditional gameplay, such as text-based challenges or audio descriptions of visual content.
+- **Long-Term Sustainability:** Develop a plan for maintaining and updating community challenges over time, including regular content updates, seasonal events, and ongoing support for player-generated challenges. Monitor participation trends and community feedback to inform future development and ensure that community challenges remain a vibrant and engaging feature of the game.
+
