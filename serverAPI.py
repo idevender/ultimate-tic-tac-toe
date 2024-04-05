@@ -130,7 +130,7 @@ def register_user():
         response.status = 200
         active_games = UserMan.get_active_games(form_data['username']) # gets active games for current user, pending frontend implementation
         
-        frontend.FrontEndOps.process_online_players(UserMan.get_all_online_users(),form_data['username'],UserMan.get_leaderboard()) 
+        return frontend.FrontEndOps().process_online_players(UserMan.get_all_online_users(),form_data['username'],UserMan.get_leaderboard(),1,2) 
     else:
         response.status = 400
         return "User already exists"
