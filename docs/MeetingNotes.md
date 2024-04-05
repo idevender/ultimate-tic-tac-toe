@@ -447,3 +447,29 @@ The meeting was productive, with significant progress made on code reviews and s
 | Game Framework | Everyone take the time between now and our next meeting to reflect on what changes need to be made to their individual modules. |
 | Performance Review | Everyone complete the performance reviews for each other member between now and our next meeting |
 | Next meeting | Marathon meeting planned for thursday to finalize the requirements for the project submission on friday. |
+
+April 4th, 2024
+
+**Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
+
+**Note taker Rotation:** Jager Cooper -> Evan Best -> Mohd Ali Bin Naser -> Devender Singh -> Cameron Selci
+
+**Scrum Master:**  Devender Singh
+
+**Recorded by:** Evan Best
+
+**Venue:** Discord/Screen Sharing
+
+**Time:** 1:00pm to 5:00pm
+
+**Attendance:** Devender Singh, Mohd Ali Bin Naser, Jager Cooper, Cameron Selci, Evan Best
+
+| Agenda Item       | Brief Description |
+|-------------------|-------------------|
+| Discussion | Discussed the final steps in completing the project. Need to focus on finishing up the coding portion of the project, as well as the documents.   |
+| Code Review | Frontend; Ali made necessary changes to the frontend. His PR was reviewed and accepted by the team. |
+| Code Review | Server API; Jager updated his module, his changes were reviewed and accepted by the team.  |
+| Performance Review | Everyone complete the performance reviews today.|
+| Documents | Need to complete all required documents for the sprint. |
+| Kanban Board | Reviewed what issues are left on the Kanban Board, and adjusted accordingly.|
+| Deadline | Decided that no more code will be written, however team members are free to update their documentation as needed. |
