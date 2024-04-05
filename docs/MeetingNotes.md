@@ -448,7 +448,7 @@ The meeting was productive, with significant progress made on code reviews and s
 | Performance Review | Everyone complete the performance reviews for each other member between now and our next meeting |
 | Next meeting | Marathon meeting planned for thursday to finalize the requirements for the project submission on friday. |
 
-April 4th, 2024
+## April 4th, 2024
 
 **Scrum master rotation:** Mohd Ali Bin Naser -> Jager Cooper -> Cameron Selci -> Devender Singh -> Evan Best
 
