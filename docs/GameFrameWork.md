@@ -35,29 +35,44 @@ Furthermore, this section will include architectural diagrams and explanations o
 - **Decoupling Considerations:** The framework addresses decoupling by defining clear interfaces between modules, allowing for independent development and testing of each component.
 - **Clear Usage Instructions:** To use the framework effectively, developers should follow the guidelines for implementing routes, handling game state updates, managing user authentication, and integrating with the game logic module. Detailed instructions and examples can be provided in the framework documentation.
 
-## User
 
-- **Description:** [Brief description of the module and its purpose]
-- **Refactoring Needed:** [Explanation of refactoring requirements]
-- **Interface Changes:** [Details of interface changes required]
-- **Architectural Diagrams:** [Illustrations of architectural changes, if needed]
+## User Management System
+
+### Description
+The User Management System oversees the work for managing user data, including registration, login, authentication, and maintaining user sessions within the game development framework. It serves as a foundational component for user interaction with the game, ensuring secure and efficient management of user accounts and their related information.
+
+### Refactoring Needed
+The User module requires refactoring to incorporate modern security practices, improve modularity, and enhance scalability. Specific areas of focus include:
+- **Security Enhancements:** Implement advanced security features like password salting alongside hashing, and introduce methods for two-factor authentication (2FA) and email verification to bolster user account security.
+- **Database Interaction Abstraction:** Refactor to abstract database interactions, enabling flexibility in database choice and technology. This includes creating a database interface that can be implemented for different database systems (SQL, NoSQL).
+- **Modular Integration:** Enhance the module's architecture to allow for easier integration with various parts of a two-player game framework, ensuring that user management can adapt to different game mechanics and rules.
+
+### Interface Changes
+The changes will include:
+- **User Authentication Expansion:** Broaden the user authentication interface to include OAuth and token-based authentication, facilitating integration with third-party services for a wider range of applications.
+- **Database Interface Redesign:** Redesign the database interface to be generic, supporting a variety of backends and allowing for seamless migration or changes in database technology.
+- **Support for Multi-Game Use:** Adjust the interface to manage user sessions and data across different two-player games, making it versatile and reusable across projects.
+
+### Architectural Diagrams
+Architectural enhancements will be visualized through updated UML diagrams, including:
+- **Class Diagrams:** Updated diagrams to showcase the new structure of the User and UserManager classes, emphasizing modular design for easy adaptation to different games.
+- **Sequence Diagrams:** Flowcharts detailing the registration, login, and authentication processes, including interactions with external authentication services.
+- **Component Diagrams:** Demonstrations of how the User module integrates with external services like OAuth providers, and interfaces with the game logic and database layers.
 
 ### Redesign Comparison
-
 #### Existing Architecture
+- **Tightly Coupled Design:** Initially, the User module was closely tied to a specific database (shelve) and lacked flexibility in security and database technology, limiting its adaptability to different two-player game types.
 
-- **Overview:** [Description of the current architecture]
-- **Module Diagrams:** [Module diagrams illustrating the existing architecture]
+### Proposed Redesign
+- **Layered, Modular Architecture:** The redesign will introduce a modular structure with clear separation of concerns, integrating advanced security practices and database abstraction to facilitate adaptation across a variety of two-player games.
 
-#### Proposed Redesign
+### Framework Usage for Decoupling and Integration
 
-- **Overview:** [Description of the proposed redesign]
-- **Module Diagrams:** [Module diagrams illustrating the proposed redesign]
+### Decoupling Considerations
+- The redesigned module emphasizes decoupling from specific implementations, particularly in database and authentication technologies, via abstract interfaces. This ensures the User module can be integrated into any two-player game framework with minimal dependency issues.
 
-#### Framework Usage
-
-- **Decoupling Considerations:** [Explanation of how the framework addresses decoupling issues]
-- **Clear Usage Instructions:** [Instructions on how to use the framework effectively]
+### Clear Usage Instructions
+- Detailed documentation will outline the process for integrating the User module into different two-player game projects, configuring database connections, and implementing security mechanisms. This will include guidelines for extending the module to accommodate various game types and user management requirements.
 
 # Frontend
 
