@@ -75,12 +75,7 @@ Here's a visual representation of the game interface:
 
 Upon singing into the application, you will be presented with a user dashboard that includes the following elements:
 
-* **a:**
-* **b:**
-* **c:**
-* **d:**
-* **e:**
-* **f:**
+![alt text](image.png)
 
 Here's a visual representation of the dashboard interface:
 
