@@ -119,8 +119,8 @@ Architectural enhancements will be visualized through updated UML diagrams, incl
 
 #### Framework Usage
 
-- **Decoupling Considerations:** [Explanation of how the framework addresses decoupling issues]
-- **Clear Usage Instructions:** [Instructions on how to use the framework effectively]
+- **Decoupling Considerations:** Applogic already interacts with database as a framework. The frontend has to handle some logic for the display, it would be best to handle that logic within applogic.py.
+- **Clear Usage Instructions:** ServerAPI calls the SuperTicTacToe class and forwards the information to the frontend frontend.
 
 ## Database
 
