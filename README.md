@@ -77,9 +77,6 @@ Upon singing into the application, you will be presented with a user dashboard t
 
 ![alt text](image.png)
 
-Here's a visual representation of the dashboard interface:
-
-![Ultimate Tic Tac Toe Game Team G]()
 
 ## Documentation
 
