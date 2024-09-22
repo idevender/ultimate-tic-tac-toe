@@ -75,7 +75,7 @@ Here's a visual representation of the game interface:
 
 Upon singing into the application, you will be presented with a user dashboard that includes the following elements:
 
-![alt text](image.png)
+![alt text](backend/results.png)
 
 
 ## Documentation
